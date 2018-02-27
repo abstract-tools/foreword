@@ -1,0 +1,23 @@
+{
+  "name": "a-to-b",
+  "version": "0.0.1",
+  "description": "A transformation library",
+  "author": "Abstract Tools",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "istanbul cover tape test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abstract-tools/a-to-b.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abstract-tools/a-to-b/issues"
+  },
+  "homepage": "https://github.com/abstract-tools/a-to-b#readme",
+  "devDependencies": {
+    "istanbul": "0.4.5",
+    "tape": "4.9.0"
+  }
+}
