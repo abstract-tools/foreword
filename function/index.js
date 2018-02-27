@@ -3,6 +3,7 @@ const and = require('./and');
 const andThen = require('./andThen');
 const apply = require('./apply');
 const complement = require('./complement');
+const compose = require('./compose');
 const curry = require('./curry');
 const equals = require('./equals');
 const flip = require('./flip');
