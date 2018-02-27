@@ -1,8 +1,8 @@
 {
-  "name": "a-to-b",
+  "name": "@bchar/a-to-b",
   "version": "0.0.1",
   "description": "A transformation library",
-  "author": "Abstract Tools",
+  "author": "Brandon Chartier",
   "main": "index.js",
   "license": "MIT",
   "scripts": {

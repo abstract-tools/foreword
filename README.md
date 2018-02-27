@@ -3,7 +3,7 @@ A transformation library
 
 ## Function
 ```javascript
-const F = require('a-to-b/function')
+const F = require('@bchar/a-to-b/function')
 ```
 
 ### always :: a -> b -> a
@@ -131,7 +131,7 @@ Returns the first value, if the second does not exist.
 
 ## Array
 ```javascript
-const A = require('a-to-b/array')
+const A = require('@bchar/a-to-b/array')
 ```
 
 ### append :: Array a -> Array a -> Array a
@@ -237,7 +237,7 @@ Returns a sorted array, given a comparison function.
 
 ## Object
 ```javascript
-const O = require('a-to-b/object')
+const O = require('@bchar/a-to-b/object')
 ```
 
 ### get :: String -> Object k v -> Maybe v
@@ -287,7 +287,7 @@ Returns an array of every value in an object.
 
 ## String
 ```javascript
-const S = require('a-to-b/string')
+const S = require('@bchar/a-to-b/string')
 ```
 
 ### append :: String -> String -> String
@@ -390,7 +390,7 @@ Returns an array containing word groups in a string.
 
 ## Number
 ```javascript
-const N = require('a-to-b/number')
+const N = require('@bchar/a-to-b/number')
 ```
 
 ### add :: Number -> Number -> Number
