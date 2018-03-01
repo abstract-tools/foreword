@@ -148,6 +148,13 @@ Concatenate an array of arrays into a single array, removing one level of nestin
 [ 1, 2, 3, 4, 5 ]
 ```
 
+### drop :: Number -> Array a -> Array a
+Drops the first n elements in an array.
+```javascript
+> drop(2, [1, 2, 3, 4, 5])
+[ 3, 4, 5 ]
+```
+
 ### every :: (a -> Boolean) -> Array a -> Boolean
 Determines if every element satisfies the predicate.
 ```javascript
@@ -200,6 +207,20 @@ Applies a function over every element in an array.
 [ 1, 2, 3 ]
 ```
 
+### max :: Array a -> Maybe a
+Returns the highest value element in an array.
+```javascript
+> max([1,2,3])
+3
+```
+
+### min :: Array a -> Maybe a
+Returns the lowest value element in an array.
+```javascript
+> min([3, 2, 1])
+1
+```
+
 ### reduce :: (a -> b -> b) -> b -> Array a -> b
 Applies a function over an accumulator and every element in an array, returning the result as a single value.
 ```javascript
@@ -233,6 +254,13 @@ Returns a sorted array, given a comparison function.
 ```javascript
 > sort((a, b) => a - b, [5, 39, 1])
 [ 1, 5, 39 ]
+```
+
+### take :: Number -> Array a -> Array a
+Returns the first n elements in an array.
+```javascript
+> take(2, [1, 2, 3, 4, 5])
+[ 1, 2 ]
 ```
 
 ### unique :: Array a -> Array a
