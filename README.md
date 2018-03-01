@@ -1,5 +1,5 @@
-# A->B
-A transformation library
+# (a -> b)
+A transformation library.
 
 ## Function
 ```javascript
@@ -235,12 +235,19 @@ Returns a sorted array, given a comparison function.
 [ 1, 5, 39 ]
 ```
 
+### unique :: Array a -> Array a
+Returns a list of unique elements.
+```javascript
+> unique([1, 1, 1, 3, 5, 5, 9])
+[ 1, 3, 5, 9 ]
+```
+
 ## Object
 ```javascript
 const O = require('@bchar/a-to-b/object')
 ```
 
-### get :: String -> Object k v -> Maybe v
+### get :: k -> Object k v -> Maybe v
 Returns the property of an object, if it exists.
 ```javascript
 > get('a', { a: 'test' })
@@ -250,7 +257,7 @@ Returns the property of an object, if it exists.
 [ 1, 2, 3 ]
 ```
 
-### includes :: String -> Object k v -> Boolean
+### includes :: k -> Object k v -> Boolean
 Determines if an object contains a key.
 ```javascript
 > includes('a', { a: 1, b: 2 })
