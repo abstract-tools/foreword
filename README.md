@@ -332,6 +332,13 @@ Combine two strings.
 'appending'
 ```
 
+### chars :: String -> Array String
+Returns an array of every character in a string.
+```javascript
+> chars('hello!')
+[ 'h', 'e', 'l', 'l', 'o', '!' ]
+```
+
 ### concat :: Array String -> String
 Combines a list of strings into one string.
 ```javascript

@@ -5,6 +5,7 @@
   "author": "Brandon Chartier",
   "main": "index.js",
   "license": "MIT",
+  "keywords": [],
   "scripts": {
     "test": "istanbul cover tape test/**/*.js"
   },
