@@ -4,6 +4,7 @@ const drop = require('./drop');
 const every = require('./every');
 const filter = require('./filter');
 const find = require('./find');
+const head = require('./head');
 const includes = require('./includes');
 const isEmpty = require('./isEmpty');
 const length = require('./length');
@@ -15,6 +16,7 @@ const reverse = require('./reverse');
 const slice = require('./slice');
 const some = require('./some');
 const sort = require('./sort');
+const tail = require('./tail');
 const take = require('./take');
 const unique = require('./unique');
 
@@ -25,6 +27,7 @@ module.exports = {
   every,
   filter,
   find,
+  head,
   includes,
   isEmpty,
   length,
@@ -36,6 +39,7 @@ module.exports = {
   slice,
   some,
   sort,
+  tail,
   take,
   unique
 };

@@ -191,6 +191,16 @@ Returns the value of the first element that matches the predicate, or `undefined
 1
 ```
 
+### head :: Array a -> Maybe a
+Returns the first element in an array.
+```javascript
+> A.head([1, 2, 3, 4, 5])
+1
+
+> A.head([])
+undefined
+```
+
 ### includes :: a -> Array a -> Boolean
 Determines if an array contains a value.
 ```javascript
@@ -268,6 +278,13 @@ Returns a sorted array, given a comparison function.
 [ 1, 5, 39 ]
 ```
 
+### tail :: Array a -> Array a
+Returns every element except the first.
+```javascript
+> A.tail([1, 2, 3, 4, 5])
+[ 2, 3, 4, 5 ]
+```
+
 ### take :: Number -> Array a -> Array a
 Returns the first n elements in an array.
 ```javascript
@@ -317,6 +334,13 @@ Returns an array of every key in an object.
 > O.keys({ a: 1, b: 2 })
 [ 'a', 'b' ]
 ```
+
+### map :: Object k (a -> b) -> Object k v -> Object k v
+Returns an object with transformations applied over specified keys.
+```javascript
+> O.map({ ms: N.inc }, { id: 123, ms: 999 })
+{ id: 123, ms: 1000 }
+``` 
 
 ### update :: Object k v -> Object k v -> Object k v
 Creates a new object with values from the first argument merged over the second argument.
@@ -473,6 +497,34 @@ Divides two numbers.
 ```javascript
 > N.div(2, 10)
 5
+```
+
+### isEven :: Number -> Boolean
+Determines if a number is even.
+```javascript
+> N.isEven(10)
+true
+```
+
+### isOdd :: Number -> Boolean
+Determines if a number is odd.
+```javascript
+> N.isOdd(9)
+true
+```
+
+### max :: Number -> Number -> Number
+Returns the larger number.
+```javascript
+> max(4, 9)
+9
+```
+
+### min :: Number -> Number -> Number
+Returns the smaller number.
+```javascript
+> min(4, 9)
+4
 ```
 
 ### mul :: Number -> Number -> Number
