@@ -346,6 +346,13 @@ Combines a list of strings into one string.
 'abc'
 ```
 
+### drop :: Number -> String -> String
+Drops the first n elements in a string.
+```javascript
+> drop(3, 'mmmhmmm');
+'hmmm'
+```
+
 ### includes :: String -> String -> Boolean
 Determines if a string contains a substring.
 ```javascript
@@ -400,6 +407,13 @@ Splits a string into an array of substrings.
 ```javascript
 > split(':', 'a:b:c')
 [ 'a', 'b', 'c' ]
+```
+
+### take :: Number -> String -> String
+Returns the first n elements in a string.
+```javascript
+> take(3, 'mmmhmmm')
+'mmm'
 ```
 
 ### toLower :: String -> String
