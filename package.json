@@ -1,6 +1,6 @@
 {
   "name": "@bchar/a-to-b",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A transformation library",
   "author": "Brandon Chartier",
   "main": "index.js",
