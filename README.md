@@ -90,6 +90,22 @@ Reverses the order of the first two arguments of the provided function.
 [ 1, 2, 3, 4 ]
 ```
 
+### gt :: a -> a -> Boolean
+Determines if a value is greater.
+```javascript
+> gt(1, 2)
+true
+```
+
+### gte :: a -> a -> Boolean
+Determines if a value is greater than or equal.
+```javascript
+> gte(1, 1)
+true
+> gte(1, 2)
+true
+```
+
 ### identity :: a -> a
 Returns itself.
 ```javascript
@@ -98,6 +114,22 @@ Returns itself.
 
 > A.filter(F.identity, [0, 1, null, 'test'])
 [ 1, 'test' ]
+```
+
+### lt :: a -> a -> Boolean
+Determines if a value is lesser.
+```javascript
+> lt(2, 1)
+true
+```
+
+### lte :: a -> a -> Boolean
+Determines if a value is less than or equal.
+```javascript
+> lte(1, 1)
+true
+> lte(2, 1)
+true
 ```
 
 ### not :: Boolean -> Boolean

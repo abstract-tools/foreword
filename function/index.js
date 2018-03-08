@@ -7,7 +7,11 @@ const compose = require('./compose');
 const curry = require('./curry');
 const equals = require('./equals');
 const flip = require('./flip');
+const gt = require('./gt');
+const gte = require('./gte');
 const identity = require('./identity');
+const lt = require('./lt');
+const lte = require('./lte');
 const not = require('./not');
 const or = require('./or');
 const pipe = require('./pipe');
@@ -24,7 +28,11 @@ module.exports = {
   curry,
   equals,
   flip,
+  gt,
+  gte,
   identity,
+  lt,
+  lte,
   not,
   or,
   pipe,
