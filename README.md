@@ -32,16 +32,6 @@ Returns `true` if both values are `true`.
 false
 ```
 
-### andThen :: (a -> b) -> Maybe a -> Maybe b
-Applies function to value, if value exists, or returns value.
-```javascript
-> F.andThen(N.add(1), 1)
-2
-
-> F.andThen(N.add(1), undefined)
-undefined
-```
-
 ### apply :: (a -> b) -> a -> b
 Applies function to value.
 ```javascript
@@ -156,20 +146,36 @@ Applies a sequence of transformations over a value.
 10
 ```
 
-### thrush :: a -> (a -> b) -> b
-Applies a function to a value, essentially flipping the argument order of `apply`.
+## Maybe
+A set of functions for dealing with possible `null` values.
 ```javascript
-> A.map(F.thrush(100), [N.add(1), Math.sqrt])
-[ 101, 10 ]
+const M = require('@bchar/a-to-b/maybe')
+```
+
+### andThen :: (a -> Maybe b) -> Maybe a -> Maybe b
+Applies function to value, if value exists, or returns value.
+```javascript
+> M.andThen(N.add(1), 1)
+2
+
+> M.andThen(N.add(1), undefined)
+undefined
+
+> F.pipe([
+  M.andThen(A.head),
+  M.andThen(N.multiply(2)),
+  M.andThen(N.isEven)
+], [])
+undefined
 ```
 
 ### withDefault :: a -> Maybe a -> a
 Returns the first value, if the second does not exist.
 ```javascript
-> F.withDefault(1, undefined)
+> M.withDefault(1, undefined)
 1
 
-> F.withDefault(1, 10)
+> M.withDefault(1, 10)
 10
 ```
 

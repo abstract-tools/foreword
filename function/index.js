@@ -1,6 +1,5 @@
 const always = require('./always');
 const and = require('./and');
-const andThen = require('./andThen');
 const apply = require('./apply');
 const complement = require('./complement');
 const compose = require('./compose');
@@ -15,13 +14,10 @@ const lte = require('./lte');
 const not = require('./not');
 const or = require('./or');
 const pipe = require('./pipe');
-const thrush = require('./thrush');
-const withDefault = require('./withDefault');
 
 module.exports = {
   always,
   and,
-  andThen,
   apply,
   complement,
   compose,
@@ -37,11 +33,9 @@ module.exports = {
   or,
   pipe,
   thrush,
-  withDefault,
   A: apply,
   B: compose,
   C: flip,
   I: identity,
-  K: always,
-  T: thrush,
+  K: always
 };
