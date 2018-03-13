@@ -32,7 +32,6 @@ module.exports = {
   not,
   or,
   pipe,
-  thrush,
   A: apply,
   B: compose,
   C: flip,

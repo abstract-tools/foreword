@@ -1,12 +1,12 @@
 # (a -> b)
-A transformation library.
+A standard library for data transformation.
 
 #### Why (a -> b)
 Reading and understanding code can be difficult, and can be made more challenging when using functions that work on more than one data type.
 
 In terms of readability, it's generally considered easier to understand that `A.filter` is working on an array than a more generic `filter`, which could be working on an array or an object. The ability to have the same function run in different contexts is powerful and good! However, if used excessively, it can potentially be more difficult to reason about what is happening at a given time.
 
-For instance, `(a -> b)` will have no trouble adding functions for Map or Set in the future, while other libraries will need some form of type checking to support different types in their existing functions.
+For instance, `(a -> b)` will have no trouble adding functions for Map or Set in the future.
 
 #### Goal
 - `(a -> b)` is a smaller, core API, with the basic building blocks for data transformations.
