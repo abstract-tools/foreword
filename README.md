@@ -25,7 +25,7 @@ Combines two arrays.
 [ 1, 2, 3, 4 ]
 ```
 
-### concat :: Array (Array a) -> Array a
+### concat :: Array a -> Array a
 Concatenate an array of arrays into a single array, removing one level of nesting.
 ```javascript
 > A.concat([[1, 2], [3], [4, 5]])
@@ -305,7 +305,7 @@ Applies a sequence of transformations over a value.
 ```
 
 ## Maybe
-A set of functions for dealing with possible `null` values.
+A set of functions for dealing with possible `undefined` values.
 ```javascript
 const M = require('@bchar/a-to-b/maybe')
 ```
@@ -434,7 +434,7 @@ Returns an array of every key in an object.
 [ 'a', 'b' ]
 ```
 
-### map :: Object k (a -> b) -> Object k v -> Object k v
+### map :: Object k (a -> b) -> Object k a -> Object k b
 Returns an object with transformations applied over specified keys.
 ```javascript
 > O.map({ ms: N.inc }, { id: 123, ms: 999 })
