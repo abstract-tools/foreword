@@ -1,5 +1,6 @@
 # (a -> b)
 A standard library for data transformation.
+`npm install @bchar/a-to-b`
 
 #### Why (a -> b)
 Reading and understanding code can be difficult, and can be made more challenging when using functions that work on more than one data type.
