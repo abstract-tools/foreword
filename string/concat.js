@@ -1,4 +1,4 @@
 // concat :: Array String -> String
-module.exports = arr => {
+module.exports = (arr = []) => {
   return arr.join('');
 };

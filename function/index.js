@@ -32,6 +32,7 @@ module.exports = {
   not,
   or,
   pipe,
+  comp: compose,
   A: apply,
   B: compose,
   C: flip,

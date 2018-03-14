@@ -1,4 +1,4 @@
 // isEven :: Number -> Boolean
-module.exports = n => {
+module.exports = (n = 0) => {
   return n % 2 === 0;
 };

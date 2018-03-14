@@ -2,9 +2,19 @@ const test = require('tape');
 const curry = require('../../function/curry');
 
 test('function curry: returns a new function if fewer arguments are provided', t => {
-  const add = curry((a, b) => a + b);
+  const sum = curry(3, (a, b, c) => a + b + c);
+  const sum3 = sum(1, 2);
+
+  t.same(sum3(3), 6);
+  t.end();
+});
+
+test('function curry: works with default parameters', t => {
+  const add = curry(2, (a, b = 2) => a + b);
   const add1 = add(1);
 
-  t.same(add1(1), 2);
+  t.same(add1(5), 6);
+  t.same(add1(undefined), 3);
+
   t.end();
 });

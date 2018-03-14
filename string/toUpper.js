@@ -1,4 +1,4 @@
 // toUpper :: String -> String
-module.exports = str => {
+module.exports = (str = '') => {
   return str.toUpperCase();
 };

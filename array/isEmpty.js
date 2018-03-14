@@ -1,4 +1,4 @@
 // isEmpty :: Array a -> Boolean
-module.exports = arr => {
+module.exports = (arr = []) => {
   return !Boolean(arr.length);
 };

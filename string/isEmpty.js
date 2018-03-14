@@ -1,4 +1,4 @@
 // isEmpty :: String -> Boolean
-module.exports = str => {
+module.exports = (str = '') => {
   return !Boolean(str.length);
 };

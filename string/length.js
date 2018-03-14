@@ -1,4 +1,4 @@
 // length :: String -> Number
-module.exports = str => {
+module.exports = (str = '') => {
   return str.length;
 };

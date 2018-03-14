@@ -53,10 +53,10 @@ Applies value through two functions, from right to left.
 10
 ```
 
-### curry :: ((a, b) -> c) -> a -> b -> c
+### curry :: Number -> ((a, b) -> c) -> a -> b -> c
 Wraps a function and allows you to supply your arguments one at a time.
 ```javascript
-> const add = F.curry((a, b) => a + b)
+> const add = F.curry(2, (a, b) => a + b)
 > const add1 = add(1)
 > add1(1)
 2

@@ -1,4 +1,4 @@
 // length :: Array a -> Number
-module.exports = arr => {
+module.exports = (arr = []) => {
   return arr.length;
 };

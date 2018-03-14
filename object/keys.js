@@ -1,4 +1,4 @@
 // keys :: Object k v -> Array k
-module.exports = obj => {
+module.exports = (obj = {}) => {
   return Object.keys(obj);
 };
