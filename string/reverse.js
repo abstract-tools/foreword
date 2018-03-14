@@ -1,4 +1,6 @@
 // reverse :: String -> String
-module.exports = (str = '') => {
+const reverse = function reverse (str = '') {
   return str.split('').reverse().join('');
 };
+
+module.exports = reverse;

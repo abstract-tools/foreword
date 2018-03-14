@@ -1,4 +1,6 @@
 // not :: Boolean -> Boolean
-module.exports = a => {
+const not = function not (a) {
   return !a;
 };
+
+module.exports = not;

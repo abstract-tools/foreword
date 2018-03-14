@@ -1,6 +1,8 @@
 const curry = require('./curry');
 
 // gte :: a -> a -> Boolean
-module.exports = curry(2, (a, b) => {
+const gte = curry(2, function gte (a, b) {
   return b >= a;
 });
+
+module.exports = gte;

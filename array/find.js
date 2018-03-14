@@ -1,6 +1,8 @@
 const curry = require('../function/curry');
 
 // find :: (a -> Boolean) -> Array a -> Maybe a
-module.exports = curry(2, (f, arr = []) => {
+const find = curry(2, function find (f = x => x, arr = []) {
   return arr.find(f);
 });
+
+module.exports = find;

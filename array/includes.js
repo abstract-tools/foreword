@@ -1,6 +1,8 @@
 const curry = require('../function/curry');
 
 // includes :: a -> Array a -> Boolean
-module.exports = curry(2, (a, arr = []) => {
+const includes = curry(2, function includes (a, arr = []) {
   return arr.includes(a);
 });
+
+module.exports = includes;

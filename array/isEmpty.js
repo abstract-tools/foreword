@@ -1,4 +1,6 @@
 // isEmpty :: Array a -> Boolean
-module.exports = (arr = []) => {
+const isEmpty = function isEmpty (arr = []) {
   return !Boolean(arr.length);
 };
+
+module.exports = isEmpty;

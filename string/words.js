@@ -1,4 +1,6 @@
 // words :: String -> Array String
-module.exports = (str = '') => {
+const words = function words (str = '') {
   return str.trim().split(/\s+/);
 };
+
+module.exports = words;

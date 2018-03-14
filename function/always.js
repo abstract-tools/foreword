@@ -1,6 +1,8 @@
 const curry = require('./curry');
 
 // always :: a -> b -> a
-module.exports = curry(2, (a, b) => {
+const always = curry(2, function always (a, b) {
   return a;
 });
+
+module.exports = always;

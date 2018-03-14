@@ -1,6 +1,8 @@
 const curry = require('../function/curry');
 
 // drop :: Number -> String -> String
-module.exports = curry(2, (n = 0, str = '') => {
+const drop = curry(2, function drop (n = 0, str = '') {
   return str.slice(n, Infinity);
 });
+
+module.exports = drop;

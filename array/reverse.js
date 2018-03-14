@@ -1,4 +1,6 @@
 // reverse :: Array a -> Array a
-module.exports = (arr = []) => {
+const reverse = function reverse (arr = []) {
   return arr.concat().reverse();
 };
+
+module.exports = reverse;

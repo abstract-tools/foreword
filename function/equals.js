@@ -1,6 +1,8 @@
 const curry = require('./curry');
 
 // equals :: a -> a -> Boolean
-module.exports = curry(2, (a, b) => {
+const equals = curry(2, function equals (a, b) {
   return a === b;
 });
+
+module.exports = equals;

@@ -1,4 +1,6 @@
 // length :: String -> Number
-module.exports = (str = '') => {
+const length = function length (str = '') {
   return str.length;
 };
+
+module.exports = length;

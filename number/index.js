@@ -1,22 +1,22 @@
 const add = require('./add');
-const div = require('./div');
+const divide = require('./divide');
 const isEven = require('./isEven');
 const isOdd = require('./isOdd');
 const max = require('./max');
 const min = require('./min');
-const mul = require('./mul');
-const sub = require('./sub');
+const multiply = require('./multiply');
+const subtract = require('./subtract');
 
 module.exports = {
   add,
-  div,
+  divide,
   isEven,
   isOdd,
   max,
   min,
-  mul,
-  sub,
-  divide: div,
-  multiply: mul,
-  subtract: sub
+  multiply,
+  subtract,
+  div: divide,
+  mul: multiply,
+  sub: subtract
 };

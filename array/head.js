@@ -1,4 +1,6 @@
 // head :: Array a -> Maybe a
-module.exports = (arr = []) => {
+const head = function head (arr = []) {
   return arr[0];
 };
+
+module.exports = head;

@@ -1,6 +1,8 @@
 const curry = require('../function/curry');
 
 // andThen :: (a -> Maybe b) -> Maybe a -> Maybe b
-module.exports = curry(2, (f, a) => {
+const andThen = curry(2, function andThen (f = x => x, a) {
   return (a == null) ? a : f(a);
 });
+
+module.exports = andThen;

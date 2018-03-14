@@ -1,4 +1,6 @@
 // chars :: String -> Array String
-module.exports = (str = '') => {
+const chars = function chars (str = '') {
   return str.split('');
 };
+
+module.exports = chars;

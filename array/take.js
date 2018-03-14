@@ -1,6 +1,8 @@
 const curry = require('../function/curry');
 
 // take :: Number -> Array a -> Array a
-module.exports = curry(2, (n = Infinity, arr = []) => {
+const take = curry(2, function take (n = Infinity, arr = []) {
   return arr.slice(0, n);
 });
+
+module.exports = take;

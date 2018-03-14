@@ -530,10 +530,10 @@ Adds two numbers.
 4
 ```
 
-### div :: Number -> Number -> Number
+### divide :: Number -> Number -> Number
 Divides two numbers.
 ```javascript
-> N.div(2, 10)
+> N.divide(2, 10)
 5
 ```
 
@@ -565,16 +565,16 @@ Returns the smaller number.
 4
 ```
 
-### mul :: Number -> Number -> Number
+### multiply :: Number -> Number -> Number
 Multiplies two numbers.
 ```javascript
-> N.mul(2, 5)
+> N.multiply(2, 5)
 10
 ```
 
-### sub :: Number -> Number -> Number
+### subtract :: Number -> Number -> Number
 Subtracts two numbers.
 ```javascript
-> N.sub(2, 10)
+> N.subtract(2, 10)
 8
 ```

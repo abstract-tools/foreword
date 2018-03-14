@@ -1,4 +1,6 @@
 // isEven :: Number -> Boolean
-module.exports = (n = 0) => {
+const isEven = function isEven (n = 0) {
   return n % 2 === 0;
 };
+
+module.exports = isEven;

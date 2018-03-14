@@ -13,5 +13,6 @@ module.exports = {
   keys,
   map,
   update,
-  values
+  values,
+  vals: values
 };

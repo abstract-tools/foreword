@@ -1,6 +1,8 @@
 const curry = require('../function/curry');
 
 // get :: String -> Object k v -> Maybe v
-module.exports = curry(2, (a = '', obj = {}) => {
+const get = curry(2, function get (a = '', obj = {}) {
   return obj[a];
 });
+
+module.exports = get;

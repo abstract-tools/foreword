@@ -1,6 +1,8 @@
 const curry = require('./curry');
 
 // apply :: (a -> b) -> a -> b
-module.exports = curry(2, (f, a) => {
+const apply = curry(2, function apply (f = x => x, a) {
   return f(a);
 });
+
+module.exports = apply;

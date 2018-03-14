@@ -1,4 +1,6 @@
 // isEmpty :: Object k v -> Boolean
-module.exports = (obj = {}) => {
+const isEmpty = function isEmpty (obj = {}) {
   return !Boolean(Object.keys(obj).length);
 };
+
+module.exports = isEmpty;

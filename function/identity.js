@@ -1,4 +1,6 @@
 // identity :: a -> a
-module.exports = a => {
+const identity = function identity (a) {
   return a;
 };
+
+module.exports = identity;

@@ -1,6 +1,8 @@
 const curry = require('../function/curry');
 
 // join :: String -> Array String -> String
-module.exports = curry(2, (str = '', arr = []) => {
+const join = curry(2, function join (str = '', arr = []) {
   return arr.join(str);
 });
+
+module.exports = join;

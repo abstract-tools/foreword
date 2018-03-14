@@ -1,4 +1,6 @@
 // length :: Array a -> Number
-module.exports = (arr = []) => {
+const length = function length (arr = []) {
   return arr.length;
 };
+
+module.exports = length;

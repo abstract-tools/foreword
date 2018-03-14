@@ -1,4 +1,6 @@
 // trim :: String -> String
-module.exports = (str = '') => {
+const trim = function trim (str = '') {
   return str.trim();
 };
+
+module.exports = trim;

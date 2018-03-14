@@ -1,4 +1,6 @@
 // isOdd :: Number -> Boolean
-module.exports = (n = 0) => {
+const isOdd = function isOdd (n = 0) {
   return n % 2 !== 0;
 };
+
+module.exports = isOdd;

@@ -1,4 +1,6 @@
 // keys :: Object k v -> Array k
-module.exports = (obj = {}) => {
+const keys = function keys (obj = {}) {
   return Object.keys(obj);
 };
+
+module.exports = keys;
