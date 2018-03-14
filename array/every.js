@@ -1,7 +1,7 @@
 const curry = require('../function/curry');
 
 // every :: (a -> Boolean) -> Array a -> Boolean
-const every = curry(2, function every (f = x => x, arr = []) {
+const every = curry(2, function every (f, arr = []) {
   return arr.every(f);
 });
 

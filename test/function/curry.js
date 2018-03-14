@@ -18,3 +18,10 @@ test('function curry: works with default parameters', t => {
 
   t.end();
 });
+
+test('function curry: throws out extra arguments', t => {
+  const sum = curry(2, (a, b) => a * b);
+
+  t.same(sum(1, 2, 3), 2);
+  t.end();
+})

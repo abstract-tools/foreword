@@ -33,6 +33,7 @@ module.exports = {
   or,
   pipe,
   comp: compose,
+  eq: equals,
   A: apply,
   B: compose,
   C: flip,

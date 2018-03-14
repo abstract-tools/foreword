@@ -1,6 +1,6 @@
 // reverse :: Array a -> Array a
 const reverse = function reverse (arr = []) {
-  return arr.concat().reverse();
+  return [...arr].reverse();
 };
 
 module.exports = reverse;
