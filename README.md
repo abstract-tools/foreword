@@ -13,6 +13,164 @@ For instance, `(a -> b)` will have no trouble adding functions for Map or Set in
 - For an extended API, there is `(b -> c)`, which includes the core.
 - All functions are able to be partially applied.
 
+## Array
+```javascript
+const A = require('@bchar/a-to-b/array')
+```
+
+### append :: Array a -> Array a -> Array a
+Combines two arrays.
+```javascript
+> A.append([4], [1, 2, 3])
+[ 1, 2, 3, 4 ]
+```
+
+### concat :: Array (Array a) -> Array a
+Concatenate an array of arrays into a single array, removing one level of nesting.
+```javascript
+> A.concat([[1, 2], [3], [4, 5]])
+[ 1, 2, 3, 4, 5 ]
+```
+
+### drop :: Number -> Array a -> Array a
+Drops the first n elements in an array.
+```javascript
+> A.drop(2, [1, 2, 3, 4, 5])
+[ 3, 4, 5 ]
+```
+
+### every :: (a -> Boolean) -> Array a -> Boolean
+Determines if every element satisfies the predicate.
+```javascript
+> A.every(F.equals(1), [1, 1, 1])
+true
+
+> A.every(F.equals('a'), ['a', 'b', 'c'])
+false
+```
+
+### filter :: (a -> Boolean) -> Array a -> Array a
+Returns an array of every element that matches the predicate.
+```javascript
+> A.filter(F.equals(1), [1, 2, 3])
+[ 1 ]
+```
+
+### find :: (a -> Boolean) -> Array a -> Maybe a
+Returns the value of the first element that matches the predicate, or `undefined` if it does not exist.
+```javascript
+> A.find(F.equals(1), [1, 2, 3])
+1
+```
+
+### head :: Array a -> Maybe a
+Returns the first element in an array.
+```javascript
+> A.head([1, 2, 3, 4, 5])
+1
+
+> A.head([])
+undefined
+```
+
+### includes :: a -> Array a -> Boolean
+Determines if an array contains a value.
+```javascript
+> A.includes('a', ['a', 'b', 'c'])
+true
+```
+
+### isEmpty :: Array a -> Boolean
+Determines if an array contains any elements.
+```javascript
+> A.isEmpty([1])
+false
+```
+
+### length :: Array a -> Number
+Returns the number of elements in an array.
+```javascript
+> A.length([1, 2, 3])
+3
+```
+
+### map :: (a -> b) -> Array a -> Array b
+Applies a function over every element in an array.
+```javascript
+> A.map(O.get('a'), [{a: 1}, {a: 2}, {a: 3}])
+[ 1, 2, 3 ]
+```
+
+### max :: Array a -> Maybe a
+Returns the highest value element in an array.
+```javascript
+> A.max([1, 2, 3])
+3
+```
+
+### min :: Array a -> Maybe a
+Returns the lowest value element in an array.
+```javascript
+> A.min([3, 2, 1])
+1
+```
+
+### reduce :: (a -> b -> b) -> b -> Array a -> b
+Applies a function over an accumulator and every element in an array, returning the result as a single value.
+```javascript
+> A.reduce(N.add, 0, [1, 2, 3])
+6
+```
+ 
+### reverse :: Array a -> Array a
+Returns a new array with the elements in reverse order.
+```javascript
+> A.reverse([1, 2, 3])
+[ 3, 2, 1 ]
+```
+
+### slice :: Number -> Number -> Array a -> Array a
+Returns a subset of an array, providing starting and ending indexes.
+```javascript
+> A.slice(1, 3, [1, 2, 3, 4, 5])
+[ 2, 3 ]
+```
+
+### some :: (a -> Boolean) -> Array a -> Boolean
+Determines if any elements match the predicate.
+```javascript
+> A.some(F.equals(1), [1, 2, 3])
+true
+```
+
+### sort :: ((a, a) -> Number) -> Array a -> Array a
+Returns a sorted array, given a comparison function.
+```javascript
+> A.sort((a, b) => a - b, [5, 39, 1])
+[ 1, 5, 39 ]
+```
+
+### tail :: Array a -> Array a
+Returns every element except the first.
+```javascript
+> A.tail([1, 2, 3, 4, 5])
+[ 2, 3, 4, 5 ]
+```
+
+### take :: Number -> Array a -> Array a
+Returns the first n elements in an array.
+```javascript
+> A.take(2, [1, 2, 3, 4, 5])
+[ 1, 2 ]
+```
+
+### unique :: Array a -> Array a
+Returns a list of unique elements.
+```javascript
+> A.unique([1, 1, 1, 3, 5, 5, 9])
+[ 1, 3, 5, 9 ]
+```
+
 ## Function
 ```javascript
 const F = require('@bchar/a-to-b/function')
@@ -179,162 +337,65 @@ Returns the first value, if the second does not exist.
 10
 ```
 
-## Array
+## Number
 ```javascript
-const A = require('@bchar/a-to-b/array')
+const N = require('@bchar/a-to-b/number')
 ```
 
-### append :: Array a -> Array a -> Array a
-Combines two arrays.
+### add :: Number -> Number -> Number
+Adds two numbers.
 ```javascript
-> A.append([4], [1, 2, 3])
-[ 1, 2, 3, 4 ]
+> N.add(2, 2)
+4
 ```
 
-### concat :: Array (Array a) -> Array a
-Concatenate an array of arrays into a single array, removing one level of nesting.
+### divide :: Number -> Number -> Number
+Divides two numbers.
 ```javascript
-> A.concat([[1, 2], [3], [4, 5]])
-[ 1, 2, 3, 4, 5 ]
+> N.divide(2, 10)
+5
 ```
 
-### drop :: Number -> Array a -> Array a
-Drops the first n elements in an array.
+### isEven :: Number -> Boolean
+Determines if a number is even.
 ```javascript
-> A.drop(2, [1, 2, 3, 4, 5])
-[ 3, 4, 5 ]
-```
-
-### every :: (a -> Boolean) -> Array a -> Boolean
-Determines if every element satisfies the predicate.
-```javascript
-> A.every(F.equals(1), [1, 1, 1])
-true
-
-> A.every(F.equals('a'), ['a', 'b', 'c'])
-false
-```
-
-### filter :: (a -> Boolean) -> Array a -> Array a
-Returns an array of every element that matches the predicate.
-```javascript
-> A.filter(F.equals(1), [1, 2, 3])
-[ 1 ]
-```
-
-### find :: (a -> Boolean) -> Array a -> Maybe a
-Returns the value of the first element that matches the predicate, or `undefined` if it does not exist.
-```javascript
-> A.find(F.equals(1), [1, 2, 3])
-1
-```
-
-### head :: Array a -> Maybe a
-Returns the first element in an array.
-```javascript
-> A.head([1, 2, 3, 4, 5])
-1
-
-> A.head([])
-undefined
-```
-
-### includes :: a -> Array a -> Boolean
-Determines if an array contains a value.
-```javascript
-> A.includes('a', ['a', 'b', 'c'])
+> N.isEven(10)
 true
 ```
 
-### isEmpty :: Array a -> Boolean
-Determines if an array contains any elements.
+### isOdd :: Number -> Boolean
+Determines if a number is odd.
 ```javascript
-> A.isEmpty([1])
-false
-```
-
-### length :: Array a -> Number
-Returns the number of elements in an array.
-```javascript
-> A.length([1, 2, 3])
-3
-```
-
-### map :: (a -> b) -> Array a -> Array b
-Applies a function over every element in an array.
-```javascript
-> A.map(O.get('a'), [{a: 1}, {a: 2}, {a: 3}])
-[ 1, 2, 3 ]
-```
-
-### max :: Array a -> Maybe a
-Returns the highest value element in an array.
-```javascript
-> A.max([1, 2, 3])
-3
-```
-
-### min :: Array a -> Maybe a
-Returns the lowest value element in an array.
-```javascript
-> A.min([3, 2, 1])
-1
-```
-
-### reduce :: (a -> b -> b) -> b -> Array a -> b
-Applies a function over an accumulator and every element in an array, returning the result as a single value.
-```javascript
-> A.reduce(N.add, 0, [1, 2, 3])
-6
-```
- 
-### reverse :: Array a -> Array a
-Returns a new array with the elements in reverse order.
-```javascript
-> A.reverse([1, 2, 3])
-[ 3, 2, 1 ]
-```
-
-### slice :: Number -> Number -> Array a -> Array a
-Returns a subset of an array, providing starting and ending indexes.
-```javascript
-> A.slice(1, 3, [1, 2, 3, 4, 5])
-[ 2, 3 ]
-```
-
-### some :: (a -> Boolean) -> Array a -> Boolean
-Determines if any elements match the predicate.
-```javascript
-> A.some(F.equals(1), [1, 2, 3])
+> N.isOdd(9)
 true
 ```
 
-### sort :: ((a, a) -> Number) -> Array a -> Array a
-Returns a sorted array, given a comparison function.
+### max :: Number -> Number -> Number
+Returns the larger number.
 ```javascript
-> A.sort((a, b) => a - b, [5, 39, 1])
-[ 1, 5, 39 ]
+> max(4, 9)
+9
 ```
 
-### tail :: Array a -> Array a
-Returns every element except the first.
+### min :: Number -> Number -> Number
+Returns the smaller number.
 ```javascript
-> A.tail([1, 2, 3, 4, 5])
-[ 2, 3, 4, 5 ]
+> min(4, 9)
+4
 ```
 
-### take :: Number -> Array a -> Array a
-Returns the first n elements in an array.
+### multiply :: Number -> Number -> Number
+Multiplies two numbers.
 ```javascript
-> A.take(2, [1, 2, 3, 4, 5])
-[ 1, 2 ]
+> N.multiply(2, 5)
+10
 ```
 
-### unique :: Array a -> Array a
-Returns a list of unique elements.
+### subtract :: Number -> Number -> Number
+Subtracts two numbers.
 ```javascript
-> A.unique([1, 1, 1, 3, 5, 5, 9])
-[ 1, 3, 5, 9 ]
+> N.subtract(2, 10)
+8
 ```
 
 ## Object
@@ -516,65 +577,4 @@ Returns an array containing word groups in a string.
 ```javascript
 > S.words('foo bar baz')
 [ 'foo', 'bar', 'baz' ]
-```
-
-## Number
-```javascript
-const N = require('@bchar/a-to-b/number')
-```
-
-### add :: Number -> Number -> Number
-Adds two numbers.
-```javascript
-> N.add(2, 2)
-4
-```
-
-### divide :: Number -> Number -> Number
-Divides two numbers.
-```javascript
-> N.divide(2, 10)
-5
-```
-
-### isEven :: Number -> Boolean
-Determines if a number is even.
-```javascript
-> N.isEven(10)
-true
-```
-
-### isOdd :: Number -> Boolean
-Determines if a number is odd.
-```javascript
-> N.isOdd(9)
-true
-```
-
-### max :: Number -> Number -> Number
-Returns the larger number.
-```javascript
-> max(4, 9)
-9
-```
-
-### min :: Number -> Number -> Number
-Returns the smaller number.
-```javascript
-> min(4, 9)
-4
-```
-
-### multiply :: Number -> Number -> Number
-Multiplies two numbers.
-```javascript
-> N.multiply(2, 5)
-10
-```
-
-### subtract :: Number -> Number -> Number
-Subtracts two numbers.
-```javascript
-> N.subtract(2, 10)
-8
 ```
