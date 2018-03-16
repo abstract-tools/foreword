@@ -10,10 +10,10 @@ In terms of readability, it's generally considered easier to understand that `A.
 
 For instance, `(a -> b)` will have no trouble adding functions for Map or Set in the future.
 
-#### Goal
-- `(a -> b)` is a smaller, core API, with the basic building blocks for data transformations.
-- For an extended API, there is `(b -> c)`, which includes the core.
-- All functions are able to be partially applied.
+#### Goals
+- Able to partially apply all functions.
+- Ensure correctness of transformations, not allowing data to be mutated.
+- Leverage type separation into a more interesting interface.
 
 
 ## Array
