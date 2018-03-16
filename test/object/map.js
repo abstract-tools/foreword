@@ -1,5 +1,5 @@
-const test = require('tape');
-const map = require('../../object/map');
+const test = require('tape')
+const map = require('../../object/map')
 
 const data = {
   id: 123,
@@ -8,7 +8,7 @@ const data = {
     elapsed: 100,
     remaining: 1000
   }
-};
+}
 
 test('object map', t => {
   const result = map({
@@ -18,7 +18,7 @@ test('object map', t => {
       elapsed: x => x + 1,
       remaining: x => x - 1
     })
-  });
+  })
 
   t.same(result(data), {
     id: 123,
@@ -27,7 +27,7 @@ test('object map', t => {
       elapsed: 101,
       remaining: 999
     }
-  });
+  })
 
-  t.end();
-});
+  t.end()
+})

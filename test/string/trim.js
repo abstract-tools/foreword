@@ -1,9 +1,9 @@
-const test = require('tape');
-const trim = require('../../string/trim');
+const test = require('tape')
+const trim = require('../../string/trim')
 
 test('string trim', t => {
-  const result = trim('  abc \n');
+  const result = trim('  abc \n')
 
-  t.same(result, 'abc');
-  t.end();
-});
+  t.same(result, 'abc')
+  t.end()
+})

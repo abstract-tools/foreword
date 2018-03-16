@@ -1,6 +1,6 @@
 // concat :: Array String -> String
 const concat = function concat (arr = []) {
-  return arr.join('');
-};
+  return arr.join('')
+}
 
-module.exports = concat;
+module.exports = concat

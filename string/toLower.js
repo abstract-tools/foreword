@@ -1,6 +1,6 @@
 // toLower :: String -> String
 const toLower = function toLower (str = '') {
-  return str.toLowerCase();
-};
+  return str.toLowerCase()
+}
 
-module.exports = toLower;
+module.exports = toLower

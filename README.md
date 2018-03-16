@@ -485,7 +485,7 @@ Combines a list of strings into one string.
 ### drop :: Number -> String -> String
 Drops the first n elements in a string.
 ```javascript
-> S.drop(3, 'mmmhmmm');
+> S.drop(3, 'mmmhmmm')
 'hmmm'
 ```
 

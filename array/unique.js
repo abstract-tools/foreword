@@ -1,8 +1,8 @@
 // unique :: Array a -> Array a
 const unique = function unique (arr = []) {
-  return arr.reduce((acc, a) => {
-    return acc.includes(a) ? acc : [...acc, a];
-  }, []);
-};
+  return arr.reduce((a, b) => {
+    return a.includes(b) ? a : [...a, b]
+  }, [])
+}
 
-module.exports = unique;
+module.exports = unique

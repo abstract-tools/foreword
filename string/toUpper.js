@@ -1,6 +1,6 @@
 // toUpper :: String -> String
 const toUpper = function toUpper (str = '') {
-  return str.toUpperCase();
-};
+  return str.toUpperCase()
+}
 
-module.exports = toUpper;
+module.exports = toUpper

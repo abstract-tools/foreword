@@ -1,7 +1,7 @@
-const andThen = require('./andThen');
-const withDefault = require('./withDefault');
+const andThen = require('./andThen')
+const withDefault = require('./withDefault')
 
 module.exports = {
   andThen,
   withDefault
-};
+}

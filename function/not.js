@@ -1,6 +1,6 @@
 // not :: Boolean -> Boolean
 const not = function not (a) {
-  return !a;
-};
+  return !a
+}
 
-module.exports = not;
+module.exports = not

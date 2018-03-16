@@ -1,6 +1,6 @@
 // length :: Array a -> Number
 const length = function length (arr = []) {
-  return arr.length;
-};
+  return arr.length
+}
 
-module.exports = length;
+module.exports = length

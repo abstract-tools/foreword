@@ -1,9 +1,9 @@
-const test = require('tape');
-const toLower = require('../../string/toLower');
+const test = require('tape')
+const toLower = require('../../string/toLower')
 
 test('string toLower: return all lowercase letters', t => {
-  const result = toLower('AbCdEf');
+  const result = toLower('AbCdEf')
 
-  t.same(result, 'abcdef');
-  t.end();
-});
+  t.same(result, 'abcdef')
+  t.end()
+})

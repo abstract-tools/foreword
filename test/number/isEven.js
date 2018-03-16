@@ -1,9 +1,9 @@
-const test = require('tape');
-const isEven = require('../../number/isEven');
+const test = require('tape')
+const isEven = require('../../number/isEven')
 
 test('number isEven', t => {
-  const result = isEven(4);
+  const result = isEven(4)
 
-  t.same(result, true);
-  t.end();
-});
+  t.same(result, true)
+  t.end()
+})
