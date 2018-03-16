@@ -31,6 +31,16 @@ Combines two arrays.
 [ 1, 2, 3, 4 ]
 ```
 
+### compact
+`Array a -> Array a`
+
+Returns an array of only truthy values.
+
+```javascript
+> A.compact([0, 1, true, false, 'hey', null])
+[ 1, true, 'hey' ]
+```
+
 ### concat
 `Array a -> Array a`
 
@@ -41,6 +51,16 @@ Concatenate an array of arrays into a single array, removing one level of nestin
 [ 1, 2, 3, 4, 5 ]
 ```
 
+### difference
+`Array a -> Array a -> Array a`
+
+Returns an array with the elements present in the first that are not in the second.
+
+```javascript
+> A.difference([1, 2, 3], [1])
+[ 2, 3 ]
+```
+
 ### drop
 `Number -> Array a -> Array a`
 
@@ -49,6 +69,16 @@ Drops the first n elements in an array.
 ```javascript
 > A.drop(2, [1, 2, 3, 4, 5])
 [ 3, 4, 5 ]
+```
+
+### dropWhile
+`(a -> Boolean) -> Array a -> Array a`
+
+Drops the first items of an array which match the predicate.
+
+```javascript
+> A.dropWhile(N.isEven, [2, 4, 5, 6])
+[ 5, 6 ]
 ```
 
 ### every
@@ -84,6 +114,25 @@ Returns the value of the first element that matches the predicate, or `undefined
 1
 ```
 
+### flatten
+`Array a -> Array a`
+
+Recursively flattens an array of arrays.
+
+```javascript
+> A.flatten([1, [[2], 3], [4, [[5]]]])
+[ 1, 2, 3, 4, 5 ]
+```
+
+### groupBy
+`(a -> b) -> Array a -> Object k (Array a)`
+
+Returns an object with keys as the result of applying a function to elements, and the value is an array of every matched element.
+
+```javascript
+> A.groupBy(Math.floor, [4.2, 6.1, 6.4])
+{ '4': [ 4.2 ], '6':  [ 6.1, 6.4 ] }
+```
 
 ### head
 `Array a -> Maybe a`
@@ -108,6 +157,26 @@ Determines if an array contains a value.
 true
 ```
 
+### init
+`Array a -> Array a`
+
+Returns every element except the last.
+
+```javascript
+> A.init([1, 2, 3, 4, 5])
+[ 1, 2, 3, 4 ]
+```
+
+### intersection
+`Array a -> Array a -> Array a`
+
+Returns an array containing elements present in both arrays.
+
+```javascript
+> A.intersection([1, 2, 3], [2, 3, 4, 5])
+[ 2, 3 ]
+```
+
 ### isEmpty
 `Array a -> Boolean`
 
@@ -116,6 +185,19 @@ Determines if an array contains any elements.
 ```javascript
 > A.isEmpty([1])
 false
+```
+
+### last
+`Array a -> Maybe a`
+
+Returns the last element in an array.
+
+```javascript
+> A.last([1, 2, 3, 4, 5])
+5
+
+> A.last([])
+undefined
 ```
 
 ### length
@@ -148,6 +230,26 @@ Returns the highest value element in an array.
 3
 ```
 
+### maxBy
+`(a -> b) -> Array a -> Maybe a`
+
+Returns the highest value element in an array.
+
+```javascript
+> A.maxBy(S.length, ['bc', 'abc', 'a', 'b'])
+'abc'
+```
+
+### mean
+`Array Number -> Maybe Number`
+
+Returns the mean of the elements in an array.
+
+```javascript
+> A.mean([1, 2, 3, 4, 5])
+3
+```
+
 ### min
 `Array a -> Maybe a`
 
@@ -156,6 +258,36 @@ Returns the lowest value element in an array.
 ```javascript
 > A.min([3, 2, 1])
 1
+```
+
+### minBy
+`(a -> b) -> Array a -> Maybe a`
+
+Returns the lowest value element in an array after applying a function to the element.
+
+```javascript
+> A.minBy(S.length, ['bc', 'abc', 'a', 'b'])
+'a'
+```
+
+### partition
+`(a -> Boolean) -> Array a -> Array (a, a)`
+
+Equivalent to `[filter(f, arr), reject(f, arr)]`.
+
+```javascript
+> A.partition(N.isEven, [1, 2, 3, 4, 5])
+[ [ 2, 4 ], [ 1, 3, 5 ] ]
+```
+
+### product
+`Array Number -> Number`
+
+Returns the product of the elements in an array.
+
+```javascript
+> A.product([1, 2, 3])
+6
 ```
 
 ### reduce
@@ -167,6 +299,16 @@ Applies a function over an accumulator and every element in an array, returning 
 > A.reduce(N.add, 0, [1, 2, 3])
 6
 ```
+
+### reject
+`(a -> Boolean) -> Array a -> Array a`
+
+Returns an array of all elements that do not match the predicate.
+
+```javascript
+> A.reject(N.isEven, [1, 2, 3, 4, 5])
+[ 1, 3, 5 ]
+```
  
 ### reverse
 `Array a -> Array a`
@@ -176,6 +318,16 @@ Returns a new array with the elements in reverse order.
 ```javascript
 > A.reverse([1, 2, 3])
 [ 3, 2, 1 ]
+```
+
+### scan
+`(a -> b -> b) -> b -> Array a -> Array b`
+
+Like `reduce`, but returns a list with the initial value, the intermediate values, and the final value.
+
+```javascript
+> A.scan(N.add, 0, [1, 2, 3])
+[ 0, 1, 3, 6 ]
 ```
 
 ### slice
@@ -208,6 +360,39 @@ Returns a sorted array, given a comparison function.
 [ 1, 5, 39 ]
 ```
 
+### sortBy
+`(a -> b) -> Array a -> Array a`
+
+Sort an array by applying a function to elements.
+
+```javascript
+> A.sortBy(S.length, ['abc', 'a', 'ab'])
+[ 'a', 'ab', 'abc' ]
+
+> A.sortBy(O.get('name'), [{ name: 'bob'}, { name: 'alice' }, { name: 'charlie' }])
+[ { name: 'alice' }, { name: 'bob' }, { name: 'charlie' } ]
+```
+
+### span
+`(a -> Boolean) -> Array a -> Array (a, a)`
+
+Equivalent to `[takeWhile(f, arr), dropWhile(f, arr)]`.
+
+```javascript
+> A.span(N.isEven, [2, 4, 5, 6])
+[ [ 2, 4 ], [ 5, 6 ] ]
+```
+
+### sum
+`Array Number -> Number`
+
+Sums up the elements in an array.
+
+```javascript
+> A.sum([1, 2, 3, 4, 5])
+15
+```
+
 ### tail
 `Array a -> Array a`
 
@@ -228,6 +413,26 @@ Returns the first n elements in an array.
 [ 1, 2 ]
 ```
 
+### takeWhile
+`(a -> Boolean) -> Array a -> Array a`
+
+Returns the first elements in an array which match the predicate.
+
+```javascript
+> A.takeWhile(N.isEven, [2, 4, 5, 6])
+[ 2, 4 ]
+```
+
+### union
+`Array a -> Array a -> Array a`
+
+Returns an array of unique elements in both arrays.
+
+```javascript
+> A.union([1, 5, 7], [3, 5])
+[ 1, 5, 7, 3 ]
+```
+
 ### unique
 `Array a -> Array a`
 
@@ -236,6 +441,16 @@ Returns a list of unique elements.
 ```javascript
 > A.unique([1, 1, 1, 3, 5, 5, 9])
 [ 1, 3, 5, 9 ]
+```
+
+### uniqueBy
+`(a -> b) -> Array a -> Array a`
+
+Returns an array of unique values from the applied function.
+
+```javascript
+> A.uniqueBy(S.length, ['and', 'here', 'are', 'some', 'words'])
+[ 'and', 'here', 'words' ]
 ```
 
 
@@ -264,6 +479,16 @@ Returns `true` if both values are `true`.
 false
 ```
 
+### ap
+`Array (a -> b) -> Array a -> Array b`
+
+Applies a list of functions over a list of values.
+
+```javascript
+> F.ap([N.mul(2), N.add(3)], [1, 2, 3])
+[ 2, 4, 6, 4, 5, 6 ]
+```
+
 ### apply
 `(a -> b) -> a -> b`
 
@@ -272,6 +497,21 @@ Applies function to value.
 ```javascript
 > F.apply(N.add(1), 1)
 2
+```
+
+### both
+`(a -> Boolean) -> (a -> Boolean) -> a -> Boolean`
+
+Applies a value over two predicate functions, returns the result of an `and` comparison. Short-circuits if the first predicate returns false.
+
+```javascript
+> const test = F.both(F.gt(10), F.lt(20))
+
+> test(15)
+true
+
+> test(30)
+false
 ```
 
 ### complement
@@ -294,6 +534,20 @@ Applies value through two functions, from right to left.
 10
 ```
 
+### cond
+`Array (a -> Boolean, a -> b) -> a -> b`
+
+Contains predicate and transformer pairs, to determine which transformer to apply over a value.
+
+```javascript
+> F.cond([
+  [F.lt(1), N.inc],
+  [F.gt(1), N.dec],
+  [F.always(true), F.identity]
+], 10)
+9
+```
+
 ### curry
 `Number -> ((a, b) -> c) -> a -> b -> c`
 
@@ -304,6 +558,24 @@ Wraps a function and allows you to supply your arguments one at a time.
 > const add1 = add(1)
 > add1(1)
 2
+```
+
+### either
+`(a -> Boolean) -> (a -> Boolean) -> a -> Boolean`
+
+Applies a value over two predicate functions, returns the result of an `or` comparison. Short-circuits if the first predicate returns true.
+
+```javascript
+> const test = F.either(F.gt(10), N.isEven)
+
+> test(15)
+true
+
+> test(5)
+false
+
+> test(4)
+true
 ```
 
 ### equals
@@ -402,6 +674,17 @@ false
 false
 ```
 
+### on
+`(b -> b -> c) -> (a -> b) -> a -> a -> c`
+
+Applies a binary function over a unary function twice.
+
+```javascript
+> const sameLength = F.on(F.equals, S.length)
+> sameLength('hey', 'now')
+true
+```
+
 ### or
 `Boolean -> Boolean -> Boolean`
 
@@ -420,6 +703,16 @@ Applies a sequence of transformations over a value.
 ```javascript
 > F.pipe([N.add(1), Math.sqrt], 99)
 10
+```
+
+### when
+`(a -> Boolean) -> (a -> b) -> a -> b`
+
+If the predicate is matched, run a transformer function, otherwise return the original value.
+
+```javascript
+> F.when(F.lt(10), N.inc, 5)
+6
 ```
 
 
@@ -479,6 +772,33 @@ Adds two numbers.
 4
 ```
 
+### clamp
+`Number -> Number -> Number -> Number`
+
+Retricts a number to be within a range.
+
+```javascript
+> const test = clamp(1, 10)
+> test(0)
+1
+
+> test(20)
+10
+
+> test(5)
+5
+```
+
+### dec
+`Number -> Number`
+
+Decrements a number.
+
+```javascript
+> N.dec(10)
+9
+```
+
 ### divide
 `Number -> Number -> Number`
 
@@ -487,6 +807,26 @@ Divides two numbers.
 ```javascript
 > N.divide(2, 10)
 5
+```
+
+### gcd
+`Number -> Number -> Number`
+
+Greatest common denominator.
+
+```javascript
+> N.gcd(12, 18)
+6
+```
+
+### inc
+`Number -> Number`
+
+Increments a number.
+
+```javascript
+> N.inc(10)
+11
 ```
 
 ### isEven
@@ -509,6 +849,16 @@ Determines if a number is odd.
 true
 ```
 
+### lcm
+`Number -> Number -> Number`
+
+Least common multiple.
+
+```javascript
+> N.lcm(12, 18)
+36
+```
+
 ### max
 `Number -> Number -> Number`
 
@@ -529,6 +879,16 @@ Returns the smaller number.
 4
 ```
 
+### mod
+`Number -> Number -> Number`
+
+Behaves like the mathematical modulo operator.
+
+```javascript
+> N.mod(-20, 3)
+1
+```
+
 ### multiply
 `Number -> Number -> Number`
 
@@ -537,6 +897,36 @@ Multiplies two numbers.
 ```javascript
 > N.multiply(2, 5)
 10
+```
+
+### negate
+`Number -> Number`
+
+Negated number.
+
+```javascript
+> N.negate(10)
+-10
+```
+
+### pow
+`Number -> Number -> Number`
+
+Returns the power.
+
+```javascript
+> N.pow(2, -2)
+4
+```
+
+### rem
+`Number -> Number -> Number`
+
+Returns the remainder.
+
+```javascript
+> N.rem(3, -20)
+-2
 ```
 
 ### subtract
@@ -580,6 +970,16 @@ Returns the property of an object, if it exists.
 [ 1, 2, 3 ]
 ```
 
+### gets
+`Array k -> Object k v -> Array (Maybe v)`
+
+Returns an array of values where Object k is found. 
+
+```javascript
+> O.gets(['a', 'b'], { a: 1, b: 2 })
+[ 1, 2 ]
+```
+
 ### includes
 `k -> Object k v -> Boolean`
 
@@ -620,6 +1020,16 @@ Returns an object with transformations applied over specified keys.
 { id: 123, ms: 1000 }
 ```
 
+### path
+`Array k -> Object k v -> Maybe v`
+
+Returns a value from a nested object path.
+
+```javascript
+> O.path(['a', 'b', 'c'], {a: {b: {c: 1}}})
+1
+```
+
 ### reject
 `Array k -> Object k v -> Object k v`
 
@@ -653,6 +1063,26 @@ Returns an array of every value in an object.
 [ 1, 2 ]
 ```
 
+### where
+`Object k (v -> Boolean) -> Object k v -> Boolean`
+
+Returns whether every key matches the predicate.
+
+```javascript
+> const test = O.where({
+  a: F.equals('foo'),
+  b: F.not(F.equals('bar')),
+  x: F.gt(10),
+  y: F.lt(20)
+})
+
+> test({ a: 'foo', b: 'baz', x: 15, y: 15 })
+true
+
+> test({ a: 'foo', b: 'baz': x: 10, y: 15 })
+false
+```
+
 
 ## String
 ```javascript
@@ -667,6 +1097,16 @@ Combine two strings.
 ```javascript
 > S.append('ing', 'append')
 'appending'
+```
+
+### capitalize
+`String -> String`
+
+Capitalize a string.
+
+```javascript
+> S.capitalize('hello, world!')
+'Hello, world!'
 ```
 
 ### chars
@@ -697,6 +1137,16 @@ Drops the first n elements in a string.
 ```javascript
 > S.drop(3, 'mmmhmmm')
 'hmmm'
+```
+
+### dropWhile
+`(String -> Boolean) -> String -> String`
+
+Drops the first elements of a string that pass the predicate.
+
+```javascript
+> S.dropWhile(equals('m'), 'mmmhmm')
+'hmm'
 ```
 
 ### includes
@@ -749,6 +1199,16 @@ Creates an array from a string that might contain line breaks.
 [ 'foo', 'bar', 'baz' ]
 ```
 
+### repeat
+`Number -> String -> String`
+
+Repeated a string n amount of times.
+
+```javascript
+> S.repeat(3, 'abc')
+'abcabcabc'
+```
+
 ### reverse
 `String -> String`
 
@@ -769,6 +1229,16 @@ Returns a subset of a string, given starting and ending indexes.
 'bc'
 ```
 
+### span
+`(String -> Boolean) -> String -> Array (String, String)`
+
+Equivalent to `[takeWhile(f, str), dropWhile(f, str)]`.
+
+```javascript
+> S.span(F.equals('m'), 'mmmhmm')
+[ 'mmm', 'hmm' ]
+```
+
 ### split
 `String -> String -> Array String`
 
@@ -786,6 +1256,16 @@ Returns the first n elements in a string.
 
 ```javascript
 > S.take(3, 'mmmhmmm')
+'mmm'
+```
+
+### takeWhile
+`(String -> Boolean) -> String -> String`
+
+Takes the first elements of a string that pass the predicate.
+
+```javascript
+> S.takeWhile(F.equals('m'), 'mmmhmm')
 'mmm'
 ```
 
