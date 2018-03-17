@@ -11,7 +11,7 @@ A benefit of this approach is that `(a -> b)` will have no trouble adding functi
 #### Goals
 - Able to partially apply all functions.
 - Ensure correctness of transformations, not allowing data to be mutated.
-- Leverage type separation into a more interesting interface; for example, `O.map`.
+- Leverage type separation into a more interesting interface; for example, `O.map/filter`.
 
 
 ## Array
