@@ -4,16 +4,14 @@ A standard library for data transformation.
 `npm install @bchar/a-to-b`
 
 #### Why (a -> b)
-Reading and understanding code can be difficult, and can be made more challenging when using functions that work on more than one data type.
+Reading and understanding code can be difficult, and can be made more challenging when using functions that work on more than one data type. The ability to have the same function run in different contexts is powerful and good! However, if used excessively, it can potentially be more difficult to reason about what is happening at a given time.
 
-In terms of readability, it's generally considered easier to understand that `A.filter` is working on an array than a more generic `filter`, which could be working on an array or an object. The ability to have the same function run in different contexts is powerful and good! However, if used excessively, it can potentially be more difficult to reason about what is happening at a given time.
-
-For instance, `(a -> b)` will have no trouble adding functions for Map or Set in the future.
+A benefit of this approach is that `(a -> b)` will have no trouble adding functions for different types in the future; for example, `Map` or `Set`.
 
 #### Goals
 - Able to partially apply all functions.
 - Ensure correctness of transformations, not allowing data to be mutated.
-- Leverage type separation into a more interesting interface.
+- Leverage type separation into a more interesting interface; for example, `O.map`.
 
 
 ## Array
