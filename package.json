@@ -1,7 +1,7 @@
 {
   "name": "@bchar/a-to-b",
-  "version": "0.3.0",
-  "description": "A standard library for data transformation",
+  "version": "0.3.1",
+  "description": "A library for data transformation",
   "author": "Brandon Chartier",
   "main": "index.js",
   "license": "MIT",
