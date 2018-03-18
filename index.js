@@ -11,11 +11,5 @@ module.exports = {
   maybe,
   number,
   object,
-  string,
-  A: array,
-  F: fn,
-  M: maybe,
-  N: number,
-  O: object,
-  S: string
+  string
 }

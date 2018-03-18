@@ -1,7 +1,7 @@
 {
   "name": "@bchar/a-to-b",
-  "version": "0.3.1",
-  "description": "A library for data transformation",
+  "version": "0.4.0",
+  "description": "A JavaScript library for functional data transformation",
   "author": "Brandon Chartier",
   "main": "index.js",
   "license": "MIT",
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/abstract-tools/a-to-b/issues"
   },
-  "homepage": "https://github.com/abstract-tools/a-to-b#readme",
+  "homepage": "http://abstract.tools/a-to-b",
   "devDependencies": {
     "istanbul": "0.4.5",
     "tape": "4.9.0"
