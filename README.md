@@ -2,6 +2,10 @@
 
 A JavaScript library for functional data transformation.
 
+[![Build Status](https://travis-ci.org/abstract-tools/a-to-b.svg?branch=master)](https://travis-ci.org/abstract-tools/a-to-b)
+[![npm version](https://badge.fury.io/js/%40bchar%2Fa-to-b.svg)](https://badge.fury.io/js/%40bchar%2Fa-to-b)
+[![dependencies](https://david-dm.org/abstract-tools/a-to-b.svg)](https://david-dm.org/abstract-tools/a-to-b)
+
 `npm install @bchar/a-to-b`
 
 ## Why (a -> b)?
