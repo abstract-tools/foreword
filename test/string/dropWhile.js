@@ -7,3 +7,10 @@ test('string dropWhile', t => {
   t.same(result, 'hmmm')
   t.end()
 })
+
+test('string dropWhile: drop all', t => {
+  const result = dropWhile(x => x === 'm', 'mmmmmmm')
+
+  t.same(result, '')
+  t.end()
+})

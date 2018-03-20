@@ -2,7 +2,9 @@ const curry = require('../function/curry')
 
 // takeWhile :: (a -> Boolean) -> Array a -> Array a
 function takeWhile (f, arr = []) {
-  return arr.slice(0, arr.findIndex(a => !f(a)))
+  const idx = arr.findIndex(x => !f(x))
+
+  return arr.slice(0, (idx < 0) ? Infinity : idx)
 }
 
 module.exports = curry(2, takeWhile)

@@ -7,3 +7,10 @@ test('array takeWhile', t => {
   t.same(result, [1,3,5])
   t.end()
 })
+
+test('array takeWhile: take all', t => {
+  const result = takeWhile(x => x % 2 !== 0, [1,3,5])
+
+  t.same(result, [1,3,5])
+  t.end()
+})
