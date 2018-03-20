@@ -1,5 +1,5 @@
 // identity :: a -> a
-const identity = function identity (a) {
+function identity (a) {
   return a
 }
 

@@ -1,8 +1,8 @@
 const curry = require('./curry')
 
 // lte :: a -> a -> Boolean
-const lte = curry(2, function lte (a, b) {
+function lte (a, b) {
   return b <= a
-})
+}
 
-module.exports = lte
+module.exports = curry(2, lte)

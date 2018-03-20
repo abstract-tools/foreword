@@ -1,8 +1,8 @@
 const curry = require('./curry')
 
 // or :: Boolean -> Boolean -> Boolean
-const or = curry(2, function or (a, b) {
+function or (a, b) {
   return a || b
-})
+}
 
-module.exports = or
+module.exports = curry(2, or)

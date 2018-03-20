@@ -1,5 +1,5 @@
 // concat :: Array a -> Array a
-const concat = function concat (arr = []) {
+function concat (arr = []) {
   return arr.reduce((a, b) => a.concat(b), [])
 }
 

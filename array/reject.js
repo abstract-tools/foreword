@@ -1,8 +1,8 @@
 const curry = require('../function/curry')
 
 // reject :: (a -> Boolean) -> Array a -> Array a
-const reject = curry(2, function reject (f, arr = []) {
+function reject (f, arr = []) {
   return arr.filter(a => !f(a))
-})
+}
 
-module.exports = reject
+module.exports = curry(2, reject)

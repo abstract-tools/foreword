@@ -1,5 +1,5 @@
 // isEmpty :: String -> Boolean
-const isEmpty = function isEmpty (str = '') {
+function isEmpty (str = '') {
   return !Boolean(str.length)
 }
 

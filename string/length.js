@@ -1,5 +1,5 @@
 // length :: String -> Number
-const length = function length (str = '') {
+function length (str = '') {
   return str.length
 }
 

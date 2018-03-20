@@ -1,5 +1,5 @@
 // negate :: Number -> Number
-const negate = function negate (n = 0) {
+function negate (n = 0) {
   return -n
 }
 

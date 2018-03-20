@@ -1,5 +1,5 @@
 // not :: Boolean -> Boolean
-const not = function not (a) {
+function not (a) {
   return !a
 }
 

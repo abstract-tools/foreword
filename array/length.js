@@ -1,5 +1,5 @@
 // length :: Array a -> Number
-const length = function length (arr = []) {
+function length (arr = []) {
   return arr.length
 }
 

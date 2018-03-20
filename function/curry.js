@@ -1,5 +1,5 @@
 // curry :: Number -> ((a, b) -> c) -> a -> b -> c
-const curry = function curry (n = 0, f, ...args) {
+function curry (n = 0, f, ...args) {
   if (n <= 0) {
     return f(...args)
   }

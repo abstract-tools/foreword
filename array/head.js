@@ -1,5 +1,5 @@
 // head :: Array a -> Maybe a
-const head = function head (arr = []) {
+function head (arr = []) {
   return arr[0]
 }
 

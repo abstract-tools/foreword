@@ -1,5 +1,5 @@
 // values :: Object k v -> Array v
-const values = function values (obj = {}) {
+function values (obj = {}) {
   return Object.values(obj)
 }
 

@@ -1,5 +1,5 @@
 // last :: Array a -> Maybe a
-const last = function last (arr = []) {
+function last (arr = []) {
   return arr[arr.length - 1]
 }
 

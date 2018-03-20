@@ -1,5 +1,5 @@
 // toUpper :: String -> String
-const toUpper = function toUpper (str = '') {
+function toUpper (str = '') {
   return str.toUpperCase()
 }
 

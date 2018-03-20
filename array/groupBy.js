@@ -1,7 +1,7 @@
 const curry = require('../function/curry')
 
 // groupBy :: (a -> b) -> Array a -> Object k (Array a)
-const groupBy = curry(2, function groupBy (f, arr = []) {
+function groupBy (f, arr = []) {
   return arr.reduce((a, b) => {
     const k = f(b)
 
@@ -9,6 +9,6 @@ const groupBy = curry(2, function groupBy (f, arr = []) {
       [k]: a[k] ? a[k].concat(b) : [b]
     })
   }, {})
-})
+}
 
-module.exports = groupBy
+module.exports = curry(2, groupBy)

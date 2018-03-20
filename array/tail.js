@@ -1,5 +1,5 @@
 // tail :: Array a -> Array a
-const tail = function tail (arr = []) {
+function tail (arr = []) {
   return arr.slice(1)
 }
 

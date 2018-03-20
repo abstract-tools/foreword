@@ -1,5 +1,5 @@
 // isEmpty :: Object k v -> Boolean
-const isEmpty = function isEmpty (obj = {}) {
+function isEmpty (obj = {}) {
   return !Boolean(Object.keys(obj).length)
 }
 

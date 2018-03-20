@@ -1,10 +1,10 @@
 const curry = require('../function/curry')
 
 // ap :: Array (a -> b) -> Array a -> Array b
-const ap = curry(2, function ap (fs = [], arr = []) {
+function ap (fs = [], arr = []) {
   return fs.reduce((a, f) => {
     return a.concat(arr.map(f))
   }, [])
-})
+}
 
-module.exports = ap
+module.exports = curry(2, ap)

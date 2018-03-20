@@ -1,5 +1,5 @@
 // isEmpty :: Array a -> Boolean
-const isEmpty = function isEmpty (arr = []) {
+function isEmpty (arr = []) {
   return !Boolean(arr.length)
 }
 

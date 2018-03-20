@@ -1,7 +1,7 @@
 const curry = require('../function/curry')
 
 // clamp :: Number -> Number -> Number -> Number
-const clamp = curry(3, function clamp (a = 0, b = 0, c = 0) {
+function clamp (a = 0, b = 0, c = 0) {
   if (c < a) {
     return a
   }
@@ -11,6 +11,6 @@ const clamp = curry(3, function clamp (a = 0, b = 0, c = 0) {
   }
 
   return c
-})
+}
 
-module.exports = clamp
+module.exports = curry(3, clamp)

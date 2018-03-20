@@ -1,5 +1,5 @@
 // isEven :: Number -> Boolean
-const isEven = function isEven (n = 0) {
+function isEven (n = 0) {
   return n % 2 === 0
 }
 

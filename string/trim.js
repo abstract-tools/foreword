@@ -1,5 +1,5 @@
 // trim :: String -> String
-const trim = function trim (str = '') {
+function trim (str = '') {
   return str.trim()
 }
 

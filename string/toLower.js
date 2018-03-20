@@ -1,5 +1,5 @@
 // toLower :: String -> String
-const toLower = function toLower (str = '') {
+function toLower (str = '') {
   return str.toLowerCase()
 }
 

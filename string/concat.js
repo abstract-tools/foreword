@@ -1,5 +1,5 @@
 // concat :: Array String -> String
-const concat = function concat (arr = []) {
+function concat (arr = []) {
   return arr.join('')
 }
 
