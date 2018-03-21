@@ -19,6 +19,7 @@ const not = require('./not')
 const on = require('./on')
 const or = require('./or')
 const pipe = require('./pipe')
+const unless = require('./unless')
 const when = require('./when')
 
 module.exports = {
@@ -43,6 +44,7 @@ module.exports = {
   on,
   or,
   pipe,
+  unless,
   when,
   comp: compose,
   eq: equals,

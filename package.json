@@ -1,11 +1,25 @@
 {
   "name": "@bchar/a-to-b",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A JavaScript library for functional data transformation",
   "author": "Brandon Chartier",
   "main": "index.js",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "javascript",
+    "library",
+    "utility",
+    "functional",
+    "array",
+    "maybe",
+    "number",
+    "object",
+    "string",
+    "data"
+  ],
+  "engines": {
+    "node": ">=8.9.0"
+  },
   "scripts": {
     "test": "istanbul cover tape test/**/*.js"
   },
