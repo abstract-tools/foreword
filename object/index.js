@@ -1,4 +1,5 @@
-const filter = require('./filter');
+const concat = require('./concat')
+const filter = require('./filter')
 const get = require('./get')
 const gets = require('./gets')
 const includes = require('./includes')
@@ -12,6 +13,7 @@ const values = require('./values')
 const where = require('./where')
 
 module.exports = {
+  concat,
   filter,
   get,
   gets,
