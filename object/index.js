@@ -12,7 +12,6 @@ const reject = require('./reject')
 const some = require('./some')
 const update = require('./update')
 const values = require('./values')
-const where = require('./where')
 
 module.exports = {
   concat,
@@ -29,6 +28,5 @@ module.exports = {
   some,
   update,
   values,
-  where,
   vals: values
 }
