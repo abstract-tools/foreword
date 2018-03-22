@@ -2,8 +2,8 @@ const curry = require('../function/curry')
 
 // span :: (String -> Boolean) -> String a -> Array (String, String)
 function span (f, str = '') {
-  const idx = Array.from(str).findIndex(a => !f(a))
-  const n = idx < 0 ? Infinity : idx
+  const i = Array.from(str).findIndex(x => !f(x))
+  const n = i < 0 ? Infinity : i
 
   return [str.slice(0, n), str.slice(n)]
 }

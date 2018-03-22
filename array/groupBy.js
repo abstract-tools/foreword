@@ -6,7 +6,7 @@ function groupBy (f, arr = []) {
     const k = f(b)
 
     return Object.assign(a, {
-      [k]: a[k] ? a[k].concat(b) : [b]
+      [k]: a[k] ? [...a[k], b] : [b]
     })
   }, {})
 }
