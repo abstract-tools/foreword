@@ -5,7 +5,6 @@ const apply = require('./apply')
 const both = require('./both')
 const complement = require('./complement')
 const compose = require('./compose')
-const cond = require('./cond')
 const curry = require('./curry')
 const either = require('./either')
 const equals = require('./equals')
@@ -15,6 +14,7 @@ const gte = require('./gte')
 const identity = require('./identity')
 const lt = require('./lt')
 const lte = require('./lte')
+const match = require('./match')
 const not = require('./not')
 const on = require('./on')
 const or = require('./or')
@@ -30,7 +30,6 @@ module.exports = {
   both,
   complement,
   compose,
-  cond,
   curry,
   either,
   equals,
@@ -40,6 +39,7 @@ module.exports = {
   identity,
   lt,
   lte,
+  match,
   not,
   on,
   or,

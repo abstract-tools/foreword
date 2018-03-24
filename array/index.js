@@ -1,6 +1,5 @@
 const append = require('./append')
 const concat = require('./concat')
-const difference = require('./difference')
 const drop = require('./drop')
 const dropWhile = require('./dropWhile')
 const every = require('./every')
@@ -11,7 +10,6 @@ const groupBy = require('./groupBy')
 const head = require('./head')
 const includes = require('./includes')
 const init = require('./init')
-const intersection = require('./intersection')
 const isEmpty = require('./isEmpty')
 const last = require('./last')
 const length = require('./length')
@@ -33,14 +31,12 @@ const span = require('./span')
 const tail = require('./tail')
 const take = require('./take')
 const takeWhile = require('./takeWhile')
-const union = require('./union')
 const unique = require('./unique')
 const uniqueBy = require('./uniqueBy')
 
 module.exports = {
   append,
   concat,
-  difference,
   drop,
   dropWhile,
   every,
@@ -51,7 +47,6 @@ module.exports = {
   head,
   includes,
   init,
-  intersection,
   isEmpty,
   last,
   length,
@@ -73,7 +68,6 @@ module.exports = {
   tail,
   take,
   takeWhile,
-  union,
   unique,
   uniqueBy
 }

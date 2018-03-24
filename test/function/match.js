@@ -1,7 +1,7 @@
 const test = require('tape')
-const cond = require('../../function/cond')
+const match = require('../../function/match')
 
-const fn = cond([
+const fn = match([
   [x => x === 100, x => 'x is 100'],
   [x => x > 100, x => 'x is greater than 100'],
   [_ => true, _ => 'x is something else']
