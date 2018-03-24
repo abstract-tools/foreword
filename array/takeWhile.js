@@ -4,7 +4,7 @@ const curry = require('../function/curry')
 function takeWhile (f, arr = []) {
   const i = arr.findIndex(x => !f(x))
 
-  return arr.slice(0, i < 0 ? Infinity : i)
+  return i < 0 ? arr : arr.slice(0, i)
 }
 
 module.exports = curry(2, takeWhile)
