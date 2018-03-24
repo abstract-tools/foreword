@@ -2,8 +2,13 @@ const test = require('tape')
 const span = require('../../string/span')
 
 test('string span', t => {
-  const result = span(x => x === 'm', 'mmmhmmm')
+  const isM = span(x => x === 'm')
 
-  t.same(result, ['mmm', 'hmmm'])
+  const result1 = isM('mmmhmmm')
+  const result2 = isM('')
+
+  t.same(result1, ['mmm', 'hmmm'])
+  t.same(result2, ['', ''])
+
   t.end()
 })
