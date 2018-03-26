@@ -1,10 +1,10 @@
 const curry = require('../function/curry')
 
 // match :: Array (a -> Boolean, a -> b) -> a -> b
-function match (arr = [], a) {
-  const [_, f] = arr.find(([g]) => g(a))
+function match (arr = [], ...args) {
+  const [_, f] = arr.find(([g]) => g(...args))
 
-  return f(a)
+  return f(...args)
 }
 
 module.exports = curry(2, match)
