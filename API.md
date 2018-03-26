@@ -122,7 +122,7 @@
 
 ## Array
 ```javascript
-const A = require('@bchar/a-to-b/array')
+const A = require('foreword/array')
 ```
 
 <div id="array-append" class="section-name"></div>
@@ -593,7 +593,7 @@ A.zip(['a', 'b', 'c'], [1, 2])
 
 ## Function
 ```javascript
-const F = require('@bchar/a-to-b/function')
+const F = require('foreword/function')
 ```
 
 <div id="function-always" class="section-name"></div>
@@ -935,7 +935,7 @@ when(lt(10), N.inc, 5)
 A set of functions for dealing with unwanted values.
 
 ```javascript
-const M = require('@bchar/a-to-b/maybe')
+const M = require('foreword/maybe')
 ```
 
 <div id="maybe-isNothing" class="section-name"></div>
@@ -1011,7 +1011,7 @@ M.withDefault(1, 10)
 
 ## Number
 ```javascript
-const N = require('@bchar/a-to-b/number')
+const N = require('foreword/number')
 ```
 
 <div id="number-add" class="section-name"></div>
@@ -1213,7 +1213,7 @@ N.subtract(2, 10)
 
 ## Object
 ```javascript
-const O = require('@bchar/a-to-b/object')
+const O = require('foreword/object')
 ```
 
 <div id="object-concat" class="section-name"></div>
@@ -1393,7 +1393,7 @@ O.update({ a: true }, { a: false })
 
 ## String
 ```javascript
-const S = require('@bchar/a-to-b/string')
+const S = require('foreword/string')
 ```
 
 <div id="string-append" class="section-name"></div>
