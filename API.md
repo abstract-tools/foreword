@@ -1034,7 +1034,7 @@ N.add(2, 2)
 Retricts a number to be within a range.
 
 ```javascript
-const test = clamp(1, 10)
+const test = N.clamp(1, 10)
 test(0)
 //=> 1
 
@@ -1115,7 +1115,7 @@ N.isOdd(9)
 Returns the larger number.
 
 ```javascript
-max(4, 9)
+N.max(4, 9)
 //=> 9
 ```
 
@@ -1127,7 +1127,7 @@ max(4, 9)
 Returns the smaller number.
 
 ```javascript
-min(4, 9)
+N.min(4, 9)
 //=> 4
 ```
 
@@ -1273,7 +1273,7 @@ A.map(O.filter(['id']), [{ id: 1, name: 'alice' }, { id: 2, name: 'bob' }])
 Returns a value from a nested object path.
 
 ```javascript
-O.find(['a', 'b', 'c'], {a: {b: {c: 1}}})
+O.find(['a', 'b', 'c'], { a: { b: { c: 1 } } })
 //=> 1
 ```
 
@@ -1288,7 +1288,7 @@ Returns the property of an object, if it exists.
 O.get('a', { a: 'test' })
 //=> 'test'
 
-A.map(O.get('a'), [{ a: 1}, { a: 2 }, { a: 3 }])
+A.map(O.get('a'), [{ a: 1 }, { a: 2 }, { a: 3 }])
 //=> [ 1, 2, 3 ]
 ```
 
