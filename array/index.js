@@ -19,6 +19,7 @@ const maxBy = require('./maxBy')
 const min = require('./min')
 const minBy = require('./minBy')
 const partition = require('./partition')
+const range = require('./range')
 const reduce = require('./reduce')
 const reject = require('./reject')
 const reverse = require('./reverse')
@@ -33,6 +34,7 @@ const take = require('./take')
 const takeWhile = require('./takeWhile')
 const unique = require('./unique')
 const uniqueBy = require('./uniqueBy')
+const zip = require('./zip')
 
 module.exports = {
   append,
@@ -56,6 +58,7 @@ module.exports = {
   min,
   minBy,
   partition,
+  range,
   reduce,
   reject,
   reverse,
@@ -69,5 +72,6 @@ module.exports = {
   take,
   takeWhile,
   unique,
-  uniqueBy
+  uniqueBy,
+  zip
 }
