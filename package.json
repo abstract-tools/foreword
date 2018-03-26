@@ -1,5 +1,5 @@
 {
-  "name": "@bchar/a-to-b",
+  "name": "foreword",
   "version": "0.5.1",
   "description": "A JavaScript library for functional data transformation",
   "author": "Brandon Chartier",
@@ -25,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abstract-tools/a-to-b.git"
+    "url": "git+https://github.com/abstract-tools/foreword.git"
   },
   "bugs": {
-    "url": "https://github.com/abstract-tools/a-to-b/issues"
+    "url": "https://github.com/abstract-tools/foreword/issues"
   },
-  "homepage": "http://abstract.tools/a-to-b",
+  "homepage": "http://abstract.tools/foreword",
   "devDependencies": {
     "istanbul": "0.4.5",
     "tape": "4.9.0"
