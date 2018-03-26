@@ -1,8 +1,8 @@
 const curry = require('../function/curry')
 
 // range :: Number -> Number -> Array Number
-function range (a, b) {
+function range (a = 0, b = 0) {
   return Array(b).fill(0).map((_, i) => i).slice(a)
 }
 
-module.exports = range
+module.exports = curry(2, range)
