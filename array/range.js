@@ -2,7 +2,13 @@ const curry = require('../function/curry')
 
 // range :: Number -> Number -> Array Number
 function range (a = 0, b = 0) {
-  return Array(b).fill(0).map((_, i) => i).slice(a)
+  const arr = []
+
+  for (let i = a, len = b; i < b; i++) {
+    arr.push(i)
+  }
+
+  return arr
 }
 
 module.exports = curry(2, range)
