@@ -2,7 +2,7 @@ const test = require('tape')
 const last = require('../../array/last')
 
 test('array last: return last element in array', t => {
-  const result = last([1,2,3])
+  const result = last([1, 2, 3])
 
   t.same(result, 3)
   t.end()

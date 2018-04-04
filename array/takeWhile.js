@@ -1,6 +1,5 @@
 const curry = require('../function/curry')
 
-// takeWhile :: (a -> Boolean) -> Array a -> Array a
 function takeWhile (f, arr = []) {
   const i = arr.findIndex(x => !f(x))
 

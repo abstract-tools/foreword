@@ -1,6 +1,5 @@
 const curry = require('./curry')
 
-// always :: a -> b -> a
 function always (a, b) {
   return a
 }

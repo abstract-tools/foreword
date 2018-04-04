@@ -1,4 +1,3 @@
-// toLower :: String -> String
 function toLower (str = '') {
   return str.toLowerCase()
 }

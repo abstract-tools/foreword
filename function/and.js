@@ -1,6 +1,5 @@
 const curry = require('./curry')
 
-// and :: Boolean -> Boolean -> Boolean
 function and (a, b) {
   return a && b
 }

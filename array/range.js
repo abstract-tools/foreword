@@ -1,10 +1,9 @@
 const curry = require('../function/curry')
 
-// range :: Number -> Number -> Array Number
 function range (a = 0, b = 0) {
   const arr = []
 
-  for (let i = a, len = b; i < b; i++) {
+  for (let i = a, len = b; i < len; i++) {
     arr.push(i)
   }
 

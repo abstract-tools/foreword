@@ -1,4 +1,3 @@
-// identity :: a -> a
 function identity (a) {
   return a
 }

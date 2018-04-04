@@ -1,4 +1,3 @@
-// length :: Array a -> Number
 function length (arr = []) {
   return arr.length
 }

@@ -9,7 +9,7 @@ test('object isEmpty: returns true if contains no keys', t => {
 })
 
 test('object isEmpty: returns false if contains keys', t => {
-  const result = isEmpty({a:'test'})
+  const result = isEmpty({a: 'test'})
 
   t.same(result, false)
   t.end()

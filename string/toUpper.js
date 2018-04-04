@@ -1,4 +1,3 @@
-// toUpper :: String -> String
 function toUpper (str = '') {
   return str.toUpperCase()
 }

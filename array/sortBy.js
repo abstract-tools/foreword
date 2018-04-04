@@ -1,6 +1,5 @@
 const curry = require('../function/curry')
 
-// sortBy :: (a -> b) -> Array a -> Array a
 function sortBy (f, arr = []) {
   return [...arr].sort((a, b) => {
     const x = f(a)

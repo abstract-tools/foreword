@@ -1,4 +1,3 @@
-// trim :: String -> String
 function trim (str = '') {
   return str.trim()
 }

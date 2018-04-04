@@ -48,7 +48,8 @@
   - [compose](#function-compose)
   - [curry](#function-curry)
   - [either](#function-either)
-  - [equals](#function-equals)
+  - [equal](#function-equal)
+  - [equalBy](#function-equalBy)
   - [flip](#function-flip)
   - [gt](#function-gt)
   - [gte](#function-gte)
@@ -181,10 +182,10 @@ A.dropWhile(N.isEven, [2, 4, 5, 6])
 Determines if every element satisfies the predicate.
 
 ```javascript
-A.every(equals(1), [1, 1, 1])
+A.every(equal(1), [1, 1, 1])
 //=> true
 
-A.every(equals('a'), ['a', 'b', 'c'])
+A.every(equal('a'), ['a', 'b', 'c'])
 //=> false
 ```
 
@@ -196,7 +197,7 @@ A.every(equals('a'), ['a', 'b', 'c'])
 Returns an array of every element that matches the predicate.
 
 ```javascript
-A.filter(equals(1), [1, 2, 3])
+A.filter(equal(1), [1, 2, 3])
 //=> [ 1 ]
 ```
 
@@ -208,7 +209,7 @@ A.filter(equals(1), [1, 2, 3])
 Returns the value of the first element that matches the predicate, or `undefined` if it does not exist.
 
 ```javascript
-A.find(equals(1), [1, 2, 3])
+A.find(equal(1), [1, 2, 3])
 //=> 1
 ```
 
@@ -469,7 +470,7 @@ A.slice(1, 3, [1, 2, 3, 4, 5])
 Determines if any elements match the predicate.
 
 ```javascript
-A.some(equals(1), [1, 2, 3])
+A.some(equal(1), [1, 2, 3])
 //=> true
 ```
 
@@ -675,7 +676,7 @@ test(30)
 Returns the opposite boolean value that the predicate returned.
 
 ```javascript
-complement(equals(1), 1)
+complement(equal(1), 1)
 //=> false
 ```
 
@@ -727,22 +728,36 @@ test(4)
 //=> true
 ```
 
-<div id="function-equals" class="section-name"></div>
+<div id="function-equal" class="section-name"></div>
 
-### equals
+### equal
 `a -> a -> Boolean`
 
 Returns the result of comparing two values.
 
 ```javascript
-equals('abc', 'abc')
+equal('abc', 'abc')
 //=> true
 
-equals('abc', 'xyz')
+equal('abc', 'xyz')
 //=> false
 ```
 
 *Alias: eq*
+
+<div id="function-equalBy" class="section-name"></div>
+
+### equalBy
+`a -> a -> Boolean`
+
+Returns the result of comparing two values, after applying a function over the values
+
+```javascript
+equalBy(Math.abs, 5, -5)
+//=> true
+```
+
+*Alias: eqBy*
 
 <div id="function-flip" class="section-name"></div>
 
@@ -857,7 +872,7 @@ Returns the opposite boolean value.
 not(true)
 //=> false
 
-not(A.some(equals(1), [1, 2, 3]))
+not(A.some(equal(1), [1, 2, 3]))
 //=> false
 ```
 
@@ -869,7 +884,7 @@ not(A.some(equals(1), [1, 2, 3]))
 Applies a binary function over a unary function twice.
 
 ```javascript
-const sameLength = on(equals, S.length)
+const sameLength = on(equal, S.length)
 sameLength('hey', 'now')
 //=> true
 ```
@@ -1237,8 +1252,8 @@ Returns whether every key matches the predicate.
 
 ```javascript
 const test = O.every({
-  a: equals('foo'),
-  b: not(equals('bar')),
+  a: equal('foo'),
+  b: not(equal('bar')),
   x: gt(10),
   y: lt(20)
 })
@@ -1440,7 +1455,7 @@ S.drop(3, 'mmmhmmm')
 Drops the first elements of a string that pass the predicate.
 
 ```javascript
-S.dropWhile(equals('m'), 'mmmhmm')
+S.dropWhile(equal('m'), 'mmmhmm')
 //=> 'hmm'
 ```
 
@@ -1536,7 +1551,7 @@ S.slice(1, 3, 'abcdef')
 Equivalent to `[takeWhile(f, str), dropWhile(f, str)]`.
 
 ```javascript
-S.span(equals('m'), 'mmmhmm')
+S.span(equal('m'), 'mmmhmm')
 //=> [ 'mmm', 'hmm' ]
 ```
 
@@ -1572,7 +1587,7 @@ S.take(3, 'mmmhmmm')
 Takes the first elements of a string that pass the predicate.
 
 ```javascript
-S.takeWhile(equals('m'), 'mmmhmm')
+S.takeWhile(equal('m'), 'mmmhmm')
 //=> 'mmm'
 ```
 

@@ -8,7 +8,6 @@ test('function or: returns true if one value is true', t => {
   t.end()
 })
 
-
 test('function or: returns false if both values are false', t => {
   const result = or(false, false)
 

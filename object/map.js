@@ -1,6 +1,5 @@
 const curry = require('../function/curry')
 
-// map :: Object k (a -> b) -> Object k v -> Object k v
 function map (spec = {}, obj = {}) {
   const keys = Object.keys(obj)
 

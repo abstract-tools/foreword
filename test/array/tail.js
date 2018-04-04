@@ -2,9 +2,9 @@ const test = require('tape')
 const tail = require('../../array/tail')
 
 test('array tail: get last elements in array', t => {
-  const result = tail([1,2,3,4,5])
+  const result = tail([1, 2, 3, 4, 5])
 
-  t.same(result, [2,3,4,5])
+  t.same(result, [2, 3, 4, 5])
   t.end()
 })
 

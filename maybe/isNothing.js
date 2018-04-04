@@ -1,4 +1,3 @@
-// isNothing :: a -> Boolean
 function isNothing (a) {
   return a == null
 }

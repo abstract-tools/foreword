@@ -1,6 +1,5 @@
 const curry = require('./curry')
 
-// lt :: a -> a -> Boolean
 function lt (a, b) {
   return b < a
 }

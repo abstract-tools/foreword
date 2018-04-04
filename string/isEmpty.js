@@ -1,6 +1,5 @@
-// isEmpty :: String -> Boolean
 function isEmpty (str = '') {
-  return !Boolean(str.length)
+  return !str.length
 }
 
 module.exports = isEmpty

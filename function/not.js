@@ -1,4 +1,3 @@
-// not :: Boolean -> Boolean
 function not (a) {
   return !a
 }

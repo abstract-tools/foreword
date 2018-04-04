@@ -7,7 +7,8 @@ const complement = require('./complement')
 const compose = require('./compose')
 const curry = require('./curry')
 const either = require('./either')
-const equals = require('./equals')
+const equal = require('./equal')
+const equalBy = require('./equalBy')
 const flip = require('./flip')
 const gt = require('./gt')
 const gte = require('./gte')
@@ -32,7 +33,8 @@ module.exports = {
   compose,
   curry,
   either,
-  equals,
+  equal,
+  equalBy,
   flip,
   gt,
   gte,
@@ -47,7 +49,8 @@ module.exports = {
   unless,
   when,
   comp: compose,
-  eq: equals,
+  eq: equal,
+  eqBy: equalBy,
   A: apply,
   B: compose,
   C: flip,

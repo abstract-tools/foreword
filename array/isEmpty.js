@@ -1,6 +1,5 @@
-// isEmpty :: Array a -> Boolean
 function isEmpty (arr = []) {
-  return !Boolean(arr.length)
+  return !arr.length
 }
 
 module.exports = isEmpty

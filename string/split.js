@@ -1,6 +1,5 @@
 const curry = require('../function/curry')
 
-// split :: String -> String -> Array String
 function split (a = '', str = '') {
   return str.split(a)
 }

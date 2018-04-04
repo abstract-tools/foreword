@@ -1,6 +1,5 @@
 const curry = require('../function/curry')
 
-// take :: Number -> String -> String
 function take (n = Infinity, str = '') {
   return str.slice(0, n)
 }
