@@ -3,6 +3,7 @@
 - [Array](#array)
   - [append](#array-append)
   - [concat](#array-concat)
+  - [countBy](#array-countBy)
   - [drop](#array-drop)
   - [dropWhile](#array-dropWhile)
   - [every](#array-every)
@@ -148,6 +149,21 @@ Concatenate an array of arrays into a single array, removing one level of nestin
 ```javascript
 A.concat([[1, 2], [3], [4, 5]])
 //=> [ 1, 2, 3, 4, 5 ]
+```
+
+<div id="array-countBy" class="section-name"></div>
+
+### countBy
+`(a -> b) -> Array a -> Object b Number`
+
+Returns an object with keys as the result of applying a function to elements, and the value is the amount of every matched element.
+
+```javascript
+A.countBy(Math.floor, [4.2, 6.1, 6.4])
+//=> { 4: 1, 6: 2 }
+
+A.countBy(S.length, ['one', 'two', 'three'])
+//=> { 3: 2, 5: 1 }
 ```
 
 <div id="array-drop" class="section-name"></div>
@@ -816,7 +832,7 @@ A.filter(identity, [0, 1, null, 'test'])
 //=> [ 1, 'test' ]
 ```
 
-*Aliases: I*
+*Aliases: I, id*
 
 <div id="function-lt" class="section-name"></div>
 

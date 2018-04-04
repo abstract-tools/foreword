@@ -51,6 +51,7 @@ module.exports = {
   comp: compose,
   eq: equal,
   eqBy: equalBy,
+  id: identity,
   A: apply,
   B: compose,
   C: flip,

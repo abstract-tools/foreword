@@ -1,5 +1,6 @@
 const append = require('./append')
 const concat = require('./concat')
+const countBy = require('./countBy')
 const drop = require('./drop')
 const dropWhile = require('./dropWhile')
 const every = require('./every')
@@ -39,6 +40,7 @@ const zip = require('./zip')
 module.exports = {
   append,
   concat,
+  countBy,
   drop,
   dropWhile,
   every,

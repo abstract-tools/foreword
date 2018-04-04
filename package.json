@@ -1,6 +1,6 @@
 {
   "name": "foreword",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "A JavaScript library for functional data transformation",
   "author": "Brandon Chartier",
   "main": "index.js",
