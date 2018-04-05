@@ -65,6 +65,7 @@
   - [unless](#function-unless)
   - [when](#function-when)
 - [Maybe](#maybe)
+  - [encase](#maybe-encase)
   - [isNothing](#maybe-isNothing)
   - [map](#maybe-map)
   - [toArray](#maybe-toArray)
