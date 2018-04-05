@@ -966,7 +966,22 @@ when(lt(10), N.inc, 5)
 A set of functions for dealing with unwanted values.
 
 ```javascript
-const M = require('foreword/maybe')
+const Maybe = require('foreword/maybe')
+```
+
+<div id="maybe-encase" class="section-name"></div>
+
+### encase
+`(a -> b) -> a -> Maybe b`
+
+Applies a function that may throw and a value, returns the result or, if it throws, `undefined`.
+
+```javascript
+Maybe.encase(x => x.a.b.c, {a: 0})
+undefined
+
+Maybe.encase(x => x.a.b.c, {a: {b: {c: 0}}})
+0
 ```
 
 <div id="maybe-isNothing" class="section-name"></div>
@@ -977,10 +992,10 @@ const M = require('foreword/maybe')
 Determines if a value exists.
 
 ```javascript
-M.isNothing(null || undefined)
+Maybe.isNothing(null || undefined)
 true
 
-M.isNothing(0)
+Maybe.isNothing(0)
 false
 ```
 
@@ -992,16 +1007,16 @@ false
 Applies function to value, if value exists, or returns value.
 
 ```javascript
-M.map(N.add(1), 1)
+Maybe.map(N.add(1), 1)
 //=> 2
 
-M.map(N.add(1), undefined)
+Maybe.map(N.add(1), undefined)
 //=> undefined
 
 pipe([
-  M.map(A.head),
-  M.map(N.multiply(2)),
-  M.map(N.isEven)
+  Maybe.map(A.head),
+  Maybe.map(N.multiply(2)),
+  Maybe.map(N.isEven)
 ], [])
 //=> undefined
 ```
@@ -1014,10 +1029,10 @@ pipe([
 Returns an empty array if value does not exist, or an array with the value.
 
 ```javascript
-M.toArray(undefined)
+Maybe.toArray(undefined)
 //=> []
 
-M.toArray(1)
+Maybe.toArray(1)
 //=> [1]
 ```
 
@@ -1029,10 +1044,10 @@ M.toArray(1)
 Returns the first value, if the second does not exist.
 
 ```javascript
-M.withDefault(1, undefined)
+Maybe.withDefault(1, undefined)
 //=> 1
 
-M.withDefault(1, 10)
+Maybe.withDefault(1, 10)
 //=> 10
 ```
 
