@@ -12,7 +12,7 @@ A JavaScript library for functional data transformation.
 
 - Ability to partially apply all functions, allowing you to write smaller, cleaner code.
 - Restrict functions to one type of data.
-- Leverage type separation into a more interesting interface, such as [A.map](#array-map) and [O.map](#object-map).
+- Leverage type separation into a more interesting interface, such as [A.map](http://abstract.tools/foreword#array-map) and [O.map](http://abstract.tools/foreword#object-map).
 - Provide useful functions for handling unwanted values.
 - Ensure correctness of transformations, not allowing references to be mutated.
 
