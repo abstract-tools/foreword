@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function max (a = 0, b = 0) {
+function max (a, b) {
   return a > b ? a : b
 }
 

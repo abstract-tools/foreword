@@ -1,4 +1,4 @@
-function isEven (n = 0) {
+function isEven (n) {
   return n % 2 === 0
 }
 

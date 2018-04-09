@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function reject (f, arr = []) {
+function reject (f, arr) {
   return arr.filter(v => !f(v))
 }
 

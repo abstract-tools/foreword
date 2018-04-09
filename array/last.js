@@ -1,4 +1,4 @@
-function last (arr = []) {
+function last (arr) {
   return arr[arr.length - 1]
 }
 

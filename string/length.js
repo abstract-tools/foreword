@@ -1,4 +1,4 @@
-function length (str = '') {
+function length (str) {
   return str.length
 }
 

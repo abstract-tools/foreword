@@ -1,4 +1,4 @@
-function isEmpty (arr = []) {
+function isEmpty (arr) {
   return !arr.length
 }
 

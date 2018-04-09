@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function span (f, str = '') {
+function span (f, str) {
   const i = Array.from(str).findIndex(x => !f(x))
   const n = i < 0 ? Infinity : i
 

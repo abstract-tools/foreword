@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function some (f, arr = []) {
+function some (f, arr) {
   return arr.some(f)
 }
 

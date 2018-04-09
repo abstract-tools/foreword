@@ -1,4 +1,4 @@
-function isOdd (n = 0) {
+function isOdd (n) {
   return n % 2 !== 0
 }
 

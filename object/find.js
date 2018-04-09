@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function find ([key = '', ...keys], obj = {}) {
+function find ([key, ...keys], obj) {
   if (!keys.length) {
     return obj[key]
   }

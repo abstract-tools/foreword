@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function get (str = '', obj = {}) {
+function get (str, obj) {
   return obj[str]
 }
 

@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function append (a = [], b = []) {
+function append (a, b) {
   return b.concat(a)
 }
 

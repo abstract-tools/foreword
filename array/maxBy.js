@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function maxBy (f, arr = []) {
+function maxBy (f, arr) {
   return arr.reduce((a, b) => f(a) >= f(b) ? a : b)
 }
 

@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function map (spec = {}, obj = {}) {
+function map (spec, obj) {
   const keys = Object.keys(obj)
 
   return Object.assign({}, obj, Object.keys(spec).reduce((a, k) => {

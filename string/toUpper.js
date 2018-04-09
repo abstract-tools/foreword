@@ -1,4 +1,4 @@
-function toUpper (str = '') {
+function toUpper (str) {
   return str.toUpperCase()
 }
 

@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function add (a = 0, b = 0) {
+function add (a, b) {
   return a + b
 }
 

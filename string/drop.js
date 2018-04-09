@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function drop (n = 0, str = '') {
+function drop (n, str) {
   return str.slice(n, Infinity)
 }
 

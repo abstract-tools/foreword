@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function zip (a = [], b = []) {
+function zip (a, b) {
   const arr = a.length < b.length ? a : b
 
   return arr.reduce((x, _, i) => {

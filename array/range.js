@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function range (a = 0, b = 0) {
+function range (a, b) {
   const arr = []
 
   for (let i = a, len = b; i < len; i++) {

@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function scan (f, init, arr = []) {
+function scan (f, init, arr) {
   return arr.reduce((a, b) => {
     return [...a, f(a[a.length - 1], b)]
   }, [init])

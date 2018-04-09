@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function match (arr = [], ...args) {
+function match (arr, ...args) {
   const [_, f] = arr.find(([g]) => g(...args)) // eslint-disable-line no-unused-vars
 
   return f(...args)

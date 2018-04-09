@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function includes (a, arr = []) {
+function includes (a, arr) {
   return arr.includes(a)
 }
 

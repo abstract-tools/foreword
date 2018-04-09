@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function divide (a = 0, b = 0) {
+function divide (a, b) {
   return b / a
 }
 

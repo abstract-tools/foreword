@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function rem (a = 0, b = 0) {
+function rem (a, b) {
   return b % a
 }
 

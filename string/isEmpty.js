@@ -1,4 +1,4 @@
-function isEmpty (str = '') {
+function isEmpty (str) {
   return !str.length
 }
 

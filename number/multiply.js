@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function multiply (a = 0, b = 0) {
+function multiply (a, b) {
   return a * b
 }
 

@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function sort (f, arr = []) {
+function sort (f, arr) {
   return [...arr].sort(f)
 }
 

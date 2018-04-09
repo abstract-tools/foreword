@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function update (a = {}, b = {}) {
+function update (a, b) {
   return Object.assign({}, b, a)
 }
 

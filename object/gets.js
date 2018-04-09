@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function gets (keys = [], obj = {}) {
+function gets (keys, obj) {
   return keys.map(k => obj[k])
 }
 

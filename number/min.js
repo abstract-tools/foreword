@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function min (a = 0, b = 0) {
+function min (a, b) {
   return a > b ? b : a
 }
 

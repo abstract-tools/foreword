@@ -1,4 +1,4 @@
-function reverse (arr = []) {
+function reverse (arr) {
   return [...arr].reverse()
 }
 

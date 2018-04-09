@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function filter (f, arr = []) {
+function filter (f, arr) {
   return arr.filter(f)
 }
 

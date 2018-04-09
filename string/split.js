@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function split (a = '', str = '') {
+function split (a, str) {
   return str.split(a)
 }
 

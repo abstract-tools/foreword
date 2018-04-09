@@ -1,4 +1,4 @@
-function concat (arr = []) {
+function concat (arr) {
   return arr.join('')
 }
 

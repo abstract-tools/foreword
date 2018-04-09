@@ -1,4 +1,4 @@
-function curry (n = 0, f, ...args) {
+function curry (n, f, ...args) {
   if (n <= 0) {
     return f(...args)
   }

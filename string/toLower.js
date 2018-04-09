@@ -1,4 +1,4 @@
-function toLower (str = '') {
+function toLower (str) {
   return str.toLowerCase()
 }
 

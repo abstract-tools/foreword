@@ -1,4 +1,4 @@
-function inc (n = 0) {
+function inc (n) {
   return n + 1
 }
 

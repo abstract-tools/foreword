@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function reduce (f, init, arr = []) {
+function reduce (f, init, arr) {
   return arr.reduce(f, init)
 }
 

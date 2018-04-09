@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function repeat (n = 1, str = '') {
+function repeat (n, str) {
   return str.repeat(n)
 }
 

@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function clamp (a = 0, b = 0, c = 0) {
+function clamp (a, b, c) {
   return c < a ? a : c > b ? b : c
 }
 

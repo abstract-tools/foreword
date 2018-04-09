@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function groupBy (f, arr = []) {
+function groupBy (f, arr) {
   return arr.reduce((a, b) => {
     const k = f(b)
 

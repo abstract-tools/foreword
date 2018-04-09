@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function every (f, arr = []) {
+function every (f, arr) {
   return arr.every(f)
 }
 

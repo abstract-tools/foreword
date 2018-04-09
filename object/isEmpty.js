@@ -1,4 +1,4 @@
-function isEmpty (obj = {}) {
+function isEmpty (obj) {
   return !Object.keys(obj).length
 }
 

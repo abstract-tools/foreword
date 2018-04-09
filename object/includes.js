@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function includes (str = '', obj = {}) {
+function includes (str, obj) {
   return Object.keys(obj).includes(str)
 }
 

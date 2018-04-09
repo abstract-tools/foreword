@@ -1,4 +1,4 @@
-function min (arr = []) {
+function min (arr) {
   return arr.reduce((a, b) => a <= b ? a : b)
 }
 

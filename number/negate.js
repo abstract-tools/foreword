@@ -1,4 +1,4 @@
-function negate (n = 0) {
+function negate (n) {
   return -n
 }
 

@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function pow (a = 0, b = 0) {
+function pow (a, b) {
   return Math.pow(b, a)
 }
 

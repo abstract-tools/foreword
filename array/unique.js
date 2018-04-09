@@ -1,7 +1,9 @@
-function unique (arr = []) {
-  return arr.reduce((a, b) => {
-    return a.includes(b) ? a : [...a, b]
-  }, [])
+function unique (arr) {
+  return Object.values(arr.reduce((a, b) => {
+    return a[b] ? a : Object.assign(a, {
+      [b]: b
+    })
+  }, {}))
 }
 
 module.exports = unique

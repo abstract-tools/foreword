@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function find (f, arr = []) {
+function find (f, arr) {
   return arr.find(f)
 }
 

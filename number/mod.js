@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function mod (a = 0, b = 0) {
+function mod (a, b) {
   return ((a % b) + b) % b
 }
 

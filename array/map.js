@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function map (f, arr = []) {
+function map (f, arr) {
   return arr.map(f)
 }
 

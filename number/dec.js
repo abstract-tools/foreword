@@ -1,4 +1,4 @@
-function dec (n = 0) {
+function dec (n) {
   return n - 1
 }
 

@@ -1,6 +1,6 @@
 const curry = require('../function/curry')
 
-function countBy (f, arr = []) {
+function countBy (f, arr) {
   return arr.reduce((a, b) => {
     const k = f(b)
 

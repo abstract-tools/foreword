@@ -1,4 +1,4 @@
-function length (arr = []) {
+function length (arr) {
   return arr.length
 }
 
