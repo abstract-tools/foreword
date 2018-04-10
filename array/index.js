@@ -8,8 +8,8 @@ const filter = require('./filter')
 const find = require('./find')
 const flatten = require('./flatten')
 const groupBy = require('./groupBy')
+const has = require('./has')
 const head = require('./head')
-const includes = require('./includes')
 const init = require('./init')
 const isEmpty = require('./isEmpty')
 const last = require('./last')
@@ -20,6 +20,7 @@ const maxBy = require('./maxBy')
 const min = require('./min')
 const minBy = require('./minBy')
 const partition = require('./partition')
+const prepend = require('./prepend')
 const range = require('./range')
 const reduce = require('./reduce')
 const reject = require('./reject')
@@ -48,8 +49,8 @@ module.exports = {
   find,
   flatten,
   groupBy,
+  has,
   head,
-  includes,
   init,
   isEmpty,
   last,
@@ -60,6 +61,7 @@ module.exports = {
   min,
   minBy,
   partition,
+  prepend,
   range,
   reduce,
   reject,

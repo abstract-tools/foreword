@@ -1,7 +1,7 @@
 const curry = require('../function/curry')
 
 function append (a, b) {
-  return b.concat(a)
+  return [...b, a]
 }
 
 module.exports = curry(2, append)

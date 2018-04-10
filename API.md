@@ -1,5 +1,45 @@
 # API
 
+- [Basics](#basics)
+  - [add](#number-add)
+  - [always](#function-always)
+  - [and](#function-and)
+  - [ap](#function-ap)
+  - [apply](#function-apply)
+  - [both](#function-both)
+  - [clamp](#number-clamp)
+  - [complement](#function-complement)
+  - [compose](#function-compose)
+  - [curry](#function-curry)
+  - [dec](#number-dec)
+  - [divide](#number-divide)
+  - [either](#function-either)
+  - [equal](#function-equal)
+  - [equalBy](#function-equalBy)
+  - [flip](#function-flip)
+  - [gt](#function-gt)
+  - [gte](#function-gte)
+  - [identity](#function-identity)
+  - [inc](#number-inc)
+  - [isEven](#number-isEven)
+  - [isOdd](#number-isOdd)
+  - [lt](#function-lt)
+  - [lte](#function-lte)
+  - [match](#function-match)
+  - [max](#number-max)
+  - [min](#number-min)
+  - [mod](#number-mod)
+  - [multiply](#number-multiply)
+  - [negate](#number-negate)
+  - [not](#function-not)
+  - [on](#function-on)
+  - [or](#function-or)
+  - [pipe](#function-pipe)
+  - [pow](#number-pow)
+  - [rem](#number-rem)
+  - [subtract](#number-subtract)
+  - [unless](#function-unless)
+  - [when](#function-when)
 - [Array](#array)
   - [append](#array-append)
   - [concat](#array-concat)
@@ -11,8 +51,8 @@
   - [find](#array-find)
   - [flatten](#array-flatten)
   - [groupBy](#array-groupBy)
+  - [has](#array-has)
   - [head](#array-head)
-  - [includes](#array-includes)
   - [init](#array-init)
   - [isEmpty](#array-isEmpty)
   - [last](#array-last)
@@ -23,6 +63,7 @@
   - [min](#array-min)
   - [minBy](#array-minBy)
   - [partition](#array-partition)
+  - [prepend](#array-prepend)
   - [range](#array-range)
   - [reduce](#array-reduce)
   - [reject](#array-reject)
@@ -39,53 +80,12 @@
   - [unique](#array-unique)
   - [uniqueBy](#array-uniqueBy)
   - [zip](#array-zip)
-- [Function](#function)
-  - [always](#function-always)
-  - [and](#function-and)
-  - [ap](#function-ap)
-  - [apply](#function-apply)
-  - [both](#function-both)
-  - [complement](#function-complement)
-  - [compose](#function-compose)
-  - [curry](#function-curry)
-  - [either](#function-either)
-  - [equal](#function-equal)
-  - [equalBy](#function-equalBy)
-  - [flip](#function-flip)
-  - [gt](#function-gt)
-  - [gte](#function-gte)
-  - [identity](#function-identity)
-  - [lt](#function-lt)
-  - [lte](#function-lte)
-  - [match](#function-match)
-  - [not](#function-not)
-  - [on](#function-on)
-  - [or](#function-or)
-  - [pipe](#function-pipe)
-  - [unless](#function-unless)
-  - [when](#function-when)
 - [Maybe](#maybe)
   - [encase](#maybe-encase)
   - [isNothing](#maybe-isNothing)
   - [map](#maybe-map)
   - [toArray](#maybe-toArray)
   - [withDefault](#maybe-withDefault)
-- [Number](#number)
-  - [add](#number-add)
-  - [clamp](#number-clamp)
-  - [dec](#number-dec)
-  - [divide](#number-divide)
-  - [inc](#number-inc)
-  - [isEven](#number-isEven)
-  - [isOdd](#number-isOdd)
-  - [max](#number-max)
-  - [min](#number-min)
-  - [mod](#number-mod)
-  - [multiply](#number-multiply)
-  - [negate](#number-negate)
-  - [pow](#number-pow)
-  - [rem](#number-rem)
-  - [subtract](#number-subtract)
 - [Object](#object)
   - [concat](#object-concat)
   - [every](#object-every)
@@ -93,7 +93,7 @@
   - [find](#object-find)
   - [get](#object-get)
   - [gets](#object-gets)
-  - [includes](#object-includes)
+  - [has](#object-has)
   - [isEmpty](#object-isEmpty)
   - [map](#object-map)
   - [reject](#object-reject)
@@ -104,7 +104,7 @@
   - [concat](#string-concat)
   - [drop](#string-drop)
   - [dropWhile](#string-dropWhile)
-  - [includes](#string-includes)
+  - [has](#string-has)
   - [isEmpty](#string-isEmpty)
   - [join](#string-join)
   - [length](#string-length)
@@ -121,6 +121,558 @@
 
 ---
 
+<div id="basics" class="section-name"></div>
+
+## Basics
+```javascript
+const F = require('foreword')
+// or
+const { add, always, ... } = require('foreword')
+```
+
+<div id="number-add" class="section-name"></div>
+
+### add
+`Number -> Number -> Number`
+
+Adds two numbers.
+
+```javascript
+add(2, 2)
+//=> 4
+```
+
+<div id="function-always" class="section-name"></div>
+
+### always
+`a -> b -> a`
+
+Returns its first argument.
+
+```javascript
+always('a', 'b')
+//=> 'a'
+```
+
+*Aliases: K*
+
+<div id="function-and" class="section-name"></div>
+
+### and
+`Boolean -> Boolean -> Boolean`
+
+Returns `true` if both values are `true`.
+
+```javascript
+and(true, false)
+//=> false
+```
+
+<div id="function-ap" class="section-name"></div>
+
+### ap
+`Array (a -> b) -> Array a -> Array b`
+
+Applies a list of functions over a list of values.
+
+```javascript
+ap([mul(2), add(3)], [1, 2, 3])
+//=> [ 2, 4, 6, 4, 5, 6 ]
+```
+
+*Aliases: S*
+
+<div id="function-apply" class="section-name"></div>
+
+### apply
+`(a -> b) -> a -> b`
+
+Applies function to value.
+
+```javascript
+apply(add(1), 1)
+//=> 2
+```
+
+*Aliases: A*
+
+<div id="function-both" class="section-name"></div>
+
+### both
+`(a -> Boolean) -> (a -> Boolean) -> a -> Boolean`
+
+Applies a value over two predicate functions, returns the result of an `and` comparison. Short-circuits if the first predicate returns false.
+
+```javascript
+const test = both(gt(10), lt(20))
+
+test(15)
+//=> true
+
+test(30)
+//=> false
+```
+
+<div id="number-clamp" class="section-name"></div>
+
+### clamp
+`Number -> Number -> Number -> Number`
+
+Retricts a number to be within a range.
+
+```javascript
+const test = clamp(1, 10)
+test(0)
+//=> 1
+
+test(20)
+//=> 10
+
+test(5)
+//=> 5
+```
+
+<div id="function-complement" class="section-name"></div>
+
+### complement
+`(a -> Boolean) -> a -> Boolean`
+
+Returns the opposite boolean value that the predicate returned.
+
+```javascript
+complement(equal(1), 1)
+//=> false
+```
+
+<div id="function-compose" class="section-name"></div>
+
+### compose
+`(b -> c) -> (a -> b) -> a -> c`
+
+Applies value through two functions, from right to left.
+
+```javascript
+compose(Math.sqrt, add(1), 99)
+//=> 10
+```
+
+*Aliases: B, comp*
+
+<div id="function-curry" class="section-name"></div>
+
+### curry
+`Number -> ((a, b) -> c) -> a -> b -> c`
+
+Wraps a function and allows you to supply your arguments one at a time.
+
+```javascript
+const add = curry(2, (a, b) => a + b)
+const add1 = add(1)
+add1(1)
+//=> 2
+```
+
+<div id="number-dec" class="section-name"></div>
+
+### dec
+`Number -> Number`
+
+Decrements a number.
+
+```javascript
+dec(10)
+//=> 9
+```
+
+<div id="number-divide" class="section-name"></div>
+
+### divide
+`Number -> Number -> Number`
+
+Divides two numbers.
+
+```javascript
+divide(2, 10)
+//=> 5
+```
+
+*Aliases: div*
+
+<div id="function-either" class="section-name"></div>
+
+### either
+`(a -> Boolean) -> (a -> Boolean) -> a -> Boolean`
+
+Applies a value over two predicate functions, returns the result of an `or` comparison. Short-circuits if the first predicate returns true.
+
+```javascript
+const test = either(gt(10), isEven)
+
+test(15)
+//=> true
+
+test(5)
+//=> false
+
+test(4)
+//=> true
+```
+
+<div id="function-equal" class="section-name"></div>
+
+### equal
+`a -> a -> Boolean`
+
+Returns the result of comparing two values.
+
+```javascript
+equal('abc', 'abc')
+//=> true
+
+equal('abc', 'xyz')
+//=> false
+```
+
+*Alias: eq*
+
+<div id="function-equalBy" class="section-name"></div>
+
+### equalBy
+`a -> a -> Boolean`
+
+Returns the result of comparing two values, after applying a function over the values
+
+```javascript
+equalBy(Math.abs, 5, -5)
+//=> true
+```
+
+*Alias: eqBy*
+
+<div id="function-flip" class="section-name"></div>
+
+### flip
+`(a -> b -> c) -> b -> a -> c`
+
+Reverses the order of the first two arguments of the provided function.
+
+```javascript
+const gt_ = flip(gt)
+gt_(1, 2)
+//=> false
+```
+
+*Aliases: C*
+
+<div id="function-gt" class="section-name"></div>
+
+### gt
+`a -> a -> Boolean`
+
+Determines if a value is greater.
+
+```javascript
+gt(1, 2)
+//=> true
+
+gt('a', 'b')
+//=> true
+```
+
+<div id="function-gte" class="section-name"></div>
+
+### gte
+`a -> a -> Boolean`
+
+Determines if a value is greater than or equal.
+
+```javascript
+gte(1, 1)
+//=> true
+
+gte(1, 2)
+//=> true
+```
+
+<div id="function-identity" class="section-name"></div>
+
+### identity
+`a -> a`
+
+Returns itself.
+
+```javascript
+identity('a')
+//=> 'a'
+
+A.filter(identity, [0, 1, null, 'test'])
+//=> [ 1, 'test' ]
+```
+
+*Aliases: I, id*
+
+<div id="number-inc" class="section-name"></div>
+
+### inc
+`Number -> Number`
+
+Increments a number.
+
+```javascript
+inc(10)
+//=> 11
+```
+
+<div id="number-isEven" class="section-name"></div>
+
+### isEven
+`Number -> Boolean`
+
+Determines if a number is even.
+
+```javascript
+isEven(10)
+//=> true
+```
+
+<div id="number-isOdd" class="section-name"></div>
+
+### isOdd
+`Number -> Boolean`
+
+Determines if a number is odd.
+
+```javascript
+isOdd(9)
+//=> true
+```
+
+<div id="function-lt" class="section-name"></div>
+
+### lt
+`a -> a -> Boolean`
+
+Determines if a value is lesser.
+
+```javascript
+lt(2, 1)
+//=> true
+```
+
+<div id="function-lte" class="section-name"></div>
+
+### lte
+`a -> a -> Boolean`
+
+Determines if a value is less than or equal.
+
+```javascript
+lte(1, 1)
+//=> true
+
+lte(2, 1)
+//=> true
+```
+
+<div id="function-match" class="section-name"></div>
+
+### match
+`Array (a -> Boolean, a -> b) -> a -> b`
+
+Contains predicate and transformer pairs, to determine which transformer to apply over a value.
+
+```javascript
+match([
+  [lt(1), inc],
+  [gt(1), dec],
+  [always(true), identity]
+], 10)
+//=> 9
+```
+
+<div id="number-max" class="section-name"></div>
+
+### max
+`Number -> Number -> Number`
+
+Returns the larger number.
+
+```javascript
+max(4, 9)
+//=> 9
+```
+
+<div id="number-min" class="section-name"></div>
+
+### min
+`Number -> Number -> Number`
+
+Returns the smaller number.
+
+```javascript
+min(4, 9)
+//=> 4
+```
+
+<div id="number-mod" class="section-name"></div>
+
+### mod
+`Number -> Number -> Number`
+
+Behaves like the mathematical modulo operator.
+
+```javascript
+mod(-20, 3)
+//=> 1
+```
+
+<div id="number-multiply" class="section-name"></div>
+
+### multiply
+`Number -> Number -> Number`
+
+Multiplies two numbers.
+
+```javascript
+multiply(2, 5)
+//=> 10
+```
+
+*Aliases: mul*
+
+<div id="number-negate" class="section-name"></div>
+
+### negate
+`Number -> Number`
+
+Negated number.
+
+```javascript
+negate(10)
+//=> -10
+```
+
+<div id="function-not" class="section-name"></div>
+
+### not
+`Boolean -> Boolean`
+
+Returns the opposite boolean value.
+
+```javascript
+not(true)
+//=> false
+
+not(A.some(equal(1), [1, 2, 3]))
+//=> false
+```
+
+<div id="function-on" class="section-name"></div>
+
+### on
+`(b -> b -> c) -> (a -> b) -> a -> a -> c`
+
+Applies a binary function over a unary function twice.
+
+```javascript
+const sameLength = on(equal, S.length)
+sameLength('hey', 'now')
+//=> true
+```
+
+*Aliases: P*
+
+<div id="function-or" class="section-name"></div>
+
+### or
+`Boolean -> Boolean -> Boolean`
+
+Returns `true` if one or both values are `true`.
+
+```javascript
+or(true, false)
+//=> true
+```
+
+<div id="function-pipe" class="section-name"></div>
+
+### pipe
+`Array (a -> b) -> a -> b`
+
+Applies a sequence of transformations over a value.
+
+```javascript
+pipe([add(1), Math.sqrt], 99)
+//=> 10
+```
+
+<div id="number-pow" class="section-name"></div>
+
+### pow
+`Number -> Number -> Number`
+
+Returns the power.
+
+```javascript
+pow(2, -2)
+//=> 4
+```
+
+<div id="number-rem" class="section-name"></div>
+
+### rem
+`Number -> Number -> Number`
+
+Returns the remainder.
+
+```javascript
+rem(3, -20)
+//=> -2
+```
+
+<div id="number-subtract" class="section-name"></div>
+
+### subtract
+`Number -> Number -> Number`
+
+Subtracts two numbers.
+
+```javascript
+subtract(2, 10)
+//=> 8
+```
+
+*Aliases: sub*
+
+<div id="function-unless" class="section-name"></div>
+
+### unless
+`(a -> Boolean) -> (a -> b) -> a -> b`
+
+If the predicate is not matched, run a transformer function, otherwise return the original value.
+
+```javascript
+unless(lt(10), inc, 15)
+//=> 16
+
+unless(lt(10), inc, 5)
+//=> 5
+```
+
+<div id="function-when" class="section-name"></div>
+
+### when
+`(a -> Boolean) -> (a -> b) -> a -> b`
+
+If the predicate is matched, run a transformer function, otherwise return the original value.
+
+```javascript
+when(lt(10), inc, 5)
+//=> 6
+```
+
+---
+
 <div id="array" class="section-name"></div>
 
 ## Array
@@ -131,13 +683,16 @@ const A = require('foreword/array')
 <div id="array-append" class="section-name"></div>
 
 ### append
-`Array a -> Array a -> Array a`
+`a -> Array a -> Array a`
 
-Combines two arrays.
+Adds a value to the end of an array.
 
 ```javascript
-A.append([4], [1, 2, 3])
+A.append(4, [1, 2, 3])
 //=> [ 1, 2, 3, 4 ]
+
+A.append([4], [1, 2, 3])
+//=> [ 1, 2, 3, [ 4 ] ]
 ```
 
 <div id="array-concat" class="section-name"></div>
@@ -187,7 +742,7 @@ A.drop(2, [1, 2, 3, 4, 5])
 Drops the first items of an array which match the predicate.
 
 ```javascript
-A.dropWhile(N.isEven, [2, 4, 5, 6])
+A.dropWhile(isEven, [2, 4, 5, 6])
 //=> [ 5, 6 ]
 ```
 
@@ -254,6 +809,18 @@ A.groupBy(Math.floor, [4.2, 6.1, 6.4])
 //=> { '4': [ 4.2 ], '6':  [ 6.1, 6.4 ] }
 ```
 
+<div id="array-has" class="section-name"></div>
+
+### has
+`a -> Array a -> Boolean`
+
+Determines if an array contains a value.
+
+```javascript
+A.has('a', ['a', 'b', 'c'])
+//=> true
+```
+
 <div id="array-head" class="section-name"></div>
 
 ### head
@@ -267,18 +834,6 @@ A.head([1, 2, 3, 4, 5])
 
 A.head([])
 //=> undefined
-```
-
-<div id="array-includes" class="section-name"></div>
-
-### includes
-`a -> Array a -> Boolean`
-
-Determines if an array contains a value.
-
-```javascript
-A.includes('a', ['a', 'b', 'c'])
-//=> true
 ```
 
 <div id="array-init" class="section-name"></div>
@@ -400,8 +955,23 @@ A.minBy(S.length, ['bc', 'abc', 'a', 'b'])
 Equivalent to `[filter(f, arr), reject(f, arr)]`.
 
 ```javascript
-A.partition(N.isEven, [1, 2, 3, 4, 5])
+A.partition(isEven, [1, 2, 3, 4, 5])
 //=> [ [ 2, 4 ], [ 1, 3, 5 ] ]
+```
+
+<div id="array-prepend" class="section-name"></div>
+
+### prepend
+`a -> Array a -> Array a`
+
+Adds a value to the beginning of an array.
+
+```javascript
+A.prepend(4, [1, 2, 3])
+//=> [ 4, 1, 2, 3 ]
+
+A.concat(A.prepend([4, 5], [1, 2, 3]))
+//=> [ 4, 5, 1, 2, 3 ]
 ```
 
 <div id="array-range" class="section-name"></div>
@@ -427,7 +997,7 @@ A.range(20, 25)
 Applies a function over an accumulator and every element in an array, returning the result as a single value.
 
 ```javascript
-A.reduce(N.add, 0, [1, 2, 3])
+A.reduce(add, 0, [1, 2, 3])
 //=> 6
 ```
 
@@ -439,7 +1009,7 @@ A.reduce(N.add, 0, [1, 2, 3])
 Returns an array of all elements that do not match the predicate.
 
 ```javascript
-A.reject(N.isEven, [1, 2, 3, 4, 5])
+A.reject(isEven, [1, 2, 3, 4, 5])
 //=> [ 1, 3, 5 ]
 ```
  
@@ -463,7 +1033,7 @@ A.reverse([1, 2, 3])
 Like `reduce`, but returns a list with the initial value, the intermediate values, and the final value.
 
 ```javascript
-A.scan(N.add, 0, [1, 2, 3])
+A.scan(add, 0, [1, 2, 3])
 //=> [ 0, 1, 3, 6 ]
 ```
 
@@ -526,7 +1096,7 @@ A.sortBy(O.get('name'), [{ name: 'bob'}, { name: 'alice' }, { name: 'charlie' }]
 Equivalent to `[takeWhile(f, arr), dropWhile(f, arr)]`.
 
 ```javascript
-A.span(N.isEven, [2, 4, 5, 6])
+A.span(isEven, [2, 4, 5, 6])
 //=> [ [ 2, 4 ], [ 5, 6 ] ]
 ```
 
@@ -562,7 +1132,7 @@ A.take(2, [1, 2, 3, 4, 5])
 Returns the first elements in an array which match the predicate.
 
 ```javascript
-A.takeWhile(N.isEven, [2, 4, 5, 6])
+A.takeWhile(isEven, [2, 4, 5, 6])
 //=> [ 2, 4 ]
 ```
 
@@ -603,360 +1173,6 @@ A.zip(['a', 'b', 'c'], [1, 2, 3, 4])
 
 A.zip(['a', 'b', 'c'], [1, 2])
 //=> { a: 1, b: 2 }
-```
-
----
-
-<div id="function" class="section-name"></div>
-
-## Function
-```javascript
-const F = require('foreword/function')
-```
-
-<div id="function-always" class="section-name"></div>
-
-### always
-`a -> b -> a`
-
-Returns its first argument.
-
-```javascript
-always('a', 'b')
-//=> 'a'
-```
-
-*Aliases: K*
-
-<div id="function-and" class="section-name"></div>
-
-### and
-`Boolean -> Boolean -> Boolean`
-
-Returns `true` if both values are `true`.
-
-```javascript
-and(true, false)
-//=> false
-```
-
-<div id="function-ap" class="section-name"></div>
-
-### ap
-`Array (a -> b) -> Array a -> Array b`
-
-Applies a list of functions over a list of values.
-
-```javascript
-ap([N.mul(2), N.add(3)], [1, 2, 3])
-//=> [ 2, 4, 6, 4, 5, 6 ]
-```
-
-*Aliases: S*
-
-<div id="function-apply" class="section-name"></div>
-
-### apply
-`(a -> b) -> a -> b`
-
-Applies function to value.
-
-```javascript
-apply(N.add(1), 1)
-//=> 2
-```
-
-*Aliases: A*
-
-<div id="function-both" class="section-name"></div>
-
-### both
-`(a -> Boolean) -> (a -> Boolean) -> a -> Boolean`
-
-Applies a value over two predicate functions, returns the result of an `and` comparison. Short-circuits if the first predicate returns false.
-
-```javascript
-const test = both(gt(10), lt(20))
-
-test(15)
-//=> true
-
-test(30)
-//=> false
-```
-
-<div id="function-complement" class="section-name"></div>
-
-### complement
-`(a -> Boolean) -> a -> Boolean`
-
-Returns the opposite boolean value that the predicate returned.
-
-```javascript
-complement(equal(1), 1)
-//=> false
-```
-
-<div id="function-compose" class="section-name"></div>
-
-### compose
-`(b -> c) -> (a -> b) -> a -> c`
-
-Applies value through two functions, from right to left.
-
-```javascript
-compose(Math.sqrt, N.add(1), 99)
-//=> 10
-```
-
-*Aliases: B, comp*
-
-<div id="function-curry" class="section-name"></div>
-
-### curry
-`Number -> ((a, b) -> c) -> a -> b -> c`
-
-Wraps a function and allows you to supply your arguments one at a time.
-
-```javascript
-const add = curry(2, (a, b) => a + b)
-const add1 = add(1)
-add1(1)
-//=> 2
-```
-
-<div id="function-either" class="section-name"></div>
-
-### either
-`(a -> Boolean) -> (a -> Boolean) -> a -> Boolean`
-
-Applies a value over two predicate functions, returns the result of an `or` comparison. Short-circuits if the first predicate returns true.
-
-```javascript
-const test = either(gt(10), N.isEven)
-
-test(15)
-//=> true
-
-test(5)
-//=> false
-
-test(4)
-//=> true
-```
-
-<div id="function-equal" class="section-name"></div>
-
-### equal
-`a -> a -> Boolean`
-
-Returns the result of comparing two values.
-
-```javascript
-equal('abc', 'abc')
-//=> true
-
-equal('abc', 'xyz')
-//=> false
-```
-
-*Alias: eq*
-
-<div id="function-equalBy" class="section-name"></div>
-
-### equalBy
-`a -> a -> Boolean`
-
-Returns the result of comparing two values, after applying a function over the values
-
-```javascript
-equalBy(Math.abs, 5, -5)
-//=> true
-```
-
-*Alias: eqBy*
-
-<div id="function-flip" class="section-name"></div>
-
-### flip
-`(a -> b -> c) -> b -> a -> c`
-
-Reverses the order of the first two arguments of the provided function.
-
-```javascript
-const prepend = flip(A.append)
-prepend([1], [2, 3, 4])
-//=> [ 1, 2, 3, 4 ]
-```
-
-*Aliases: C*
-
-<div id="function-gt" class="section-name"></div>
-
-### gt
-`a -> a -> Boolean`
-
-Determines if a value is greater.
-
-```javascript
-gt(1, 2)
-//=> true
-```
-
-<div id="function-gte" class="section-name"></div>
-
-### gte
-`a -> a -> Boolean`
-
-Determines if a value is greater than or equal.
-
-```javascript
-gte(1, 1)
-//=> true
-
-gte(1, 2)
-//=> true
-```
-
-<div id="function-identity" class="section-name"></div>
-
-### identity
-`a -> a`
-
-Returns itself.
-
-```javascript
-identity('a')
-//=> 'a'
-
-A.filter(identity, [0, 1, null, 'test'])
-//=> [ 1, 'test' ]
-```
-
-*Aliases: I, id*
-
-<div id="function-lt" class="section-name"></div>
-
-### lt
-`a -> a -> Boolean`
-
-Determines if a value is lesser.
-
-```javascript
-lt(2, 1)
-//=> true
-```
-
-<div id="function-lte" class="section-name"></div>
-
-### lte
-`a -> a -> Boolean`
-
-Determines if a value is less than or equal.
-
-```javascript
-lte(1, 1)
-//=> true
-
-lte(2, 1)
-//=> true
-```
-
-<div id="function-match" class="section-name"></div>
-
-### match
-`Array (a -> Boolean, a -> b) -> a -> b`
-
-Contains predicate and transformer pairs, to determine which transformer to apply over a value.
-
-```javascript
-match([
-  [lt(1), N.inc],
-  [gt(1), N.dec],
-  [always(true), identity]
-], 10)
-//=> 9
-```
-
-<div id="function-not" class="section-name"></div>
-
-### not
-`Boolean -> Boolean`
-
-Returns the opposite boolean value.
-
-```javascript
-not(true)
-//=> false
-
-not(A.some(equal(1), [1, 2, 3]))
-//=> false
-```
-
-<div id="function-on" class="section-name"></div>
-
-### on
-`(b -> b -> c) -> (a -> b) -> a -> a -> c`
-
-Applies a binary function over a unary function twice.
-
-```javascript
-const sameLength = on(equal, S.length)
-sameLength('hey', 'now')
-//=> true
-```
-
-*Aliases: P*
-
-<div id="function-or" class="section-name"></div>
-
-### or
-`Boolean -> Boolean -> Boolean`
-
-Returns `true` if one or both values are `true`.
-
-```javascript
-or(true, false)
-//=> true
-```
-
-<div id="function-pipe" class="section-name"></div>
-
-### pipe
-`Array (a -> b) -> a -> b`
-
-Applies a sequence of transformations over a value.
-
-```javascript
-pipe([N.add(1), Math.sqrt], 99)
-//=> 10
-```
-
-<div id="function-unless" class="section-name"></div>
-
-### unless
-`(a -> Boolean) -> (a -> b) -> a -> b`
-
-If the predicate is not matched, run a transformer function, otherwise return the original value.
-
-```javascript
-unless(lt(10), N.inc, 15)
-//=> 16
-
-unless(lt(10), N.inc, 5)
-//=> 5
-```
-
-<div id="function-when" class="section-name"></div>
-
-### when
-`(a -> Boolean) -> (a -> b) -> a -> b`
-
-If the predicate is matched, run a transformer function, otherwise return the original value.
-
-```javascript
-when(lt(10), N.inc, 5)
-//=> 6
 ```
 
 ---
@@ -1008,16 +1224,16 @@ false
 Applies function to value, if value exists, or returns value.
 
 ```javascript
-Maybe.map(N.add(1), 1)
+Maybe.map(add(1), 1)
 //=> 2
 
-Maybe.map(N.add(1), undefined)
+Maybe.map(add(1), undefined)
 //=> undefined
 
 pipe([
   Maybe.map(A.head),
-  Maybe.map(N.multiply(2)),
-  Maybe.map(N.isEven)
+  Maybe.map(multiply(2)),
+  Maybe.map(isEven)
 ], [])
 //=> undefined
 ```
@@ -1051,208 +1267,6 @@ Maybe.withDefault(1, undefined)
 Maybe.withDefault(1, 10)
 //=> 10
 ```
-
----
-
-<div id="number" class="section-name"></div>
-
-## Number
-```javascript
-const N = require('foreword/number')
-```
-
-<div id="number-add" class="section-name"></div>
-
-### add
-`Number -> Number -> Number`
-
-Adds two numbers.
-
-```javascript
-N.add(2, 2)
-//=> 4
-```
-
-<div id="number-clamp" class="section-name"></div>
-
-### clamp
-`Number -> Number -> Number -> Number`
-
-Retricts a number to be within a range.
-
-```javascript
-const test = N.clamp(1, 10)
-test(0)
-//=> 1
-
-test(20)
-//=> 10
-
-test(5)
-//=> 5
-```
-
-<div id="number-dec" class="section-name"></div>
-
-### dec
-`Number -> Number`
-
-Decrements a number.
-
-```javascript
-N.dec(10)
-//=> 9
-```
-
-<div id="number-divide" class="section-name"></div>
-
-### divide
-`Number -> Number -> Number`
-
-Divides two numbers.
-
-```javascript
-N.divide(2, 10)
-//=> 5
-```
-
-*Aliases: div*
-
-<div id="number-inc" class="section-name"></div>
-
-### inc
-`Number -> Number`
-
-Increments a number.
-
-```javascript
-N.inc(10)
-//=> 11
-```
-
-<div id="number-isEven" class="section-name"></div>
-
-### isEven
-`Number -> Boolean`
-
-Determines if a number is even.
-
-```javascript
-N.isEven(10)
-//=> true
-```
-
-<div id="number-isOdd" class="section-name"></div>
-
-### isOdd
-`Number -> Boolean`
-
-Determines if a number is odd.
-
-```javascript
-N.isOdd(9)
-//=> true
-```
-
-<div id="number-max" class="section-name"></div>
-
-### max
-`Number -> Number -> Number`
-
-Returns the larger number.
-
-```javascript
-N.max(4, 9)
-//=> 9
-```
-
-<div id="number-min" class="section-name"></div>
-
-### min
-`Number -> Number -> Number`
-
-Returns the smaller number.
-
-```javascript
-N.min(4, 9)
-//=> 4
-```
-
-<div id="number-mod" class="section-name"></div>
-
-### mod
-`Number -> Number -> Number`
-
-Behaves like the mathematical modulo operator.
-
-```javascript
-N.mod(-20, 3)
-//=> 1
-```
-
-<div id="number-multiply" class="section-name"></div>
-
-### multiply
-`Number -> Number -> Number`
-
-Multiplies two numbers.
-
-```javascript
-N.multiply(2, 5)
-//=> 10
-```
-
-*Aliases: mul*
-
-<div id="number-negate" class="section-name"></div>
-
-### negate
-`Number -> Number`
-
-Negated number.
-
-```javascript
-N.negate(10)
-//=> -10
-```
-
-<div id="number-pow" class="section-name"></div>
-
-### pow
-`Number -> Number -> Number`
-
-Returns the power.
-
-```javascript
-N.pow(2, -2)
-//=> 4
-```
-
-<div id="number-rem" class="section-name"></div>
-
-### rem
-`Number -> Number -> Number`
-
-Returns the remainder.
-
-```javascript
-N.rem(3, -20)
-//=> -2
-```
-
-<div id="number-subtract" class="section-name"></div>
-
-### subtract
-`Number -> Number -> Number`
-
-Subtracts two numbers.
-
-```javascript
-N.subtract(2, 10)
-//=> 8
-```
-
-*Aliases: sub*
 
 ---
 
@@ -1351,15 +1365,15 @@ O.gets(['a', 'b'], { a: 1, b: 2 })
 //=> [ 1, 2 ]
 ```
 
-<div id="object-includes" class="section-name"></div>
+<div id="object-has" class="section-name"></div>
 
-### includes
+### has
 `k -> Object k v -> Boolean`
 
 Determines if an object contains a key.
 
 ```javascript
-O.includes('a', { a: 1, b: 2 })
+O.has('a', { a: 1, b: 2 })
 //=> true
 ```
 
@@ -1383,7 +1397,7 @@ O.isEmpty({})
 Returns an object with transformations applied over specified keys.
 
 ```javascript
-O.map({ ms: N.inc }, { id: 123, ms: 999 })
+O.map({ ms: inc }, { id: 123, ms: 999 })
 //=> { id: 123, ms: 1000 }
 ```
 
@@ -1491,15 +1505,15 @@ S.dropWhile(equal('m'), 'mmmhmm')
 //=> 'hmm'
 ```
 
-<div id="string-includes" class="section-name"></div>
+<div id="string-has" class="section-name"></div>
 
-### includes
+### has
 `String -> String -> Boolean`
 
 Determines if a string contains a substring.
 
 ```javascript
-S.includes('abc', 'abcdef')
+S.has('abc', 'abcdef')
 //=> true
 ```
 
