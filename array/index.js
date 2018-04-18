@@ -7,6 +7,8 @@ const every = require('./every')
 const filter = require('./filter')
 const find = require('./find')
 const flatten = require('./flatten')
+const get = require('./get')
+const gets = require('./gets')
 const groupBy = require('./groupBy')
 const has = require('./has')
 const head = require('./head')
@@ -48,6 +50,8 @@ module.exports = {
   filter,
   find,
   flatten,
+  get,
+  gets,
   groupBy,
   has,
   head,

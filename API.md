@@ -50,6 +50,8 @@
   - [filter](#array-filter)
   - [find](#array-find)
   - [flatten](#array-flatten)
+  - [get](#array-get)
+  - [gets](#array-gets)
   - [groupBy](#array-groupBy)
   - [has](#array-has)
   - [head](#array-head)
@@ -95,6 +97,7 @@
   - [gets](#object-gets)
   - [has](#object-has)
   - [isEmpty](#object-isEmpty)
+  - [length](#object-length)
   - [map](#object-map)
   - [reject](#object-reject)
   - [some](#object-some)
@@ -797,6 +800,36 @@ A.flatten([1, [[2], 3], [4, [[5]]]])
 //=> [ 1, 2, 3, 4, 5 ]
 ```
 
+<div id="array-get" class="section-name"></div>
+
+### get
+`Number -> Array a -> Maybe a`
+
+Retrieves an element of an array by index.
+
+```javascript
+A.get(0, [1, 2, 3])
+//=> 1
+
+A.get(1, [])
+//=> undefined
+```
+
+<div id="array-gets" class="section-name"></div>
+
+### gets
+`Array Number -> Array a -> Array (Maybe a)`
+
+Retrieves multiple elements of an array by index.
+
+```javascript
+A.gets([0, 1], [1, 2, 3])
+//=> [1, 2]
+
+A.gets([0, 1], [])
+//=> [undefined, undefined]
+```
+
 <div id="array-groupBy" class="section-name"></div>
 
 ### groupBy
@@ -1387,6 +1420,21 @@ Determines if an object contains any keys.
 ```javascript
 O.isEmpty({})
 //=> true
+```
+
+<div id="object-length" class="section-name"></div>
+
+### length
+`Object k v -> Number`
+
+Returns the number of keys in an object.
+
+```javascript
+O.length({ a: 1, b: 2 })
+//=> 2
+
+O.length({})
+//=> 0
 ```
 
 <div id="object-map" class="section-name"></div>

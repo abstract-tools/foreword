@@ -6,6 +6,7 @@ const get = require('./get')
 const gets = require('./gets')
 const has = require('./has')
 const isEmpty = require('./isEmpty')
+const length = require('./length')
 const map = require('./map')
 const reject = require('./reject')
 const some = require('./some')
@@ -20,6 +21,7 @@ module.exports = {
   gets,
   has,
   isEmpty,
+  length,
   map,
   reject,
   some,
