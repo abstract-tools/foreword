@@ -1,10 +1,8 @@
 const curry = require('../function/curry')
 
 function map (spec, obj) {
-  const keys = Object.keys(obj)
-
   return Object.assign({}, obj, Object.keys(spec).reduce((a, k) => {
-    return !keys.includes(k) ? a : Object.assign(a, {
+    return !obj.hasOwnProperty(k) ? a : Object.assign(a, {
       [k]: spec[k](obj[k])
     })
   }, {}))
