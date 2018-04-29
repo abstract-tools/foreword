@@ -714,7 +714,7 @@ A.concat([[1, 2], [3], [4, 5]])
 <div id="array-concatMap" class="section-name"></div>
 
 ### concatMap
-`(a -> Array b) -> Array a -> Array b
+`(a -> Array b) -> Array a -> Array b`
 
 Concatenates the result of a map function.
 
