@@ -43,6 +43,7 @@
 - [Array](#array)
   - [append](#array-append)
   - [concat](#array-concat)
+  - [concatMap](#array-concatMap)
   - [countBy](#array-countBy)
   - [drop](#array-drop)
   - [dropWhile](#array-dropWhile)
@@ -53,8 +54,8 @@
   - [get](#array-get)
   - [gets](#array-gets)
   - [groupBy](#array-groupBy)
-  - [has](#array-has)
   - [head](#array-head)
+  - [includes](#array-includes)
   - [init](#array-init)
   - [isEmpty](#array-isEmpty)
   - [last](#array-last)
@@ -95,7 +96,7 @@
   - [find](#object-find)
   - [get](#object-get)
   - [gets](#object-gets)
-  - [has](#object-has)
+  - [includes](#object-includes)
   - [isEmpty](#object-isEmpty)
   - [length](#object-length)
   - [map](#object-map)
@@ -107,7 +108,7 @@
   - [concat](#string-concat)
   - [drop](#string-drop)
   - [dropWhile](#string-dropWhile)
-  - [has](#string-has)
+  - [includes](#string-includes)
   - [isEmpty](#string-isEmpty)
   - [join](#string-join)
   - [length](#string-length)
@@ -710,6 +711,21 @@ A.concat([[1, 2], [3], [4, 5]])
 //=> [ 1, 2, 3, 4, 5 ]
 ```
 
+<div id="array-concatMap" class="section-name"></div>
+
+### concatMap
+`(a -> Array b) -> Array a -> Array b
+
+Concatenates the result of a map function.
+
+```javascript
+A.concatMap(x => [x, x], [1, 2, 3])
+//=> [ 1, 1, 2, 2, 3, 3 ]
+
+A.concatMap(x => A.range(1, inc(x)), [1, 2, 3])
+//=> [ 1, 1, 2, 1, 2, 3 ]
+```
+
 <div id="array-countBy" class="section-name"></div>
 
 ### countBy
@@ -842,18 +858,6 @@ A.groupBy(Math.floor, [4.2, 6.1, 6.4])
 //=> { '4': [ 4.2 ], '6':  [ 6.1, 6.4 ] }
 ```
 
-<div id="array-has" class="section-name"></div>
-
-### has
-`a -> Array a -> Boolean`
-
-Determines if an array contains a value.
-
-```javascript
-A.has('a', ['a', 'b', 'c'])
-//=> true
-```
-
 <div id="array-head" class="section-name"></div>
 
 ### head
@@ -867,6 +871,18 @@ A.head([1, 2, 3, 4, 5])
 
 A.head([])
 //=> undefined
+```
+
+<div id="array-includes" class="section-name"></div>
+
+### includes
+`a -> Array a -> Boolean`
+
+Determines if an array contains a value.
+
+```javascript
+A.includes('a', ['a', 'b', 'c'])
+//=> true
 ```
 
 <div id="array-init" class="section-name"></div>
@@ -1398,15 +1414,15 @@ O.gets(['a', 'b'], { a: 1, b: 2 })
 //=> [ 1, 2 ]
 ```
 
-<div id="object-has" class="section-name"></div>
+<div id="object-includes" class="section-name"></div>
 
-### has
+### includes
 `k -> Object k v -> Boolean`
 
 Determines if an object contains a key.
 
 ```javascript
-O.has('a', { a: 1, b: 2 })
+O.includes('a', { a: 1, b: 2 })
 //=> true
 ```
 
@@ -1553,15 +1569,15 @@ S.dropWhile(equal('m'), 'mmmhmm')
 //=> 'hmm'
 ```
 
-<div id="string-has" class="section-name"></div>
+<div id="string-includes" class="section-name"></div>
 
-### has
+### includes
 `String -> String -> Boolean`
 
 Determines if a string contains a substring.
 
 ```javascript
-S.has('abc', 'abcdef')
+S.includes('abc', 'abcdef')
 //=> true
 ```
 

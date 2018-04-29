@@ -1,5 +1,6 @@
 const append = require('./append')
 const concat = require('./concat')
+const concatMap = require('./concatMap')
 const countBy = require('./countBy')
 const drop = require('./drop')
 const dropWhile = require('./dropWhile')
@@ -10,7 +11,7 @@ const flatten = require('./flatten')
 const get = require('./get')
 const gets = require('./gets')
 const groupBy = require('./groupBy')
-const has = require('./has')
+const includes = require('./includes')
 const head = require('./head')
 const init = require('./init')
 const isEmpty = require('./isEmpty')
@@ -43,6 +44,7 @@ const zip = require('./zip')
 module.exports = {
   append,
   concat,
+  concatMap,
   countBy,
   drop,
   dropWhile,
@@ -53,7 +55,7 @@ module.exports = {
   get,
   gets,
   groupBy,
-  has,
+  includes,
   head,
   init,
   isEmpty,

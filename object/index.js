@@ -4,7 +4,7 @@ const filter = require('./filter')
 const find = require('./find')
 const get = require('./get')
 const gets = require('./gets')
-const has = require('./has')
+const includes = require('./includes')
 const isEmpty = require('./isEmpty')
 const length = require('./length')
 const map = require('./map')
@@ -19,7 +19,7 @@ module.exports = {
   find,
   get,
   gets,
-  has,
+  includes,
   isEmpty,
   length,
   map,

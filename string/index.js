@@ -2,7 +2,7 @@ const append = require('./append')
 const concat = require('./concat')
 const drop = require('./drop')
 const dropWhile = require('./dropWhile')
-const has = require('./has')
+const includes = require('./includes')
 const isEmpty = require('./isEmpty')
 const join = require('./join')
 const length = require('./length')
@@ -22,7 +22,7 @@ module.exports = {
   concat,
   drop,
   dropWhile,
-  has,
+  includes,
   isEmpty,
   join,
   length,

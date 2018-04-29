@@ -1,7 +1,7 @@
 const curry = require('../function/curry')
 
-function has (a, str) {
+function includes (a, str) {
   return str.includes(a)
 }
 
-module.exports = curry(2, has)
+module.exports = curry(2, includes)

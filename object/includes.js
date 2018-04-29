@@ -1,7 +1,7 @@
 const curry = require('../function/curry')
 
-function has (str, obj) {
+function includes (str, obj) {
   return Object.prototype.hasOwnProperty.call(obj, str)
 }
 
-module.exports = curry(2, has)
+module.exports = curry(2, includes)
