@@ -1244,10 +1244,10 @@ Applies a function that may throw and a value, returns the result or, if it thro
 
 ```javascript
 Maybe.encase(x => x.a.b.c, {a: 0})
-undefined
+//=> undefined
 
 Maybe.encase(x => x.a.b.c, {a: {b: {c: 0}}})
-0
+//=> 0
 ```
 
 <div id="maybe-isNothing" class="section-name"></div>
@@ -1259,10 +1259,10 @@ Determines if a value exists.
 
 ```javascript
 Maybe.isNothing(null || undefined)
-true
+//=> true
 
 Maybe.isNothing(0)
-false
+//=> false
 ```
 
 <div id="maybe-map" class="section-name"></div>
