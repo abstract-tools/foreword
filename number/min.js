@@ -1,7 +1,7 @@
 const curry = require('../function/curry')
 
-function min (a, b) {
-  return a > b ? b : a
+function min (...args) {
+  return args.reduce((a, b) => a > b ? b : a)
 }
 
 module.exports = curry(2, min)

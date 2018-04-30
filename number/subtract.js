@@ -1,7 +1,7 @@
 const curry = require('../function/curry')
 
-function subtract (a, b) {
-  return b - a
+function subtract (...args) {
+  return args.reverse().reduce((a, b) => a - b)
 }
 
 module.exports = curry(2, subtract)
