@@ -1,8 +1,8 @@
 const curry = require('../function/curry')
 
 function concatMap (f, arr) {
-  return arr.reduce((a, b) => {
-    return a.concat(f(b))
+  return arr.reduce((acc, a) => {
+    return acc.concat(f(a))
   }, [])
 }
 

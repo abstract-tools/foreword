@@ -1,11 +1,11 @@
 const curry = require('../function/curry')
 
 function uniqueBy (f, arr) {
-  return Object.values(arr.reduce((a, b) => {
-    const k = f(b)
+  return Object.values(arr.reduce((acc, a) => {
+    const k = f(a)
 
-    return a[k] ? a : Object.assign(a, {
-      [k]: b
+    return acc.hasOwnProperty(k) ? acc : Object.assign(acc, {
+      [k]: a
     })
   }, {}))
 }

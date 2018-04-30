@@ -1,8 +1,8 @@
 const curry = require('../function/curry')
 
 function reject (arr, obj) {
-  return Object.keys(obj).reduce((a, k) => {
-    return arr.includes(k) ? a : Object.assign(a, {
+  return Object.keys(obj).reduce((acc, k) => {
+    return arr.includes(k) ? acc : Object.assign(acc, {
       [k]: obj[k]
     })
   }, {})

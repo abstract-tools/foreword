@@ -1,5 +1,5 @@
 function concat (arr) {
-  return arr.reduce((a, b) => a.concat(b), [])
+  return arr.reduce((acc, a) => acc.concat(a), [])
 }
 
 module.exports = concat

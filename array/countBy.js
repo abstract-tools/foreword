@@ -1,11 +1,11 @@
 const curry = require('../function/curry')
 
 function countBy (f, arr) {
-  return arr.reduce((a, b) => {
-    const k = f(b)
+  return arr.reduce((acc, a) => {
+    const k = f(a)
 
-    return Object.assign(a, {
-      [k]: a[k] ? a[k] + 1 : 1
+    return Object.assign(acc, {
+      [k]: acc.hasOwnProperty(k) ? acc[k] + 1 : 1
     })
   }, {})
 }

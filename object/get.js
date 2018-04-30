@@ -1,7 +1,7 @@
 const curry = require('../function/curry')
 
-function get (str, obj) {
-  return obj[str]
+function get (k, obj) {
+  return obj[k]
 }
 
 module.exports = curry(2, get)

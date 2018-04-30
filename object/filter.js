@@ -1,9 +1,9 @@
 const curry = require('../function/curry')
 
 function filter (arr, obj) {
-  return arr.reduce((a, b) => {
-    return Object.assign(a, {
-      [b]: obj[b]
+  return arr.reduce((acc, a) => {
+    return Object.assign(acc, {
+      [a]: obj[a]
     })
   }, {})
 }

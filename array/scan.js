@@ -1,8 +1,8 @@
 const curry = require('../function/curry')
 
 function scan (f, init, arr) {
-  return arr.reduce((a, b) => {
-    return [...a, f(a[a.length - 1], b)]
+  return arr.reduce((acc, a) => {
+    return [...acc, f(acc[acc.length - 1], a)]
   }, [init])
 }
 

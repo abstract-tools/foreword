@@ -1,11 +1,11 @@
 const curry = require('../function/curry')
 
 function groupBy (f, arr) {
-  return arr.reduce((a, b) => {
-    const k = f(b)
+  return arr.reduce((acc, a) => {
+    const k = f(a)
 
-    return Object.assign(a, {
-      [k]: a[k] ? [...a[k], b] : [b]
+    return Object.assign(acc, {
+      [k]: acc.hasOwnProperty(k) ? [...acc[k], a] : [a]
     })
   }, {})
 }
