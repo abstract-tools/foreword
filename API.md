@@ -499,15 +499,15 @@ lte(2, 1)
 <div id="function-match" class="section-name"></div>
 
 ### match
-`Array (a -> Boolean, a -> b) -> a -> b`
+`Array (a -> Maybe b) -> a -> Maybe b`
 
-Contains predicate and transformer pairs, to determine which transformer to apply over a value.
+Contains list of functions that return a value or `undefined`, working well with `when` and `unless`. Provide a function that always returns a value at the end, to avoid the case where no matches are found.
 
 ```javascript
 match([
-  [lt(1), inc],
-  [gt(1), dec],
-  [always(true), identity]
+  when(lt(1), dec),
+  when(gt(1), inc),
+  when(always(true), identity)
 ], 10)
 //=> 9
 ```
@@ -669,9 +669,9 @@ subtract(2, 10)
 <div id="function-unless" class="section-name"></div>
 
 ### unless
-`(a -> Boolean) -> (a -> b) -> a -> b`
+`(a -> Boolean) -> (a -> b) -> a -> Maybe b`
 
-If the predicate is not matched, run a transformer function, otherwise return the original value.
+If the predicate is not matched, run a transformer function, otherwise return `undefined`.
 
 ```javascript
 unless(lt(10), inc, 15)
@@ -684,9 +684,9 @@ unless(lt(10), inc, 5)
 <div id="function-when" class="section-name"></div>
 
 ### when
-`(a -> Boolean) -> (a -> b) -> a -> b`
+`(a -> Boolean) -> (a -> b) -> a -> Maybe b`
 
-If the predicate is matched, run a transformer function, otherwise return the original value.
+If the predicate is matched, run a transformer function, otherwise return `undefined`.
 
 ```javascript
 when(lt(10), inc, 5)
