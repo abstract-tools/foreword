@@ -7,7 +7,7 @@ const result = unless(
 )
 
 test('unless predicate is true', t => {
-  t.same(result(4), 4)
+  t.same(result(4), undefined)
   t.end()
 })
 

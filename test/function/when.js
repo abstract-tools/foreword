@@ -12,6 +12,6 @@ test('when predicate is true', t => {
 })
 
 test('when predicate is false', t => {
-  t.same(result(3), 3)
+  t.same(result(3), undefined)
   t.end()
 })
