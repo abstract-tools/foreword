@@ -7,6 +7,7 @@
   - [ap](#function-ap)
   - [apply](#function-apply)
   - [both](#function-both)
+  - [branch](#function-branch)
   - [clamp](#number-clamp)
   - [complement](#function-complement)
   - [compose](#function-compose)
@@ -215,6 +216,23 @@ test(15)
 
 test(30)
 //=> false
+```
+
+<div id="function-branch" class="section-name"></div>
+
+### branch
+`(a -> Boolean) -> (a -> b) -> (a -> b) -> b`
+
+If the predicate is matched, apply the first function, otherwise apply the second.
+
+```javascript
+const test = branch(gt(10), dec, inc)
+
+test(11)
+//=> 10
+
+test(9)
+//=> 10
 ```
 
 <div id="number-clamp" class="section-name"></div>
