@@ -505,11 +505,11 @@ Contains list of functions that return a value or `undefined`, working well with
 
 ```javascript
 match([
-  when(lt(1), dec),
-  when(gt(1), inc),
+  when(lt(10), inc),
+  when(gt(10), dec),
   when(always(true), identity)
-], 10)
-//=> 9
+], 1)
+//=> 2
 ```
 
 <div id="number-max" class="section-name"></div>
