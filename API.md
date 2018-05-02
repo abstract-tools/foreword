@@ -501,7 +501,7 @@ lte(2, 1)
 ### match
 `Array (a -> Maybe b) -> a -> Maybe b`
 
-Contains list of functions that return a value or `undefined`, working well with `when` and `unless`. Provide a function that always returns a value at the end, to avoid the case where no matches are found.
+Contains a list of functions that return a value or `undefined`, working well with [when](#function-when), [unless](#function-unless), and [branch](#function-branch). Provide a function that always returns a value at the end, to avoid the case where no matches are found.
 
 ```javascript
 match([
