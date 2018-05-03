@@ -9,23 +9,14 @@ const fn = match([
 ])
 
 test('function match: condition test', t => {
-  const result = fn(100)
+  const result1 = fn(100)
+  const result2 = fn(200)
+  const result3 = fn(50)
 
-  t.equal(result, 'x is 100')
-  t.end()
-})
+  t.equal(result1, 'x is 100')
+  t.equal(result2, 'x is greater than 100')
+  t.equal(result3, 'x is something else')
 
-test('function match: condition test', t => {
-  const result = fn(200)
-
-  t.equal(result, 'x is greater than 100')
-  t.end()
-})
-
-test('function match: condition test', t => {
-  const result = fn(50)
-
-  t.equal(result, 'x is something else')
   t.end()
 })
 
