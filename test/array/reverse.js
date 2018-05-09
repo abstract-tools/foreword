@@ -1,5 +1,5 @@
 const test = require('tape')
-const reverse = require('../../array/reverse')
+const { reverse } = require('../../array')
 
 test('array reverse: swap order of array, do not mutate original', t => {
   const arr = [1, 2, 3]

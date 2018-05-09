@@ -1,5 +1,5 @@
 const test = require('tape')
-const every = require('../../array/every')
+const { every } = require('../../array')
 
 test('array every: returns true is all values match predicate', t => {
   const result = every(x => x === 1, [1, 1, 1])

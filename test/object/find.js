@@ -1,11 +1,11 @@
 const test = require('tape')
-const find = require('../../object/find')
+const { find } = require('../../object')
 
 test('object find', t => {
-  const result1 = find(['a', 'b', 'c'], {a: {b: {c: 1}}})
-  const result2 = find(['a', 'c', 'd'], {a: {b: 0}})
-  const result3 = find(['a', 'b', 'c'], {a: {b: null}})
-  const result4 = find(['a', 'b', 'c'], {a: {b: {c: null}}})
+  const result1 = find(['a', 'b', 'c'])({a: {b: {c: 1}}})
+  const result2 = find(['a', 'c', 'd'])({a: {b: 0}})
+  const result3 = find(['a', 'b', 'c'])({a: {b: null}})
+  const result4 = find(['a', 'b', 'c'])({a: {b: {c: null}}})
 
   t.same(result1, 1)
   t.same(result2, undefined)

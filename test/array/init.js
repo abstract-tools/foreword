@@ -1,5 +1,5 @@
 const test = require('tape')
-const init = require('../../array/init')
+const { init } = require('../../array')
 
 test('array init: return initial elements of array', t => {
   const result = init([1, 2, 3, 4, 5])

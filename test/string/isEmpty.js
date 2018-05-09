@@ -1,16 +1,12 @@
 const test = require('tape')
-const isEmpty = require('../../string/isEmpty')
+const { isEmpty } = require('../../string')
 
-test('string isEmpty: returns true if no length', t => {
-  const result = isEmpty('')
+test('string isEmpty', t => {
+  const result1 = isEmpty('')
+  const result2 = isEmpty('abc')
 
-  t.same(result, true)
-  t.end()
-})
+  t.same(result1, true)
+  t.same(result2, false)
 
-test('string isEmpty: returns false if length', t => {
-  const result = isEmpty('abc')
-
-  t.same(result, false)
   t.end()
 })

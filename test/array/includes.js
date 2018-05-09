@@ -1,5 +1,5 @@
 const test = require('tape')
-const includes = require('../../array/includes')
+const { includes } = require('../../array')
 
 test('array includes: returns true if match is found', t => {
   const result = includes(3, [1, 2, 3])

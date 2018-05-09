@@ -1,5 +1,5 @@
 const test = require('tape')
-const countBy = require('../../array/countBy')
+const { countBy } = require('../../array')
 
 test('array countBy', t => {
   const result1 = countBy(Math.floor, [4.2, 6.1, 6.4])

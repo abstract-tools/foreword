@@ -1,5 +1,5 @@
 const test = require('tape')
-const tail = require('../../array/tail')
+const { tail } = require('../../array')
 
 test('array tail: get last elements in array', t => {
   const result = tail([1, 2, 3, 4, 5])

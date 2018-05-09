@@ -1,16 +1,12 @@
 const test = require('tape')
-const isEmpty = require('../../object/isEmpty')
+const { isEmpty } = require('../../object')
 
-test('object isEmpty: returns true if contains no keys', t => {
-  const result = isEmpty({})
+test('object isEmpty', t => {
+  const result1 = isEmpty({})
+  const result2 = isEmpty({a: 'test'})
 
-  t.same(result, true)
-  t.end()
-})
+  t.same(result1, true)
+  t.same(result2, false)
 
-test('object isEmpty: returns false if contains keys', t => {
-  const result = isEmpty({a: 'test'})
-
-  t.same(result, false)
   t.end()
 })

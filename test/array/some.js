@@ -1,5 +1,5 @@
 const test = require('tape')
-const some = require('../../array/some')
+const { some } = require('../../array')
 
 test('array some: return true if one value matches predicate', t => {
   const result = some(x => x === 1, [3, 2, 1])

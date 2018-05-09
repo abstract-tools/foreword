@@ -1,5 +1,5 @@
 const test = require('tape')
-const negate = require('../../number/negate')
+const { negate } = require('../../index')
 
 test('number negate', t => {
   const result = negate(-2)

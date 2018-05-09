@@ -1,16 +1,12 @@
 const test = require('tape')
-const includes = require('../../string/includes')
+const { includes } = require('../../string')
 
-test('string includes: returns true if substring is found', t => {
-  const result = includes('abc', 'abcdef')
+test('string includes', t => {
+  const result1 = includes('abc')('abcdef')
+  const result2 = includes('abc')('abdef')
 
-  t.same(result, true)
-  t.end()
-})
+  t.same(result1, true)
+  t.same(result2, false)
 
-test('string includes: returns false if substring is not found', t => {
-  const result = includes('abc', 'abdef')
-
-  t.same(result, false)
   t.end()
 })

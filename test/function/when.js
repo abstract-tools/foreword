@@ -1,5 +1,5 @@
 const test = require('tape')
-const when = require('../../function/when')
+const { when } = require('../../index')
 
 const result = when(
   x => x > 3,

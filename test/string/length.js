@@ -1,5 +1,5 @@
 const test = require('tape')
-const length = require('../../string/length')
+const { length } = require('../../string')
 
 test('string length: returns number', t => {
   const result = length('abc')

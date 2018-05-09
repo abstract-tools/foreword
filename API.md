@@ -20,7 +20,7 @@
   - [flip](#function-flip)
   - [gt](#function-gt)
   - [gte](#function-gte)
-  - [identity](#function-identity)
+  - [id](#function-id)
   - [inc](#number-inc)
   - [isEven](#number-isEven)
   - [isOdd](#number-isOdd)
@@ -416,22 +416,20 @@ gte(1, 2)
 //=> true
 ```
 
-<div id="function-identity" class="section-name"></div>
+<div id="function-id" class="section-name"></div>
 
-### identity
+### id
 `a -> a`
 
 Returns itself.
 
 ```javascript
-identity('a')
+id('a')
 //=> 'a'
 
-A.filter(identity, [0, 1, null, 'test'])
+A.filter(id, [0, 1, null, 'test'])
 //=> [ 1, 'test' ]
 ```
-
-*Aliases: I, id*
 
 <div id="number-inc" class="section-name"></div>
 
@@ -504,12 +502,20 @@ lte(2, 1)
 Contains a list of functions that return a value or `undefined`, working well with [when](#function-when), [unless](#function-unless), and [branch](#function-branch). Provide a function that always returns a value at the end, to avoid the case where no matches are found.
 
 ```javascript
-match([
+const fn = match([
   when(lt(10), inc),
   when(gt(10), dec),
-  when(always(true), identity)
-], 1)
+  when(always(true), id)
+])
+
+fn(1)
 //=> 2
+
+fn(15)
+//=> 14
+
+fn(10)
+//=> 10
 ```
 
 <div id="number-max" class="section-name"></div>

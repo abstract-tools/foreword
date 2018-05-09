@@ -1,5 +1,5 @@
 const test = require('tape')
-const zip = require('../../array/zip')
+const { zip } = require('../../array')
 
 test('array zip', t => {
   const result1 = zip(['a', 'b', 'c'], [1, 2, 3, 4])

@@ -1,5 +1,5 @@
 const test = require('tape')
-const range = require('../../array/range')
+const { range } = require('../../array')
 
 test('array range', t => {
   const result1 = range(1, 5)

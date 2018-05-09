@@ -1,5 +1,5 @@
 const test = require('tape')
-const prepend = require('../../array/prepend')
+const { prepend } = require('../../array')
 
 test('array prepend: adds value to the beginning', t => {
   const result1 = prepend([3, 4], [1, 2])

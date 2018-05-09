@@ -1,5 +1,5 @@
 const test = require('tape')
-const append = require('../../array/append')
+const { append } = require('../../array')
 
 test('array append: adds value to the end', t => {
   const result1 = append([3, 4], [1, 2])

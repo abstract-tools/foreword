@@ -1,8 +1,8 @@
 const test = require('tape')
-const filter = require('../../object/filter')
+const { filter } = require('../../object')
 
 test('object filter', t => {
-  const result = filter(['id', 'test'], {
+  const result = filter(['id', 'test'])({
     id: 123,
     test: 'test',
     name: 'bob'

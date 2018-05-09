@@ -1,5 +1,5 @@
 const test = require('tape')
-const sort = require('../../array/sort')
+const { sort } = require('../../array')
 
 test('array sort: sort without mutating original', t => {
   const arr = [1, 39, 5]

@@ -1,6 +1,5 @@
 const test = require('tape')
-const match = require('../../function/match')
-const when = require('../../function/when')
+const { match, when } = require('../../index')
 
 const fn = match([
   when(x => x === 100, x => 'x is 100'),

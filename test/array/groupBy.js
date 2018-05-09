@@ -1,5 +1,5 @@
 const test = require('tape')
-const groupBy = require('../../array/groupBy')
+const { groupBy } = require('../../array')
 
 test('array groupBy', t => {
   const result = groupBy(Math.floor, [4.2, 6.1, 6.4])

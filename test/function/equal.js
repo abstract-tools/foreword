@@ -1,16 +1,12 @@
 const test = require('tape')
-const equal = require('../../function/equal')
+const { equal } = require('../../index')
 
-test('function equal: returns false if values are not equal', t => {
-  const result = equal(1, 2)
+test('function equal', t => {
+  const result1 = equal(1)(2)
+  const result2 = equal(1)(1)
 
-  t.same(result, false)
-  t.end()
-})
+  t.same(result1, false)
+  t.same(result2, true)
 
-test('function equal: returns true if values are equal', t => {
-  const result = equal(1, 1)
-
-  t.same(result, true)
   t.end()
 })

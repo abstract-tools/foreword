@@ -1,5 +1,5 @@
 const test = require('tape')
-const find = require('../../array/find')
+const { find } = require('../../array')
 
 test('array find: return first value predicate matched', t => {
   const result = find(x => x === 1, [3, 2, 1])

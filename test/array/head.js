@@ -1,5 +1,5 @@
 const test = require('tape')
-const head = require('../../array/head')
+const { head } = require('../../array')
 
 test('array head: get first element in array', t => {
   const result = head([1, 2, 3])

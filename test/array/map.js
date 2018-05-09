@@ -1,5 +1,5 @@
 const test = require('tape')
-const map = require('../../array/map')
+const { map } = require('../../array')
 
 test('array map: apply function to every value in list', t => {
   const result = map(x => x * 2, [1, 2, 3])

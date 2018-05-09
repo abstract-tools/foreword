@@ -1,5 +1,5 @@
 const test = require('tape')
-const concat = require('../../array/concat')
+const { concat } = require('../../array')
 
 test('array concat: concatenate a list of lists into one list', t => {
   const result = concat([[1, 2], [3], [4, 5]])

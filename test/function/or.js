@@ -1,16 +1,12 @@
 const test = require('tape')
-const or = require('../../function/or')
+const { or } = require('../../index')
 
-test('function or: returns true if one value is true', t => {
-  const result = or(false, true)
+test('function or', t => {
+  const result1 = or(false)(true)
+  const result2 = or(false)(false)
 
-  t.same(result, true)
-  t.end()
-})
+  t.same(result1, true)
+  t.same(result2, false)
 
-test('function or: returns false if both values are false', t => {
-  const result = or(false, false)
-
-  t.same(result, false)
   t.end()
 })

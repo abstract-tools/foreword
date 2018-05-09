@@ -1,5 +1,5 @@
 const test = require('tape')
-const filter = require('../../array/filter')
+const { filter } = require('../../array')
 
 test('array filter: return subset of list where predicate matches', t => {
   const result = filter(x => x === 1, [1, 2, 3])

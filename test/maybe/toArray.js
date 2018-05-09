@@ -1,5 +1,5 @@
 const test = require('tape')
-const toArray = require('../../maybe/toArray')
+const { toArray } = require('../../maybe')
 
 test('maybe toArray', t => {
   const result1 = toArray([1, 2, 3])

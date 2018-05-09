@@ -1,6 +1,5 @@
 const test = require('tape')
-const concatMap = require('../../array/concatMap')
-const range = require('../../array/range')
+const { concatMap, range } = require('../../array')
 
 test('array concatMap', t => {
   const result1 = concatMap(x => [x, x], [1, 2, 3])

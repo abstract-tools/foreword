@@ -1,5 +1,5 @@
 const test = require('tape')
-const map = require('../../object/map')
+const { map } = require('../../object')
 
 const data = {
   id: 123,
