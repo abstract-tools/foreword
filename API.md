@@ -51,12 +51,12 @@
   - [every](#array-every)
   - [filter](#array-filter)
   - [find](#array-find)
-  - [flatten](#array-flatten)
   - [get](#array-get)
   - [gets](#array-gets)
   - [groupBy](#array-groupBy)
   - [head](#array-head)
   - [includes](#array-includes)
+  - [indexOf](#array-indexOf)
   - [init](#array-init)
   - [isEmpty](#array-isEmpty)
   - [last](#array-last)
@@ -110,11 +110,14 @@
   - [drop](#string-drop)
   - [dropWhile](#string-dropWhile)
   - [includes](#string-includes)
+  - [indexOf](#string-indexOf)
   - [isEmpty](#string-isEmpty)
   - [join](#string-join)
   - [length](#string-length)
   - [repeat](#string-repeat)
+  - [replace](#string-replace)
   - [reverse](#string-reverse)
+  - [search](#string-search)
   - [slice](#string-slice)
   - [span](#string-span)
   - [split](#string-split)
@@ -828,16 +831,16 @@ A.find(equal(1), [1, 2, 3])
 //=> 1
 ```
 
-<div id="array-flatten" class="section-name"></div>
+<div id="array-findIndex" class="section-name"></div>
 
-### flatten
-`Array a -> Array a`
+### findIndex
+`(a -> Boolean) -> Array a -> Number`
 
-Recursively flattens an array of arrays.
+Returns the index of the first value that matches the predicate, or -1 if not found.
 
 ```javascript
-A.flatten([1, [[2], 3], [4, [[5]]]])
-//=> [ 1, 2, 3, 4, 5 ]
+A.findIndex(v => v === 1, [3, 2, 1])
+//=> 2
 ```
 
 <div id="array-get" class="section-name"></div>
@@ -907,6 +910,18 @@ Determines if an array contains a value.
 ```javascript
 A.includes('a', ['a', 'b', 'c'])
 //=> true
+```
+
+<div id="array-indexOf" class="section-name"></div>
+
+### indexOf
+`a -> Array a -> Number`
+
+Returns the index of a value, or -1 if not found.
+
+```javascript
+A.indexOf(1, [3, 2, 1])
+//=> 2
 ```
 
 <div id="array-init" class="section-name"></div>
@@ -1605,6 +1620,18 @@ S.includes('abc', 'abcdef')
 //=> true
 ```
 
+<div id="string-indexOf" class="section-name"></div>
+
+### indexOf
+`String -> String -> Number`
+
+Returns the index of a value, or -1 if not found.
+
+```javascript
+S.indexOf('abc', 'xyzabc')
+//=> 3
+```
+
 <div id="string-isEmpty" class="section-name"></div>
 
 ### isEmpty
@@ -1653,6 +1680,21 @@ S.repeat(3, 'abc')
 //=> 'abcabcabc'
 ```
 
+<div id="string-replace" class="section-name"></div>
+
+### replace
+`RegExp | String -> String -> String -> String`
+
+Returns a new string with the specified parts replaced.
+
+```javascript
+S.replace('foo', 'bar', 'foo foo foo')
+//=> 'bar foo foo'
+
+S.replace(/foo/g, 'bar', 'foo foo foo')
+//=> 'bar bar bar'
+```
+
 <div id="string-reverse" class="section-name"></div>
 
 ### reverse
@@ -1663,6 +1705,18 @@ Reverses the order of a string.
 ```javascript
 S.reverse('abc')
 //=> 'cba'
+```
+
+<div id="string-search" class="section-name"></div>
+
+### search
+`RegExp -> String -> Number`
+
+Returns the index of the first match from the regular expression, or -1 if not found.
+
+```javascript
+S.search(/[A-Z]/g, 'hello World')
+//=> 6
 ```
 
 <div id="string-slice" class="section-name"></div>

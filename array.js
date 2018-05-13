@@ -26,6 +26,12 @@ function drop (n, arr) {
   return arr.slice(n, Infinity)
 }
 
+function dropWhile (f, arr) {
+  const i = arr.findIndex(x => !f(x))
+
+  return i < 0 ? [] : arr.slice(i)
+}
+
 function every (f, arr) {
   return arr.every(f)
 }
@@ -66,6 +72,10 @@ function head (arr) {
 
 function includes (a, arr) {
   return arr.includes(a)
+}
+
+function indexOf (a, arr) {
+  return arr.indexOf(a)
 }
 
 function init (arr) {
@@ -163,12 +173,25 @@ function sortBy (f, arr) {
   })
 }
 
+function span (f, arr) {
+  const i = arr.findIndex(x => !f(x))
+  const n = i < 0 ? Infinity : i
+
+  return [arr.slice(0, n), arr.slice(n)]
+}
+
 function tail (arr) {
   return arr.slice(1)
 }
 
 function take (n, arr) {
   return arr.slice(0, n)
+}
+
+function takeWhile (f, arr) {
+  const i = arr.findIndex(x => !f(x))
+
+  return i < 0 ? arr : arr.slice(0, i)
 }
 
 function unique (arr) {
@@ -205,6 +228,7 @@ module.exports = {
   concatMap: curry(2, concatMap),
   countBy: curry(2, countBy),
   drop: curry(2, drop),
+  dropWhile: curry(2, dropWhile),
   every: curry(2, every),
   filter: curry(2, filter),
   find: curry(2, find),
@@ -214,6 +238,7 @@ module.exports = {
   groupBy: curry(2, groupBy),
   head,
   includes: curry(2, includes),
+  indexOf: curry(2, indexOf),
   init,
   isEmpty,
   last,
@@ -234,8 +259,10 @@ module.exports = {
   some: curry(2, some),
   sort: curry(2, sort),
   sortBy: curry(2, sortBy),
+  span: curry(2, span),
   tail,
   take: curry(2, take),
+  takeWhile: curry(2, takeWhile),
   unique,
   uniqueBy: curry(2, uniqueBy),
   zip: curry(2, zip)

@@ -2,34 +2,24 @@ const curry = require('./curry')
 
 // Basic functions
 
-// a -> b -> a
 function always (a, b) {
   return a
 }
 
-// Boolean -> Boolean -> Boolean
 function and (a, b) {
   return a && b
 }
 
-// Array (a -> b) -> Array a -> Array b
 function ap (fs, arr) {
   return fs.reduce((acc, f) => {
     return acc.concat(arr.map(f))
   }, [])
 }
 
-// (a -> b) -> a -> b
 function apply (f, a) {
   return f(a)
 }
 
-// (a -> b -> c) -> a -> b -> c
-function binary (f, a, b) {
-  return f(a, b)
-}
-
-// (a -> Boolean) -> (a -> Boolean) -> a -> Boolean
 function both (f, g, a) {
   return f(a) && g(a)
 }
@@ -112,10 +102,6 @@ function when (f, g, a) {
   return f(a) ? g(a) : undefined
 }
 
-function where (a, f) {
-  return f(a)
-}
-
 // Math
 
 function add (a, b) {
@@ -184,7 +170,6 @@ module.exports = {
   and: curry(2, and),
   ap: curry(2, ap),
   apply: curry(2, apply),
-  binary: curry(3, binary),
   both: curry(3, both),
   branch: curry(4, branch),
   clamp: curry(3, clamp),
@@ -219,6 +204,5 @@ module.exports = {
   rem: curry(2, rem),
   subtract: curry(2, subtract),
   unless: curry(3, unless),
-  when: curry(3, when),
-  where: curry(2, where)
+  when: curry(3, when)
 }
