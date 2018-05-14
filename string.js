@@ -13,7 +13,7 @@ function drop (n, str) {
 }
 
 function dropWhile (f, str) {
-  const i = Array.from(str).findIndex(x => !f(x))
+  const i = str.split('').findIndex(x => !f(x))
 
   return i < 0 ? '' : str.slice(i)
 }
@@ -59,7 +59,7 @@ function slice (a, b, str) {
 }
 
 function span (f, str) {
-  const i = Array.from(str).findIndex(x => !f(x))
+  const i = str.split('').findIndex(x => !f(x))
   const n = i < 0 ? Infinity : i
 
   return [str.slice(0, n), str.slice(n)]
@@ -74,7 +74,7 @@ function take (n, str) {
 }
 
 function takeWhile (f, str) {
-  const i = Array.from(str).findIndex(x => !f(x))
+  const i = str.split('').findIndex(x => !f(x))
 
   return i < 0 ? str : str.slice(0, i)
 }
