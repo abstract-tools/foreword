@@ -2,7 +2,7 @@ const test = require('tape')
 const { sortBy } = require('../../array')
 
 test('array sortBy', t => {
-  const result = sortBy(x => x.name, [
+  const result = sortBy(x => x.name)([
     { name: 'bat' },
     { name: 'ant' },
     { name: 'cat' },
