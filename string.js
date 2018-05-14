@@ -1,7 +1,7 @@
 const curry = require('./curry')
 
 function append (a, b) {
-  return b + a 
+  return b + a
 }
 
 function concat (arr) {
