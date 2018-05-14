@@ -108,6 +108,10 @@ function add (a, b) {
   return a + b
 }
 
+function between (a, b, n) {
+  return a <= n && b >= n
+}
+
 function clamp (a, b, c) {
   return c < a ? a : c > b ? b : c
 }
@@ -170,6 +174,7 @@ module.exports = {
   and: curry(2, and),
   ap: curry(2, ap),
   apply: curry(2, apply),
+  between: curry(3, between),
   both: curry(3, both),
   branch: curry(4, branch),
   clamp: curry(3, clamp),

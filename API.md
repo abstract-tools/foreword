@@ -162,8 +162,6 @@ always('a', 'b')
 //=> 'a'
 ```
 
-*Aliases: K*
-
 <div id="function-and" class="section-name"></div>
 
 ### and
@@ -188,8 +186,6 @@ ap([mul(2), add(3)], [1, 2, 3])
 //=> [ 2, 4, 6, 4, 5, 6 ]
 ```
 
-*Aliases: S*
-
 <div id="function-apply" class="section-name"></div>
 
 ### apply
@@ -202,7 +198,22 @@ apply(add(1), 1)
 //=> 2
 ```
 
-*Aliases: A*
+<div id="number-between" class="section-name"></div>
+
+### between
+`Number -> Number -> Number -> Boolean`
+
+Determines if a number is between two predicate numbers.
+
+```javascript
+const test = between(0, 10)
+
+test(5)
+//=> true
+
+test(20)
+//=> false
+```
 
 <div id="function-both" class="section-name"></div>
 
@@ -281,8 +292,6 @@ compose(Math.sqrt, add(1), 99)
 //=> 10
 ```
 
-*Aliases: B, comp*
-
 <div id="function-curry" class="section-name"></div>
 
 ### curry
@@ -321,8 +330,6 @@ divide(2, 10)
 //=> 5
 ```
 
-*Aliases: div*
-
 <div id="function-either" class="section-name"></div>
 
 ### either
@@ -358,8 +365,6 @@ equal('abc', 'xyz')
 //=> false
 ```
 
-*Alias: eq*
-
 <div id="function-equalBy" class="section-name"></div>
 
 ### equalBy
@@ -371,8 +376,6 @@ Returns the result of comparing two values, after applying a function over the v
 equalBy(Math.abs, 5, -5)
 //=> true
 ```
-
-*Alias: eqBy*
 
 <div id="function-flip" class="section-name"></div>
 
@@ -386,8 +389,6 @@ const gt_ = flip(gt)
 gt_(1, 2)
 //=> false
 ```
-
-*Aliases: C*
 
 <div id="function-gt" class="section-name"></div>
 
@@ -569,8 +570,6 @@ multiply(2, 5)
 //=> 10
 ```
 
-*Aliases: mul*
-
 <div id="number-negate" class="section-name"></div>
 
 ### negate
@@ -610,8 +609,6 @@ const sameLength = on(equal, S.length)
 sameLength('hey', 'now')
 //=> true
 ```
-
-*Aliases: P*
 
 <div id="function-or" class="section-name"></div>
 
@@ -672,8 +669,6 @@ Subtracts two numbers.
 subtract(2, 10)
 //=> 8
 ```
-
-*Aliases: sub*
 
 <div id="function-unless" class="section-name"></div>
 
