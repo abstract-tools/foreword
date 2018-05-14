@@ -1,8 +1,8 @@
 const test = require('tape')
-const both = require('../../function/both')
+const { both } = require('../../index')
 
 test('function both', t => {
-  const test = both(x => x > 10, x => x < 20)
+  const test = both(x => x > 10)(x => x < 20)
 
   t.same(test(15), true)
   t.same(test(30), false)

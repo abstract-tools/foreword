@@ -1,5 +1,5 @@
 const test = require('tape')
-const max = require('../../array/max')
+const { max } = require('../../array')
 
 test('array max: get highest number in array', t => {
   const result = max([4, 11, 3, 3, 69, 420])

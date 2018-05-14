@@ -1,5 +1,5 @@
 const test = require('tape')
-const span = require('../../string/span')
+const { span } = require('../../string')
 
 test('string span', t => {
   const isM = span(x => x === 'm')

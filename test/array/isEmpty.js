@@ -1,5 +1,5 @@
 const test = require('tape')
-const isEmpty = require('../../array/isEmpty')
+const { isEmpty } = require('../../array')
 
 test('array isEmpty: returns true is no length', t => {
   const result = isEmpty([])

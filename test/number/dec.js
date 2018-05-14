@@ -1,5 +1,5 @@
 const test = require('tape')
-const dec = require('../../number/dec')
+const { dec } = require('../../index')
 
 test('number dec', t => {
   const result = dec(1)

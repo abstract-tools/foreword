@@ -1,8 +1,8 @@
 const test = require('tape')
-const reject = require('../../object/reject')
+const { reject } = require('../../object')
 
 test('object reject', t => {
-  const result = reject(['name', 'test'], {
+  const result = reject(['name', 'test'])({
     id: 123,
     name: 'bob',
     test: 'test'

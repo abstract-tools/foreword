@@ -1,8 +1,8 @@
 const test = require('tape')
-const rem = require('../../number/rem')
+const { rem } = require('../../index')
 
 test('number rem', t => {
-  const result = rem(3, -20)
+  const result = rem(3)(-20)
 
   t.same(result, -2)
   t.end()

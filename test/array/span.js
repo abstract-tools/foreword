@@ -1,5 +1,5 @@
 const test = require('tape')
-const span = require('../../array/span')
+const { span } = require('../../array')
 
 test('array span', t => {
   const even = span(x => x % 2 === 0)

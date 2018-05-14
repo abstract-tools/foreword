@@ -1,5 +1,5 @@
 const test = require('tape')
-const last = require('../../array/last')
+const { last } = require('../../array')
 
 test('array last: return last element in array', t => {
   const result = last([1, 2, 3])

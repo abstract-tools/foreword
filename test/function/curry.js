@@ -1,5 +1,5 @@
 const test = require('tape')
-const curry = require('../../function/curry')
+const { curry } = require('../../index')
 
 test('function curry: returns a new function if fewer arguments are provided', t => {
   const sum = curry(3, (a, b, c) => a + b + c)

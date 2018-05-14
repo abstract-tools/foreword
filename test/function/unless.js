@@ -1,5 +1,5 @@
 const test = require('tape')
-const unless = require('../../function/unless')
+const { unless } = require('../../index')
 
 const result = unless(
   x => x > 3,

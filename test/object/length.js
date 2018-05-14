@@ -1,5 +1,5 @@
 const test = require('tape')
-const length = require('../../object/length')
+const { length } = require('../../object')
 
 test('object length', t => {
   const result1 = length({a: 1, b: 2, c: 3})

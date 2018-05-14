@@ -1,5 +1,5 @@
 const test = require('tape')
-const reverse = require('../../string/reverse')
+const { reverse } = require('../../string')
 
 test('string reverse: swap order of string', t => {
   const result = reverse('abc')

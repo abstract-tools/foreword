@@ -20,7 +20,7 @@
   - [flip](#function-flip)
   - [gt](#function-gt)
   - [gte](#function-gte)
-  - [identity](#function-identity)
+  - [id](#function-id)
   - [inc](#number-inc)
   - [isEven](#number-isEven)
   - [isOdd](#number-isOdd)
@@ -51,12 +51,12 @@
   - [every](#array-every)
   - [filter](#array-filter)
   - [find](#array-find)
-  - [flatten](#array-flatten)
   - [get](#array-get)
   - [gets](#array-gets)
   - [groupBy](#array-groupBy)
   - [head](#array-head)
   - [includes](#array-includes)
+  - [indexOf](#array-indexOf)
   - [init](#array-init)
   - [isEmpty](#array-isEmpty)
   - [last](#array-last)
@@ -110,11 +110,14 @@
   - [drop](#string-drop)
   - [dropWhile](#string-dropWhile)
   - [includes](#string-includes)
+  - [indexOf](#string-indexOf)
   - [isEmpty](#string-isEmpty)
   - [join](#string-join)
   - [length](#string-length)
   - [repeat](#string-repeat)
+  - [replace](#string-replace)
   - [reverse](#string-reverse)
+  - [search](#string-search)
   - [slice](#string-slice)
   - [span](#string-span)
   - [split](#string-split)
@@ -159,8 +162,6 @@ always('a', 'b')
 //=> 'a'
 ```
 
-*Aliases: K*
-
 <div id="function-and" class="section-name"></div>
 
 ### and
@@ -185,8 +186,6 @@ ap([mul(2), add(3)], [1, 2, 3])
 //=> [ 2, 4, 6, 4, 5, 6 ]
 ```
 
-*Aliases: S*
-
 <div id="function-apply" class="section-name"></div>
 
 ### apply
@@ -199,7 +198,22 @@ apply(add(1), 1)
 //=> 2
 ```
 
-*Aliases: A*
+<div id="number-between" class="section-name"></div>
+
+### between
+`Number -> Number -> Number -> Boolean`
+
+Determines if a number is between two predicate numbers.
+
+```javascript
+const test = between(0, 10)
+
+test(5)
+//=> true
+
+test(20)
+//=> false
+```
 
 <div id="function-both" class="section-name"></div>
 
@@ -278,8 +292,6 @@ compose(Math.sqrt, add(1), 99)
 //=> 10
 ```
 
-*Aliases: B, comp*
-
 <div id="function-curry" class="section-name"></div>
 
 ### curry
@@ -318,8 +330,6 @@ divide(2, 10)
 //=> 5
 ```
 
-*Aliases: div*
-
 <div id="function-either" class="section-name"></div>
 
 ### either
@@ -355,8 +365,6 @@ equal('abc', 'xyz')
 //=> false
 ```
 
-*Alias: eq*
-
 <div id="function-equalBy" class="section-name"></div>
 
 ### equalBy
@@ -368,8 +376,6 @@ Returns the result of comparing two values, after applying a function over the v
 equalBy(Math.abs, 5, -5)
 //=> true
 ```
-
-*Alias: eqBy*
 
 <div id="function-flip" class="section-name"></div>
 
@@ -383,8 +389,6 @@ const gt_ = flip(gt)
 gt_(1, 2)
 //=> false
 ```
-
-*Aliases: C*
 
 <div id="function-gt" class="section-name"></div>
 
@@ -416,22 +420,20 @@ gte(1, 2)
 //=> true
 ```
 
-<div id="function-identity" class="section-name"></div>
+<div id="function-id" class="section-name"></div>
 
-### identity
+### id
 `a -> a`
 
 Returns itself.
 
 ```javascript
-identity('a')
+id('a')
 //=> 'a'
 
-A.filter(identity, [0, 1, null, 'test'])
+A.filter(id, [0, 1, null, 'test'])
 //=> [ 1, 'test' ]
 ```
-
-*Aliases: I, id*
 
 <div id="number-inc" class="section-name"></div>
 
@@ -504,12 +506,20 @@ lte(2, 1)
 Contains a list of functions that return a value or `undefined`, working well with [when](#function-when), [unless](#function-unless), and [branch](#function-branch). Provide a function that always returns a value at the end, to avoid the case where no matches are found.
 
 ```javascript
-match([
+const fn = match([
   when(lt(10), inc),
   when(gt(10), dec),
-  when(always(true), identity)
-], 1)
+  when(always(true), id)
+])
+
+fn(1)
 //=> 2
+
+fn(15)
+//=> 14
+
+fn(10)
+//=> 10
 ```
 
 <div id="number-max" class="section-name"></div>
@@ -560,8 +570,6 @@ multiply(2, 5)
 //=> 10
 ```
 
-*Aliases: mul*
-
 <div id="number-negate" class="section-name"></div>
 
 ### negate
@@ -601,8 +609,6 @@ const sameLength = on(equal, S.length)
 sameLength('hey', 'now')
 //=> true
 ```
-
-*Aliases: P*
 
 <div id="function-or" class="section-name"></div>
 
@@ -663,8 +669,6 @@ Subtracts two numbers.
 subtract(2, 10)
 //=> 8
 ```
-
-*Aliases: sub*
 
 <div id="function-unless" class="section-name"></div>
 
@@ -822,16 +826,16 @@ A.find(equal(1), [1, 2, 3])
 //=> 1
 ```
 
-<div id="array-flatten" class="section-name"></div>
+<div id="array-findIndex" class="section-name"></div>
 
-### flatten
-`Array a -> Array a`
+### findIndex
+`(a -> Boolean) -> Array a -> Number`
 
-Recursively flattens an array of arrays.
+Returns the index of the first value that matches the predicate, or -1 if not found.
 
 ```javascript
-A.flatten([1, [[2], 3], [4, [[5]]]])
-//=> [ 1, 2, 3, 4, 5 ]
+A.findIndex(v => v === 1, [3, 2, 1])
+//=> 2
 ```
 
 <div id="array-get" class="section-name"></div>
@@ -901,6 +905,18 @@ Determines if an array contains a value.
 ```javascript
 A.includes('a', ['a', 'b', 'c'])
 //=> true
+```
+
+<div id="array-indexOf" class="section-name"></div>
+
+### indexOf
+`a -> Array a -> Number`
+
+Returns the index of a value, or -1 if not found.
+
+```javascript
+A.indexOf(1, [3, 2, 1])
+//=> 2
 ```
 
 <div id="array-init" class="section-name"></div>
@@ -1599,6 +1615,18 @@ S.includes('abc', 'abcdef')
 //=> true
 ```
 
+<div id="string-indexOf" class="section-name"></div>
+
+### indexOf
+`String -> String -> Number`
+
+Returns the index of a value, or -1 if not found.
+
+```javascript
+S.indexOf('abc', 'xyzabc')
+//=> 3
+```
+
 <div id="string-isEmpty" class="section-name"></div>
 
 ### isEmpty
@@ -1647,6 +1675,21 @@ S.repeat(3, 'abc')
 //=> 'abcabcabc'
 ```
 
+<div id="string-replace" class="section-name"></div>
+
+### replace
+`RegExp | String -> String -> String -> String`
+
+Returns a new string with the specified parts replaced.
+
+```javascript
+S.replace('foo', 'bar', 'foo foo foo')
+//=> 'bar foo foo'
+
+S.replace(/foo/g, 'bar', 'foo foo foo')
+//=> 'bar bar bar'
+```
+
 <div id="string-reverse" class="section-name"></div>
 
 ### reverse
@@ -1657,6 +1700,18 @@ Reverses the order of a string.
 ```javascript
 S.reverse('abc')
 //=> 'cba'
+```
+
+<div id="string-search" class="section-name"></div>
+
+### search
+`RegExp -> String -> Number`
+
+Returns the index of the first match from the regular expression, or -1 if not found.
+
+```javascript
+S.search(/[A-Z]/g, 'hello World')
+//=> 6
 ```
 
 <div id="string-slice" class="section-name"></div>

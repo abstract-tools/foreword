@@ -1,5 +1,5 @@
 const test = require('tape')
-const pipe = require('../../function/pipe')
+const { pipe } = require('../../index')
 
 test('function pipe: pass value from left to right', t => {
   const result = pipe([

@@ -1,16 +1,12 @@
 const test = require('tape')
-const includes = require('../../object/includes')
+const { includes } = require('../../object')
 
-test('object includes: returns true if object contains key', t => {
-  const result = includes('a', {a: 'test', b: 'test'})
+test('object includes', t => {
+  const result1 = includes('a')({a: 'test', b: 'test'})
+  const result2 = includes('c')({a: 'test', b: 'test'})
 
-  t.same(result, true)
-  t.end()
-})
+  t.same(result1, true)
+  t.same(result2, false)
 
-test('object includes: returns false if no key is found', t => {
-  const result = includes('c', {a: 'test', b: 'test'})
-
-  t.same(result, false)
   t.end()
 })

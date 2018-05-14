@@ -1,5 +1,5 @@
 const test = require('tape')
-const min = require('../../array/min')
+const { min } = require('../../array')
 
 test('array min: get lowest number in array', t => {
   const result = min([3, 194, 3, 5, 1, 9])

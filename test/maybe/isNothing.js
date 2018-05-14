@@ -1,5 +1,5 @@
 const test = require('tape')
-const isNothing = require('../../maybe/isNothing')
+const { isNothing } = require('../../maybe')
 
 test('maybe isNothing', t => {
   const result1 = isNothing([])

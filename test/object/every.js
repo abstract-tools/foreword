@@ -1,5 +1,5 @@
 const test = require('tape')
-const every = require('../../object/every')
+const { every } = require('../../object')
 
 const result = every({
   a: x => x === 'foo',
@@ -15,5 +15,10 @@ test('object every: predicate is true', t => {
 
 test('object every: predicate is false', t => {
   t.same(result({a: 'xxx', b: 'xxx', x: 11, y: 19}), false)
+  t.end()
+})
+
+test('object every: return false if not found', t => {
+  t.same(result({z: 1}), false)
   t.end()
 })
