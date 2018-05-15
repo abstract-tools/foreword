@@ -6,6 +6,7 @@
   - [and](#function-and)
   - [ap](#function-ap)
   - [apply](#function-apply)
+  - [between](#number-between)
   - [both](#function-both)
   - [branch](#function-branch)
   - [clamp](#number-clamp)
