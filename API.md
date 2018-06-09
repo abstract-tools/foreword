@@ -6,6 +6,8 @@
   - [and](#function-and)
   - [ap](#function-ap)
   - [apply](#function-apply)
+  - [ascend](#function-ascend)
+  - [ascendBy](#function-ascendBy)
   - [between](#number-between)
   - [both](#function-both)
   - [branch](#function-branch)
@@ -14,6 +16,8 @@
   - [compose](#function-compose)
   - [curry](#function-curry)
   - [dec](#number-dec)
+  - [descend](#function-descend)
+  - [descendBy](#function-descendBy)
   - [divide](#number-divide)
   - [either](#function-either)
   - [equal](#function-equal)
@@ -78,6 +82,7 @@
   - [some](#array-some)
   - [sort](#array-sort)
   - [sortBy](#array-sortBy)
+  - [sortWith](#array-sortWith)
   - [span](#array-span)
   - [tail](#array-tail)
   - [take](#array-take)
@@ -197,6 +202,30 @@ Applies function to value.
 ```javascript
 apply(add(1), 1)
 //=> 2
+```
+
+<div id="function-ascend" class="section-name"></div>
+
+### ascend
+`a -> a -> Number`
+
+Takes two comparables and returns a number for sorting in ascending order.
+
+```javascript
+A.sort(ascend, [3, 1, 2])
+//=> [ 1, 2, 3 ]
+```
+
+<div id="function-ascendBy" class="section-name"></div>
+
+### ascendBy
+`(a -> b) -> a -> a -> Number`
+
+Takes a function and applies it over two comparable values for sorting in ascending order.
+
+```javascript
+A.sort(ascendBy(O.get('name')), [{ name: 'bob' }, { name: 'alice' }])
+//=> [ { name: 'alice' }, { name: 'bob' } ]
 ```
 
 <div id="number-between" class="section-name"></div>
@@ -329,6 +358,31 @@ Divides two numbers.
 ```javascript
 divide(2, 10)
 //=> 5
+```
+
+<div id="function-descend" class="section-name"></div>
+
+### descend
+`a -> a -> Number`
+
+Takes two comparables and returns a number for sorting in descending order.
+
+```javascript
+A.sort(descend, [3, 1, 2])
+//=> [ 3, 2, 1 ]
+```
+
+<div id="function-descendBy" class="section-name"></div>
+
+### descendBy
+`(a -> b) -> a -> a -> Number`
+
+Takes a function and applies it over two comparable values for sorting in descending order.
+
+```javascript
+A.sort(descendBy(O.get('name')), [{ name: 'bob' }, { name: 'alice' }])
+//=> [ { name: 'bob' }, { name: 'alice' } ]
+
 ```
 
 <div id="function-either" class="section-name"></div>
@@ -1170,6 +1224,23 @@ A.sortBy(S.length, ['abc', 'a', 'ab'])
 
 A.sortBy(O.get('name'), [{ name: 'bob'}, { name: 'alice' }, { name: 'charlie' }])
 //=> [ { name: 'alice' }, { name: 'bob' }, { name: 'charlie' } ]
+```
+
+<div id="array-sortWith" class="section-name"></div>
+
+### sortWith
+`Array ((a -> b) -> a -> a -> Number) -> Array a -> Array a`
+
+Takes an array of comparators, and returns the first non-tie result.
+
+```javascript
+const test = A.sortWith([
+  descendBy(O.get('age')),
+  ascendBy(O.get('name'))
+])
+
+test([{ name: 'charlie', age: 40 }, { name: 'bob', age: 30 }, { name: 'alice', age: 40 }])
+//=> [ { name: 'alice', age: 40 }, { name: 'charlie', age: 40 }, { name: 'bob', age: 30 } ]
 ```
 
 <div id="array-span" class="section-name"></div>

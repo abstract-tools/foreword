@@ -20,6 +20,14 @@ function apply (f, a) {
   return f(a)
 }
 
+function ascend (a, b) {
+  return a < b ? -1 : a > b ? 1 : 0
+}
+
+function ascendBy (f, a, b) {
+  return ascend(f(a), f(b))
+}
+
 function both (f, g, a) {
   return f(a) && g(a)
 }
@@ -34,6 +42,14 @@ function complement (f, a) {
 
 function compose (f, g, a) {
   return f(g(a))
+}
+
+function descend (a, b) {
+  return a > b ? -1 : a < b ? 1 : 0
+}
+
+function descendBy (f, a, b) {
+  return descend(f(a), f(b))
 }
 
 function either (f, g, a) {
@@ -174,6 +190,8 @@ module.exports = {
   and: curry(2, and),
   ap: curry(2, ap),
   apply: curry(2, apply),
+  ascend: curry(2, ascend),
+  ascendBy: curry(3, ascendBy),
   between: curry(3, between),
   both: curry(3, both),
   branch: curry(4, branch),
@@ -182,6 +200,8 @@ module.exports = {
   compose: curry(3, compose),
   curry,
   dec,
+  descend: curry(2, descend),
+  descendBy: curry(3, descendBy),
   divide: curry(2, divide),
   either: curry(3, either),
   equal: curry(2, equal),

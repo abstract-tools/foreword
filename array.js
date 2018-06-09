@@ -173,6 +173,12 @@ function sortBy (f, arr) {
   })
 }
 
+function sortWith (fs, arr) {
+  return [...arr].sort((a, b) => {
+    return fs.reduce((acc, f) => acc === 0 ? f(a, b) : acc, 0)
+  })
+}
+
 function span (f, arr) {
   const i = arr.findIndex(x => !f(x))
   const n = i < 0 ? Infinity : i
@@ -259,6 +265,7 @@ module.exports = {
   some: curry(2, some),
   sort: curry(2, sort),
   sortBy: curry(2, sortBy),
+  sortWith: curry(2, sortWith),
   span: curry(2, span),
   tail,
   take: curry(2, take),
