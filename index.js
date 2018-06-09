@@ -90,7 +90,7 @@ function lte (a, b) {
 
 function match (arr, a) {
   return arr.reduce((acc, f) => {
-    return (acc !== undefined) ? acc : f(a)
+    return acc !== undefined ? acc : f(a)
   }, undefined)
 }
 
