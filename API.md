@@ -12,6 +12,7 @@
   - [both](#function-both)
   - [branch](#function-branch)
   - [clamp](#number-clamp)
+  - [compare](#function-compare)
   - [complement](#function-complement)
   - [compose](#function-compose)
   - [curry](#function-curry)
