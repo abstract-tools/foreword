@@ -1,115 +1,140 @@
-const curry = require('./curry')
-
-function append (a, b) {
-  return b + a
+// append :: String -> String -> String
+function append (a) {
+  return b => b + a
 }
 
+// concat :: [String] -> String
 function concat (arr) {
   return arr.join('')
 }
 
-function drop (n, str) {
-  return str.slice(n, Infinity)
+// drop :: Number -> String -> String
+function drop (n) {
+  return str => str.slice(n, Infinity)
 }
 
-function dropWhile (f, str) {
-  const i = str.split('').findIndex(x => !f(x))
+// dropWhile :: (String -> Boolean) -> String -> String
+function dropWhile (f) {
+  return str => {
+    const i = str.split('').findIndex(x => !f(x))
 
-  return i < 0 ? '' : str.slice(i)
+    return i < 0 ? '' : str.slice(i)
+  }
 }
 
-function includes (a, str) {
-  return str.includes(a)
+// includes :: String -> String -> Boolean
+function includes (a) {
+  return str => str.includes(a)
 }
 
-function indexOf (a, str) {
-  return str.indexOf(a)
+// indexOf :: String -> String -> Number
+function indexOf (a) {
+  return str => str.indexOf(a)
 }
 
+// isEmpty :: String -> Boolean
 function isEmpty (str) {
   return !str.length
 }
 
-function join (str, arr) {
-  return arr.join(str)
+// join :: String -> [String] -> String
+function join (str) {
+  return arr => arr.join(str)
 }
 
+// length :: String -> Number
 function length (str) {
   return str.length
 }
 
-function repeat (n, str) {
-  return str.repeat(n)
+// repeat :: Number -> String -> String
+function repeat (n) {
+  return str => str.repeat(n)
 }
 
-function replace (a, b, str) {
-  return str.replace(a, b)
+// replace :: (RegExp | String, String) -> String -> String
+function replace (a, b) {
+  return str => str.replace(a, b)
 }
 
+// reverse :: String -> String
 function reverse (str) {
   return str.split('').reverse().join('')
 }
 
-function search (reg, str) {
-  return str.search(reg)
+// search :: RegExp -> String -> Number
+function search (reg) {
+  return str => str.search(reg)
 }
 
-function slice (a, b, str) {
-  return str.slice(a, b)
+// slice :: (Number, Number) -> String -> String
+function slice (a, b) {
+  return str => str.slice(a, b)
 }
 
-function span (f, str) {
-  const i = str.split('').findIndex(x => !f(x))
-  const n = i < 0 ? Infinity : i
+// span :: (String -> Boolean) -> String -> [String, String]
+function span (f) {
+  return str => {
+    const i = str.split('').findIndex(x => !f(x))
+    const n = i < 0 ? Infinity : i
 
-  return [str.slice(0, n), str.slice(n)]
+    return [str.slice(0, n), str.slice(n)]
+  }
 }
 
-function split (a, b) {
-  return b.split(a)
+// split :: String -> String -> [String]
+function split (a) {
+  return b => b.split(a)
 }
 
-function take (n, str) {
-  return str.slice(0, n)
+// take :: Number -> String -> String
+function take (n) {
+  return str => str.slice(0, n)
 }
 
-function takeWhile (f, str) {
-  const i = str.split('').findIndex(x => !f(x))
+// takeWhile :: (String -> Boolean) -> String -> String
+function takeWhile (f) {
+  return str => {
+    const i = str.split('').findIndex(x => !f(x))
 
-  return i < 0 ? str : str.slice(0, i)
+    return i < 0 ? str : str.slice(0, i)
+  }
 }
 
+// toLower :: String -> String
 function toLower (str) {
   return str.toLowerCase()
 }
 
+// toUpper :: String -> String
 function toUpper (str) {
   return str.toUpperCase()
 }
 
+// trim :: String -> String
 function trim (str) {
   return str.trim()
 }
 
 module.exports = {
-  append: curry(2, append),
+  append,
   concat,
-  drop: curry(2, drop),
-  dropWhile: curry(2, dropWhile),
-  includes: curry(2, includes),
-  indexOf: curry(2, indexOf),
+  drop,
+  dropWhile,
+  includes,
+  indexOf,
   isEmpty,
-  join: curry(2, join),
+  join,
   length,
-  repeat: curry(2, repeat),
-  replace: curry(3, replace),
+  repeat,
+  replace,
   reverse,
-  search: curry(2, search),
-  slice: curry(3, slice),
-  span: curry(2, span),
-  split: curry(2, split),
-  take: curry(2, take),
-  takeWhile: curry(2, takeWhile),
+  search,
+  slice,
+  span,
+  split,
+  take,
+  takeWhile,
   toLower,
   toUpper,
   trim

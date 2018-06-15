@@ -1,19 +1,21 @@
-const curry = require('./curry')
-
-function append (a, b) {
-  return [...b, a]
+// append :: a -> [a] -> [a]
+function append (a) {
+  return b => [...b, a]
 }
 
+// concat :: [[a]] -> [a]
 function concat (arr) {
   return arr.reduce((acc, a) => acc.concat(a), [])
 }
 
-function concatMap (f, arr) {
-  return arr.reduce((acc, a) => acc.concat(f(a)), [])
+// concatMap :: (a -> [b]) -> [a] -> [b]
+function concatMap (f) {
+  return arr => arr.reduce((acc, a) => acc.concat(f(a)), [])
 }
 
-function countBy (f, arr) {
-  return arr.reduce((acc, a) => {
+// countBy :: (a -> b) -> [a] -> {b: Number}
+function countBy (f) {
+  return arr => arr.reduce((acc, a) => {
     const k = f(a)
 
     return Object.assign(acc, {
@@ -22,42 +24,53 @@ function countBy (f, arr) {
   }, {})
 }
 
-function drop (n, arr) {
-  return arr.slice(n, Infinity)
+// drop :: Number -> [a] -> [a]
+function drop (n) {
+  return arr => arr.slice(n, Infinity)
 }
 
-function dropWhile (f, arr) {
-  const i = arr.findIndex(x => !f(x))
+// dropWhile :: (a -> Boolean) -> [a] -> [a]
+function dropWhile (f) {
+  return arr => {
+    const i = arr.findIndex(x => !f(x))
 
-  return i < 0 ? [] : arr.slice(i)
+    return i < 0 ? [] : arr.slice(i)
+  }
 }
 
-function every (f, arr) {
-  return arr.every(f)
+// every :: (a -> Boolean) -> [a] -> Boolean
+function every (f) {
+  return arr => arr.every(f)
 }
 
-function filter (f, arr) {
-  return arr.filter(f)
+// filter :: (a -> Boolean) -> [a] -> [a]
+function filter (f) {
+  return arr => arr.filter(f)
 }
 
-function find (f, arr) {
-  return arr.find(f)
+// find :: (a -> Boolean) -> [a] -> a?
+function find (f) {
+  return arr => arr.find(f)
 }
 
-function findIndex (f, arr) {
-  return arr.findIndex(f)
+// findIndex :: (a -> Boolean) -> [a] -> Number
+function findIndex (f) {
+  return arr => arr.findIndex(f)
 }
 
-function get (n, arr) {
-  return arr[n]
+// get :: Number -> [a] -> a?
+function get (n) {
+  return arr => arr[n]
 }
 
-function gets (keys, arr) {
-  return keys.map(k => arr[k])
+// gets :: [Number] -> [a] -> [a?]
+function gets (keys) {
+  return arr => keys.map(k => arr[k])
 }
 
-function groupBy (f, arr) {
-  return arr.reduce((acc, a) => {
+// groupBy :: (a -> b) -> [a] -> {b: [a]}
+function groupBy (f) {
+  return arr => arr.reduce((acc, a) => {
     const k = f(a)
 
     return Object.assign(acc, {
@@ -66,64 +79,79 @@ function groupBy (f, arr) {
   }, {})
 }
 
+// head :: [a] -> a?
 function head (arr) {
   return arr[0]
 }
 
-function includes (a, arr) {
-  return arr.includes(a)
+// includes :: a -> [a] -> Boolean
+function includes (a) {
+  return arr => arr.includes(a)
 }
 
-function indexOf (a, arr) {
-  return arr.indexOf(a)
+// indexOf :: a -> [a] -> Number
+function indexOf (a) {
+  return arr => arr.indexOf(a)
 }
 
+// init :: [a] -> [a]
 function init (arr) {
   return arr.slice(0, -1)
 }
 
+// isEmpty :: [a] -> Boolean
 function isEmpty (arr) {
   return !arr.length
 }
 
+// last :: [a] -> a?
 function last (arr) {
   return arr[arr.length - 1]
 }
 
+// length :: [a] -> Number
 function length (arr) {
   return arr.length
 }
 
-function map (f, arr) {
-  return arr.map(f)
+// map :: (a -> b) -> [a] -> [b]
+function map (f) {
+  return arr => arr.map(f)
 }
 
+// max :: [a] -> a?
 function max (arr) {
   return arr.reduce((a, b) => a >= b ? a : b)
 }
 
-function maxBy (f, arr) {
-  return arr.reduce((a, b) => f(a) >= f(b) ? a : b)
+// maxBy :: (a -> b) -> [a] -> a?
+function maxBy (f) {
+  return arr => arr.reduce((a, b) => f(a) >= f(b) ? a : b)
 }
 
+// min :: [a] -> a?
 function min (arr) {
   return arr.reduce((a, b) => a <= b ? a : b)
 }
 
-function minBy (f, arr) {
-  return arr.reduce((a, b) => f(a) <= f(b) ? a : b)
+// minBy :: (a -> b) -> [a] -> a?
+function minBy (f) {
+  return arr => arr.reduce((a, b) => f(a) <= f(b) ? a : b)
 }
 
-function partition (f, arr) {
-  return arr.reduce(([a, b], v) => {
+// partition :: (a -> Boolean) -> [a] -> [[a], [a]]
+function partition (f) {
+  return arr => arr.reduce(([a, b], v) => {
     return f(v) ? [[...a, v], b] : [a, [...b, v]]
   }, [[], []])
 }
 
-function prepend (a, b) {
-  return [a, ...b]
+// prepend :: a -> [a] -> [a]
+function prepend (a) {
+  return b => [a, ...b]
 }
 
+// range :: (Number, Number) -> [Number]
 function range (a, b) {
   const arr = []
 
@@ -134,38 +162,46 @@ function range (a, b) {
   return arr
 }
 
-function reduce (f, init, arr) {
-  return arr.reduce(f, init)
+// reduce :: ((b, a) -> b, b) -> [a] -> b
+function reduce (f, init) {
+  return arr => arr.reduce(f, init)
 }
 
-function reject (f, arr) {
-  return arr.filter(v => !f(v))
+// reject :: (a -> Boolean) -> [a] -> [a]
+function reject (f) {
+  return arr => arr.filter(v => !f(v))
 }
 
+// reverse :: [a] -> [a]
 function reverse (arr) {
   return [...arr].reverse()
 }
 
-function scan (f, init, arr) {
-  return arr.reduce((acc, a) => {
+// scan :: ((b, a) -> b, b) -> [a] -> [b]
+function scan (f, init) {
+  return arr => arr.reduce((acc, a) => {
     return [...acc, f(acc[acc.length - 1], a)]
   }, [init])
 }
 
-function slice (a, b, arr) {
-  return arr.slice(a, b)
+// slice :: (Number, Number) -> [a] -> [a]
+function slice (a, b) {
+  return arr => arr.slice(a, b)
 }
 
-function some (f, arr) {
-  return arr.some(f)
+// some :: (a -> Boolean) -> [a] -> Boolean
+function some (f) {
+  return arr => arr.some(f)
 }
 
-function sort (f, arr) {
-  return [...arr].sort(f)
+// sort :: ((a, a) -> Number) -> [a] -> [a]
+function sort (f) {
+  return arr => [...arr].sort(f)
 }
 
-function sortBy (f, arr) {
-  return [...arr].sort((a, b) => {
+// sortBy :: (a -> b) -> [a] -> [a]
+function sortBy (f) {
+  return arr => [...arr].sort((a, b) => {
     const x = f(a)
     const y = f(b)
 
@@ -173,33 +209,43 @@ function sortBy (f, arr) {
   })
 }
 
-function sortWith (fs, arr) {
-  return [...arr].sort((a, b) => {
+// sortWith :: [(a, a) -> Number] -> [a] -> [a]
+function sortWith (fs) {
+  return arr => [...arr].sort((a, b) => {
     return fs.reduce((acc, f) => acc === 0 ? f(a, b) : acc, 0)
   })
 }
 
-function span (f, arr) {
-  const i = arr.findIndex(x => !f(x))
-  const n = i < 0 ? Infinity : i
+// span :: (a -> Boolean) -> [a] -> [[a], [a]]
+function span (f) {
+  return arr => {
+    const i = arr.findIndex(x => !f(x))
+    const n = i < 0 ? Infinity : i
 
-  return [arr.slice(0, n), arr.slice(n)]
+    return [arr.slice(0, n), arr.slice(n)]
+  }
 }
 
+// tail :: [a] -> [a]
 function tail (arr) {
   return arr.slice(1)
 }
 
-function take (n, arr) {
-  return arr.slice(0, n)
+// take :: Number -> [a] -> [a]
+function take (n) {
+  return arr => arr.slice(0, n)
 }
 
-function takeWhile (f, arr) {
-  const i = arr.findIndex(x => !f(x))
+// takeWhile :: (a -> Boolean) -> [a] -> [a]
+function takeWhile (f) {
+  return arr => {
+    const i = arr.findIndex(x => !f(x))
 
-  return i < 0 ? arr : arr.slice(0, i)
+    return i < 0 ? arr : arr.slice(0, i)
+  }
 }
 
+// unique :: [a] -> [a]
 function unique (arr) {
   return Object.values(arr.reduce((acc, a) => {
     return acc.hasOwnProperty(a) ? acc : Object.assign(acc, {
@@ -208,8 +254,9 @@ function unique (arr) {
   }, {}))
 }
 
-function uniqueBy (f, arr) {
-  return Object.values(arr.reduce((acc, a) => {
+// uniqueBy :: (a -> b) -> [a] -> [a]
+function uniqueBy (f) {
+  return arr => Object.values(arr.reduce((acc, a) => {
     const k = f(a)
 
     return acc.hasOwnProperty(k) ? acc : Object.assign(acc, {
@@ -218,59 +265,62 @@ function uniqueBy (f, arr) {
   }, {}))
 }
 
-function zip (a, b) {
-  const arr = a.length < b.length ? a : b
+// zip :: [k] -> [v] -> {k: v}
+function zip (a) {
+  return b => {
+    const arr = a.length < b.length ? a : b
 
-  return arr.reduce((acc, _, i) => {
-    return Object.assign(acc, {
-      [a[i]]: b[i]
-    })
-  }, {})
+    return arr.reduce((acc, _, i) => {
+      return Object.assign(acc, {
+        [a[i]]: b[i]
+      })
+    }, {})
+  }
 }
 
 module.exports = {
-  append: curry(2, append),
+  append,
   concat,
-  concatMap: curry(2, concatMap),
-  countBy: curry(2, countBy),
-  drop: curry(2, drop),
-  dropWhile: curry(2, dropWhile),
-  every: curry(2, every),
-  filter: curry(2, filter),
-  find: curry(2, find),
-  findIndex: curry(2, findIndex),
-  get: curry(2, get),
-  gets: curry(2, gets),
-  groupBy: curry(2, groupBy),
+  concatMap,
+  countBy,
+  drop,
+  dropWhile,
+  every,
+  filter,
+  find,
+  findIndex,
+  get,
+  gets,
+  groupBy,
   head,
-  includes: curry(2, includes),
-  indexOf: curry(2, indexOf),
+  includes,
+  indexOf,
   init,
   isEmpty,
   last,
   length,
-  map: curry(2, map),
+  map,
   max,
-  maxBy: curry(2, maxBy),
+  maxBy,
   min,
-  minBy: curry(2, minBy),
-  partition: curry(2, partition),
-  prepend: curry(2, prepend),
-  range: curry(2, range),
-  reduce: curry(3, reduce),
-  reject: curry(2, reject),
+  minBy,
+  partition,
+  prepend,
+  range,
+  reduce,
+  reject,
   reverse,
-  scan: curry(3, scan),
-  slice: curry(3, slice),
-  some: curry(2, some),
-  sort: curry(2, sort),
-  sortBy: curry(2, sortBy),
-  sortWith: curry(2, sortWith),
-  span: curry(2, span),
+  scan,
+  slice,
+  some,
+  sort,
+  sortBy,
+  sortWith,
+  span,
   tail,
-  take: curry(2, take),
-  takeWhile: curry(2, takeWhile),
+  take,
+  takeWhile,
   unique,
-  uniqueBy: curry(2, uniqueBy),
-  zip: curry(2, zip)
+  uniqueBy,
+  zip
 }

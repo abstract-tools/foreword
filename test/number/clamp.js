@@ -1,7 +1,7 @@
 const test = require('tape')
 const { clamp } = require('../../index')
 
-const result = clamp(1)(10)
+const result = clamp(1, 10)
 
 test('number clamp', t => {
   t.same(result(0), 1)

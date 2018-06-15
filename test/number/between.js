@@ -2,7 +2,7 @@ const test = require('tape')
 const { between } = require('../../index')
 
 test('number between', t => {
-  const test = between(0)(10)
+  const test = between(0, 10)
 
   t.same(test(5), true)
   t.same(test(0), true)

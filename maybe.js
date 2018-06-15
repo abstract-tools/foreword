@@ -1,33 +1,38 @@
-const curry = require('./curry')
-
-function encase (f, a) {
-  try {
-    return f(a)
-  } catch (err) {
-    return undefined
+// encase :: (a -> b) -> a -> b?
+function encase (f) {
+  return a => {
+    try {
+      return f(a)
+    } catch (err) {
+      return undefined
+    }
   }
 }
 
+// isNothing :: a -> Boolean
 function isNothing (a) {
   return a == null
 }
 
-function map (f, a) {
-  return a == null ? a : f(a)
+// map :: (a -> b) -> a -> a | b
+function map (f) {
+  return a => a == null ? a : f(a)
 }
 
+// toArray :: a -> [a]
 function toArray (a) {
   return a == null ? [] : Array.isArray(a) ? a : [a]
 }
 
-function withDefault (a, b) {
-  return b == null ? a : b
+// withDefault :: a -> b -> a | b
+function withDefault (a) {
+  return b => b == null ? a : b
 }
 
 module.exports = {
-  encase: curry(2, encase),
+  encase,
   isNothing,
-  map: curry(2, map),
+  map,
   toArray,
-  withDefault: curry(2, withDefault)
+  withDefault
 }
