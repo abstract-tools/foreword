@@ -112,14 +112,14 @@ function equal (a) {
   return b => a === b
 }
 
-// equalBy :: (a -> b) -> (a, a) -> Boolean
+// equalBy :: (a -> b) -> a -> a -> Boolean
 function equalBy (f) {
-  return (a, b) => f(a) === f(b)
+  return a => b => f(a) === f(b)
 }
 
 // flip :: (a -> b -> c) -> b -> a -> c
 function flip (f) {
-  return (a, b) => f(b, a)
+  return a => b => f(b, a)
 }
 
 // gt :: a -> a -> Boolean
@@ -199,7 +199,7 @@ function not (a) {
   return !a
 }
 
-// on :: (b -> b -> c) -> (a -> b) -> a -> a -> c
+// on :: (b -> b -> c, a -> b) -> (a, a) -> c
 function on (f, g) {
   return (a, b) => f(g(a), g(b))
 }

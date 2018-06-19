@@ -404,7 +404,6 @@ Returns the result of comparing two values, after applying a function over the v
 ```javascript
 const equalByAbs = equalBy(Math.abs)
 equalByAbs(5, -5) //=> true
-//=> true
 ```
 
 <div id="function-flip" class="section-name"></div>
@@ -416,7 +415,7 @@ Reverses the order of the first two arguments of the provided function.
 
 ```javascript
 const gt_ = flip(gt)
-gt_(1, 2) //=> false
+gt_(1)(2) //=> false
 ```
 
 <div id="function-gt" class="section-name"></div>
@@ -612,7 +611,7 @@ not(true) //=> false
 <div id="function-on" class="section-name"></div>
 
 ### on
-`(b -> b -> c) -> (a -> b) -> a -> a -> c`
+`(b -> b -> c, a -> b) -> (a, a) -> c`
 
 Applies a binary function over a unary function twice.
 
@@ -728,7 +727,7 @@ Adds a value to the end of an array.
 
 ```javascript
 const f = A.append(4)
-f([1, 2, 3]) //=> [ 1, 2, 3, 4]
+f([1, 2, 3]) //=> [ 1, 2, 3, 4 ]
 
 const g = A.append([4])
 g([1, 2, 3]) //=> [ 1, 2, 3, [ 4 ] ]
