@@ -6,7 +6,7 @@ test('string indexOf', t => {
   const result2 = indexOf('a')(['b', 'c'])
 
   t.same(result1, 0)
-  t.same(result2, -1)
+  t.same(result2, undefined)
 
   t.end()
 })

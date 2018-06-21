@@ -40,22 +40,26 @@ function dropWhile (f) {
 
 // every :: (a -> Boolean) -> [a] -> Boolean
 function every (f) {
-  return arr => arr.every(f)
+  return arr => arr.every(a => f(a))
 }
 
 // filter :: (a -> Boolean) -> [a] -> [a]
 function filter (f) {
-  return arr => arr.filter(f)
+  return arr => arr.filter(a => f(a))
 }
 
 // find :: (a -> Boolean) -> [a] -> a?
 function find (f) {
-  return arr => arr.find(f)
+  return arr => arr.find(a => f(a))
 }
 
 // findIndex :: (a -> Boolean) -> [a] -> Number
 function findIndex (f) {
-  return arr => arr.findIndex(f)
+  return arr => {
+    const i = arr.findIndex(a => f(a))
+
+    return i === -1 ? undefined : i
+  }
 }
 
 // get :: Number -> [a] -> a?
@@ -91,7 +95,11 @@ function includes (a) {
 
 // indexOf :: a -> [a] -> Number
 function indexOf (a) {
-  return arr => arr.indexOf(a)
+  return arr => {
+    const i = arr.indexOf(a)
+
+    return i === -1 ? undefined : i
+  }
 }
 
 // init :: [a] -> [a]
@@ -116,27 +124,7 @@ function length (arr) {
 
 // map :: (a -> b) -> [a] -> [b]
 function map (f) {
-  return arr => arr.map(f)
-}
-
-// max :: [a] -> a?
-function max (arr) {
-  return arr.reduce((a, b) => a >= b ? a : b)
-}
-
-// maxBy :: (a -> b) -> [a] -> a?
-function maxBy (f) {
-  return arr => arr.reduce((a, b) => f(a) >= f(b) ? a : b)
-}
-
-// min :: [a] -> a?
-function min (arr) {
-  return arr.reduce((a, b) => a <= b ? a : b)
-}
-
-// minBy :: (a -> b) -> [a] -> a?
-function minBy (f) {
-  return arr => arr.reduce((a, b) => f(a) <= f(b) ? a : b)
+  return arr => arr.map(a => f(a))
 }
 
 // partition :: (a -> Boolean) -> [a] -> [[a], [a]]
@@ -164,12 +152,12 @@ function range (a, b) {
 
 // reduce :: ((b, a) -> b, b) -> [a] -> b
 function reduce (f, init) {
-  return arr => arr.reduce(f, init)
+  return arr => arr.reduce((acc, a) => f(acc, a), init)
 }
 
 // reject :: (a -> Boolean) -> [a] -> [a]
 function reject (f) {
-  return arr => arr.filter(v => !f(v))
+  return arr => arr.filter(a => !f(a))
 }
 
 // reverse :: [a] -> [a]
@@ -191,7 +179,7 @@ function slice (a, b) {
 
 // some :: (a -> Boolean) -> [a] -> Boolean
 function some (f) {
-  return arr => arr.some(f)
+  return arr => arr.some(a => f(a))
 }
 
 // sort :: ((a, a) -> Number) -> [a] -> [a]
@@ -300,10 +288,6 @@ module.exports = {
   last,
   length,
   map,
-  max,
-  maxBy,
-  min,
-  minBy,
   partition,
   prepend,
   range,

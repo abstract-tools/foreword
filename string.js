@@ -27,9 +27,13 @@ function includes (a) {
   return str => str.includes(a)
 }
 
-// indexOf :: String -> String -> Number
+// indexOf :: String -> String -> Number?
 function indexOf (a) {
-  return str => str.indexOf(a)
+  return str => {
+    const i = str.indexOf(a)
+
+    return i === -1 ? undefined : i
+  }
 }
 
 // isEmpty :: String -> Boolean

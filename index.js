@@ -20,7 +20,7 @@ function ap (fs) {
   }, [])
 }
 
-// apply :: (a -> *) -> [a, *] -> b
+// apply :: (* -> a) -> [*] -> a
 function apply (f) {
   return arr => arr.reduce((acc, a) => acc(a), f)
 }
@@ -53,6 +53,11 @@ function both (f, g) {
 // branch :: (a -> Boolean, a -> b, a -> b) -> a -> b
 function branch (p, f, g) {
   return a => p(a) ? f(a) : g(a)
+}
+
+// call :: (* -> a) -> * -> a
+function call (f) {
+  return (...args) => args.reduce((acc, a) => acc(a), f)
 }
 
 // clamp :: (Number, Number) -> Number -> Number
@@ -174,9 +179,19 @@ function max (a) {
   return b => a > b ? a : b
 }
 
+// maxBy :: (a -> b) -> Number -> Number -> Number
+function maxBy (f) {
+  return a => b => f(a) >= f(b) ? a : b
+}
+
 // min :: Number -> Number -> Number
 function min (a) {
   return b => a > b ? b : a
+}
+
+// minBy :: (a -> b) -> Number -> Number -> Number
+function minBy (f) {
+  return a => b => f(a) <= f(b) ? a : b
 }
 
 // mod :: Number -> Number -> Number
@@ -250,6 +265,7 @@ module.exports = {
   between,
   both,
   branch,
+  call,
   clamp,
   compare,
   complement,
@@ -272,7 +288,9 @@ module.exports = {
   lte,
   match,
   max,
+  maxBy,
   min,
+  minBy,
   mod,
   multiply,
   negate,

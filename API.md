@@ -1,52 +1,55 @@
 # API
 
 - [Basics](#basics)
-  - [add](#number-add)
-  - [always](#function-always)
-  - [and](#function-and)
-  - [ap](#function-ap)
-  - [apply](#function-apply)
-  - [ascend](#function-ascend)
-  - [ascendBy](#function-ascendBy)
-  - [between](#number-between)
-  - [both](#function-both)
-  - [branch](#function-branch)
-  - [clamp](#number-clamp)
-  - [compare](#function-compare)
-  - [complement](#function-complement)
-  - [compose](#function-compose)
-  - [curry](#function-curry)
-  - [dec](#number-dec)
-  - [descend](#function-descend)
-  - [descendBy](#function-descendBy)
-  - [divide](#number-divide)
-  - [either](#function-either)
-  - [equal](#function-equal)
-  - [equalBy](#function-equalBy)
-  - [flip](#function-flip)
-  - [gt](#function-gt)
-  - [gte](#function-gte)
-  - [id](#function-id)
-  - [inc](#number-inc)
-  - [isEven](#number-isEven)
-  - [isOdd](#number-isOdd)
-  - [lt](#function-lt)
-  - [lte](#function-lte)
-  - [match](#function-match)
-  - [max](#number-max)
-  - [min](#number-min)
-  - [mod](#number-mod)
-  - [multiply](#number-multiply)
-  - [negate](#number-negate)
-  - [not](#function-not)
-  - [on](#function-on)
-  - [or](#function-or)
-  - [pipe](#function-pipe)
-  - [pow](#number-pow)
-  - [rem](#number-rem)
-  - [subtract](#number-subtract)
-  - [unless](#function-unless)
-  - [when](#function-when)
+  - [add](#add)
+  - [always](#always)
+  - [and](#and)
+  - [ap](#ap)
+  - [apply](#apply)
+  - [ascend](#ascend)
+  - [ascendBy](#ascendBy)
+  - [between](#between)
+  - [both](#both)
+  - [branch](#branch)
+  - [call](#call)
+  - [clamp](#clamp)
+  - [compare](#compare)
+  - [complement](#complement)
+  - [compose](#compose)
+  - [curry](#curry)
+  - [dec](#dec)
+  - [descend](#descend)
+  - [descendBy](#descendBy)
+  - [divide](#divide)
+  - [either](#either)
+  - [equal](#equal)
+  - [equalBy](#equalBy)
+  - [flip](#flip)
+  - [gt](#gt)
+  - [gte](#gte)
+  - [id](#id)
+  - [inc](#inc)
+  - [isEven](#isEven)
+  - [isOdd](#isOdd)
+  - [lt](#lt)
+  - [lte](#lte)
+  - [match](#match)
+  - [max](#max)
+  - [maxBy](#maxBy)
+  - [min](#min)
+  - [minBy](#minBy)
+  - [mod](#mod)
+  - [multiply](#multiply)
+  - [negate](#negate)
+  - [not](#not)
+  - [on](#on)
+  - [or](#or)
+  - [pipe](#pipe)
+  - [pow](#pow)
+  - [rem](#rem)
+  - [subtract](#subtract)
+  - [unless](#unless)
+  - [when](#when)
 - [Array](#array)
   - [append](#array-append)
   - [concat](#array-concat)
@@ -68,10 +71,6 @@
   - [last](#array-last)
   - [length](#array-length)
   - [map](#array-map)
-  - [max](#array-max)
-  - [maxBy](#array-maxBy)
-  - [min](#array-min)
-  - [minBy](#array-minBy)
   - [partition](#array-partition)
   - [prepend](#array-prepend)
   - [range](#array-range)
@@ -145,7 +144,7 @@ const F = require('foreword')
 const { add, always, ... } = require('foreword')
 ```
 
-<div id="number-add" class="section-name"></div>
+<div id="add" class="section-name"></div>
 
 ### add
 `Number -> Number -> Number`
@@ -157,7 +156,7 @@ const add2 = add(2)
 add2(2) //=> 4
 ```
 
-<div id="function-always" class="section-name"></div>
+<div id="always" class="section-name"></div>
 
 ### always
 `a -> b -> a`
@@ -169,7 +168,7 @@ const True = always(true)
 True(false) //=> true
 ```
 
-<div id="function-and" class="section-name"></div>
+<div id="and" class="section-name"></div>
 
 ### and
 `a -> b -> a | b`
@@ -181,7 +180,7 @@ const test = and(true)
 test(false) //=> false
 ```
 
-<div id="function-ap" class="section-name"></div>
+<div id="ap" class="section-name"></div>
 
 ### ap
 `[a -> b] -> [a] -> [b]`
@@ -193,10 +192,10 @@ const f = ap([mul(2), add(3)])
 f([1, 2, 3]) //=> [ 2, 4, 6, 4, 5, 6 ]
 ```
 
-<div id="function-apply" class="section-name"></div>
+<div id="apply" class="section-name"></div>
 
 ### apply
-`(a -> b) -> [a] -> b`
+`(* -> a) -> [*] -> a`
 
 Applies a list of arguments over a function, which can aid in partial application.
 
@@ -205,7 +204,7 @@ const adding = apply(add)
 adding([1, 1]) //=> 2
 ```
 
-<div id="function-ascend" class="section-name"></div>
+<div id="ascend" class="section-name"></div>
 
 ### ascend
 `(a, a) -> Number`
@@ -217,7 +216,7 @@ const ascending = A.sort(ascend)
 ascending([3, 1, 2]) //=> [ 1, 2, 3 ]
 ```
 
-<div id="function-ascendBy" class="section-name"></div>
+<div id="ascendBy" class="section-name"></div>
 
 ### ascendBy
 `(a -> b) -> (a, a) -> Number`
@@ -229,7 +228,7 @@ const sortByName = compose(A.sort, ascendBy(O.get('name')))
 sortByName([{ name: 'bob' }, { name: 'alice' }]) //=> [ { name: 'alice' }, { name: 'bob' } ]
 ```
 
-<div id="number-between" class="section-name"></div>
+<div id="between" class="section-name"></div>
 
 ### between
 `(Number, Number) -> Number -> Boolean`
@@ -242,7 +241,7 @@ f(5) //=> true
 f(20) //=> false
 ```
 
-<div id="function-both" class="section-name"></div>
+<div id="both" class="section-name"></div>
 
 ### both
 `(a -> Boolean, a -> Boolean) -> a -> Boolean`
@@ -255,7 +254,7 @@ f(15) //=> true
 f(30) //=> false
 ```
 
-<div id="function-branch" class="section-name"></div>
+<div id="branch" class="section-name"></div>
 
 ### branch
 `(a -> Boolean, a -> b, a -> b) -> a -> b`
@@ -268,7 +267,19 @@ f(11) //=> 10
 f(9) //=> 10
 ```
 
-<div id="number-clamp" class="section-name"></div>
+<div id="call" class="section-name"></div>
+
+### call
+`(* -> a) -> * -> a`
+
+Like apply, but using function arguments instead of an array of arguments.
+
+```javascript
+const addArgs = call(add) 
+addArgs(1, 2) //=> 3
+```
+
+<div id="clamp" class="section-name"></div>
 
 ### clamp
 `(Number, Number) -> Number -> Number`
@@ -282,7 +293,7 @@ f(5) //=> 5
 f(20) //=> 10
 ```
 
-<div id="function-compare" class="section-name"></div>
+<div id="compare" class="section-name"></div>
 
 ### compare
 `((a, a) -> Boolean) -> (a, a) -> Number`
@@ -295,7 +306,7 @@ const sortDescending = A.sort(descend)
 sortDescending([3, 1, 2]) //=> [ 3, 2, 1 ]
 ```
 
-<div id="function-complement" class="section-name"></div>
+<div id="complement" class="section-name"></div>
 
 ### complement
 `(a -> Boolean) -> a -> Boolean`
@@ -307,7 +318,7 @@ const notOne = complement(equal(1))
 notOne(1) //=> false
 ```
 
-<div id="function-compose" class="section-name"></div>
+<div id="compose" class="section-name"></div>
 
 ### compose
 `(b -> c, a -> b) -> a -> c`
@@ -319,7 +330,7 @@ const f = compose(Math.sqrt, add(1))
 f(99) //=> 10
 ```
 
-<div id="number-dec" class="section-name"></div>
+<div id="dec" class="section-name"></div>
 
 ### dec
 `Number -> Number`
@@ -330,7 +341,7 @@ Decrements a number.
 dec(10) //=> 9
 ```
 
-<div id="number-divide" class="section-name"></div>
+<div id="divide" class="section-name"></div>
 
 ### divide
 `Number -> Number -> Number`
@@ -342,7 +353,7 @@ const divideByTwo = divide(2)
 divideByTwo(10) //=> 5
 ```
 
-<div id="function-descend" class="section-name"></div>
+<div id="descend" class="section-name"></div>
 
 ### descend
 `(a, a) -> Number`
@@ -354,7 +365,7 @@ const sortDescending = A.sort(descend)
 sortDescending([3, 1, 2]) //=> [ 3, 2, 1 ]
 ```
 
-<div id="function-descendBy" class="section-name"></div>
+<div id="descendBy" class="section-name"></div>
 
 ### descendBy
 `(a -> b) -> (a, a) -> Number`
@@ -367,7 +378,7 @@ descendingByName([{ name: 'alice' }, { name: 'bob' }])
 //=> [ { name: 'bob' }, { name: 'alice' } ]
 ```
 
-<div id="function-either" class="section-name"></div>
+<div id="either" class="section-name"></div>
 
 ### either
 `(a -> Boolean, a -> Boolean) -> a -> Boolean`
@@ -381,7 +392,7 @@ f(5) //=> false
 f(4) //=> true
 ```
 
-<div id="function-equal" class="section-name"></div>
+<div id="equal" class="section-name"></div>
 
 ### equal
 `a -> a -> Boolean`
@@ -394,7 +405,7 @@ equalABC('abc') //=> true
 equalABC('xyz') //=> false
 ```
 
-<div id="function-equalBy" class="section-name"></div>
+<div id="equalBy" class="section-name"></div>
 
 ### equalBy
 `(a -> b) -> (a, a) -> Boolean`
@@ -406,7 +417,7 @@ const equalByAbs = equalBy(Math.abs)
 equalByAbs(5, -5) //=> true
 ```
 
-<div id="function-flip" class="section-name"></div>
+<div id="flip" class="section-name"></div>
 
 ### flip
 `(a -> b -> c) -> b -> a -> c`
@@ -418,7 +429,7 @@ const gt_ = flip(gt)
 gt_(1)(2) //=> false
 ```
 
-<div id="function-gt" class="section-name"></div>
+<div id="gt" class="section-name"></div>
 
 ### gt
 `a -> a -> Boolean`
@@ -433,7 +444,7 @@ const gtA = gt('a')
 gtA('b') //=> true
 ```
 
-<div id="function-gte" class="section-name"></div>
+<div id="gte" class="section-name"></div>
 
 ### gte
 `a -> a -> Boolean`
@@ -447,7 +458,7 @@ gteOne(2) //=> true
 gteOne(0) //=> false
 ```
 
-<div id="function-id" class="section-name"></div>
+<div id="id" class="section-name"></div>
 
 ### id
 `a -> a`
@@ -461,7 +472,7 @@ const filterById = A.filter(id)
 filterById([0, 1, null, 'test']) //=> [ 1, 'test' ]
 ```
 
-<div id="number-inc" class="section-name"></div>
+<div id="inc" class="section-name"></div>
 
 ### inc
 `Number -> Number`
@@ -472,7 +483,7 @@ Increments a number.
 inc(10) //=> 11
 ```
 
-<div id="number-isEven" class="section-name"></div>
+<div id="isEven" class="section-name"></div>
 
 ### isEven
 `Number -> Boolean`
@@ -483,7 +494,7 @@ Determines if a number is even.
 isEven(10) //=> true
 ```
 
-<div id="number-isOdd" class="section-name"></div>
+<div id="isOdd" class="section-name"></div>
 
 ### isOdd
 `Number -> Boolean`
@@ -494,7 +505,7 @@ Determines if a number is odd.
 isOdd(9) //=> true
 ```
 
-<div id="function-lt" class="section-name"></div>
+<div id="lt" class="section-name"></div>
 
 ### lt
 `a -> a -> Boolean`
@@ -506,7 +517,7 @@ const ltTwo = lt(2)
 ltTwo(1) //=> true
 ```
 
-<div id="function-lte" class="section-name"></div>
+<div id="lte" class="section-name"></div>
 
 ### lte
 `a -> a -> Boolean`
@@ -519,7 +530,7 @@ lteOne(1) //=> true
 lteOne(2) //=> false
 ```
 
-<div id="function-match" class="section-name"></div>
+<div id="match" class="section-name"></div>
 
 ### match
 `[a -> b?] -> a -> b?`
@@ -538,31 +549,58 @@ f(15) //=> 14
 f(10) //=> 10
 ```
 
-<div id="number-max" class="section-name"></div>
+<div id="max" class="section-name"></div>
 
 ### max
-`Number -> Number -> Number`
+`a -> a -> a`
 
-Returns the larger number.
+Returns the larger value.
 
 ```javascript
 const maxFour = max(4)
 maxFour(9) //=> 9
 ```
 
-<div id="number-min" class="section-name"></div>
+<div id="maxBy" class="section-name"></div>
+
+### maxBy
+`(a -> b) -> a -> a -> a`
+
+Returns the larger value after applying a transformation to both values.
+
+```javascript
+const square = n => n * n
+
+maxBy(square)(-3)(2) //=> -3
+A.reduce(call(maxBy(square)), 0)([1, -3, 2, -2]) //=> -3
+```
+
+<div id="min" class="section-name"></div>
 
 ### min
-`Number -> Number -> Number`
+`a -> a -> a`
 
-Returns the smaller number.
+Returns the smaller value.
 
 ```javascript
 const minFour = min(4)
 minFour(9) //=> 4
 ```
 
-<div id="number-mod" class="section-name"></div>
+<div id="minBy" class="section-name"><div>
+
+### minBy
+`(a -> b) -> a -> a -> a`
+
+Returns the smaller value after applying a transformation to both values.
+
+```javascript
+const square = n => n * n
+
+minBy(square)(-3)(2) //=> 2
+```
+
+<div id="mod" class="section-name"></div>
 
 ### mod
 `Number -> Number -> Number`
@@ -574,7 +612,7 @@ const f = mod(-20)
 f(3) //=> 1
 ```
 
-<div id="number-multiply" class="section-name"></div>
+<div id="multiply" class="section-name"></div>
 
 ### multiply
 `Number -> Number -> Number`
@@ -586,7 +624,7 @@ const mulByTwo = multiply(2)
 mulByTwo(5) //=> 10
 ```
 
-<div id="number-negate" class="section-name"></div>
+<div id="negate" class="section-name"></div>
 
 ### negate
 `Number -> Number`
@@ -597,7 +635,7 @@ Negated number.
 negate(10) //=> -10
 ```
 
-<div id="function-not" class="section-name"></div>
+<div id="not" class="section-name"></div>
 
 ### not
 `Boolean -> Boolean`
@@ -608,7 +646,7 @@ Returns the opposite boolean value.
 not(true) //=> false
 ```
 
-<div id="function-on" class="section-name"></div>
+<div id="on" class="section-name"></div>
 
 ### on
 `(b -> b -> c, a -> b) -> (a, a) -> c`
@@ -620,7 +658,7 @@ const sameLength = on(equal, S.length)
 sameLength('hey', 'now') //=> true
 ```
 
-<div id="function-or" class="section-name"></div>
+<div id="or" class="section-name"></div>
 
 ### or
 `Boolean -> Boolean -> Boolean`
@@ -632,7 +670,7 @@ const orTrue = or(true)
 orTrue(false) //=> true
 ```
 
-<div id="function-pipe" class="section-name"></div>
+<div id="pipe" class="section-name"></div>
 
 ### pipe
 `[a -> b] -> a -> b`
@@ -648,7 +686,7 @@ const f = pipe([
 f(99) //=> 10
 ```
 
-<div id="number-pow" class="section-name"></div>
+<div id="pow" class="section-name"></div>
 
 ### pow
 `Number -> Number -> Number`
@@ -660,7 +698,7 @@ const powTwo = pow(2)
 powTwo(-2) //=> 4
 ```
 
-<div id="number-rem" class="section-name"></div>
+<div id="rem" class="section-name"></div>
 
 ### rem
 `Number -> Number -> Number`
@@ -672,7 +710,7 @@ const remThree = rem(3)
 remThree(-20) //=> -2
 ```
 
-<div id="number-subtract" class="section-name"></div>
+<div id="subtract" class="section-name"></div>
 
 ### subtract
 `Number -> Number -> Number`
@@ -684,7 +722,7 @@ const subTwo = subtract(2)
 subTwo(10) //=> 8
 ```
 
-<div id="function-unless" class="section-name"></div>
+<div id="unless" class="section-name"></div>
 
 ### unless
 `(a -> Boolean, a -> b) -> a -> b?`
@@ -697,7 +735,7 @@ incGtTen(15) //=> 16
 incGtTen(5) //=> 5
 ```
 
-<div id="function-when" class="section-name"></div>
+<div id="when" class="section-name"></div>
 
 ### when
 `(a -> Boolean, a -> b) -> a -> b?`
@@ -840,9 +878,9 @@ findOne([1, 2, 3]) //=> 1
 <div id="array-findIndex" class="section-name"></div>
 
 ### findIndex
-`(a -> Boolean) -> [a] -> Number`
+`(a -> Boolean) -> [a] -> Number?`
 
-Returns the index of the first value that matches the predicate, or -1 if not found.
+Returns the index of the first value that matches the predicate, or undefined if not found.
 
 ```javascript
 const indexOfOne = A.findIndex(v => v === 1)
@@ -916,9 +954,9 @@ hasA(['a', 'b', 'c']) //=> true
 <div id="array-indexOf" class="section-name"></div>
 
 ### indexOf
-`a -> [a] -> Number`
+`a -> [a] -> Number?`
 
-Returns the index of a value, or -1 if not found.
+Returns the index of a value, or undefined if not found.
 
 ```javascript
 const indexOfOne = A.indexOf(1)
@@ -980,52 +1018,6 @@ Applies a function over every element in an array.
 ```javascript
 const listOfA = A.map(O.get('a'))
 listOfA([{a: 1}, {a: 2}, {a: 3}]) //=> [ 1, 2, 3 ]
-```
-
-<div id="array-max" class="section-name"></div>
-
-### max
-`[a] -> a?`
-
-Returns the highest value element in an array.
-
-```javascript
-A.max([1, 2, 3]) //=> 3
-```
-
-<div id="array-maxBy" class="section-name"></div>
-
-### maxBy
-`(a -> b) -> [a] -> a?`
-
-Returns the highest value element in an array.
-
-```javascript
-const maxByLen = A.maxBy(S.length)
-maxByLen(['bc', 'abc', 'a', 'b']) //=> 'abc'
-```
-
-<div id="array-min" class="section-name"></div>
-
-### min
-`[a] -> a?`
-
-Returns the lowest value element in an array.
-
-```javascript
-A.min([3, 2, 1]) //=> 1
-```
-
-<div id="array-minBy" class="section-name"></div>
-
-### minBy
-`(a -> b) -> [a] -> a?`
-
-Returns the lowest value element in an array after applying a function to the element.
-
-```javascript
-const minBylen = A.minBy(S.length)
-minByLen(['bc', 'abc', 'a', 'b']) //=> 'a'
 ```
 
 <div id="array-partition" class="section-name"></div>
@@ -1604,9 +1596,9 @@ hasABC('abcdef') //=> true
 <div id="string-indexOf" class="section-name"></div>
 
 ### indexOf
-`String -> String -> Number`
+`String -> String -> Number?`
 
-Returns the index of a value, or -1 if not found.
+Returns the index of a value, or undefined if not found.
 
 ```javascript
 const indexABC = S.indexOf('abc')
