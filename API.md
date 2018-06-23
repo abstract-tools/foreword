@@ -805,7 +805,7 @@ oneToX([1, 2, 3]) //=> [ 1, 1, 2, 1, 2, 3 ]
 Returns an object with keys as the result of applying a function to elements, and the value is the amount of every matched element.
 
 ```javascript
-const countByFloor = A.countBy(Math.floor
+const countByFloor = A.countBy(Math.floor)
 countByFloor([4.2, 6.1, 6.4]) //=> { 4: 1, 6: 2 }
 
 const countByLen = A.countBy(S.length)
@@ -883,7 +883,7 @@ findOne([1, 2, 3]) //=> 1
 Returns the index of the first value that matches the predicate, or undefined if not found.
 
 ```javascript
-const indexOfOne = A.findIndex(v => v === 1)
+const indexOfOne = A.findIndex(equal(1))
 indexOfOne([3, 2, 1]) //=> 2
 ```
 
@@ -895,8 +895,8 @@ indexOfOne([3, 2, 1]) //=> 2
 Retrieves an element of an array by index.
 
 ```javascript
-const first = A.get(0)
-first([1, 2, 3]) //=> 1
+const head = A.get(0)
+head([1, 2, 3]) //=> 1
 
 const second = A.get(1)
 second([]) //=> undefined
@@ -1025,7 +1025,7 @@ listOfA([{a: 1}, {a: 2}, {a: 3}]) //=> [ 1, 2, 3 ]
 ### partition
 `(a -> Boolean) -> [a] -> [[a], [a]]`
 
-Equivalent to `[filter(f, arr), reject(f, arr)]`.
+Equivalent to `[filter(f), reject(f)]`.
 
 ```javascript
 const partByEven = A.partition(isEven)

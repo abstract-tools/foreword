@@ -1,6 +1,6 @@
 // append :: a -> [a] -> [a]
 function append (a) {
-  return b => [...b, a]
+  return arr => [...arr, a]
 }
 
 // concat :: [[a]] -> [a]
@@ -32,7 +32,7 @@ function drop (n) {
 // dropWhile :: (a -> Boolean) -> [a] -> [a]
 function dropWhile (f) {
   return arr => {
-    const i = arr.findIndex(x => !f(x))
+    const i = arr.findIndex(a => !f(a))
 
     return i < 0 ? [] : arr.slice(i)
   }
@@ -68,8 +68,8 @@ function get (n) {
 }
 
 // gets :: [Number] -> [a] -> [a?]
-function gets (keys) {
-  return arr => keys.map(k => arr[k])
+function gets (ks) {
+  return arr => ks.map(k => arr[k])
 }
 
 // groupBy :: (a -> b) -> [a] -> {b: [a]}
@@ -129,14 +129,14 @@ function map (f) {
 
 // partition :: (a -> Boolean) -> [a] -> [[a], [a]]
 function partition (f) {
-  return arr => arr.reduce(([a, b], v) => {
-    return f(v) ? [[...a, v], b] : [a, [...b, v]]
+  return arr => arr.reduce(([a, b], x) => {
+    return f(x) ? [[...a, x], b] : [a, [...b, x]]
   }, [[], []])
 }
 
 // prepend :: a -> [a] -> [a]
 function prepend (a) {
-  return b => [a, ...b]
+  return arr => [a, ...arr]
 }
 
 // range :: (Number, Number) -> [Number]
@@ -207,7 +207,7 @@ function sortWith (fs) {
 // span :: (a -> Boolean) -> [a] -> [[a], [a]]
 function span (f) {
   return arr => {
-    const i = arr.findIndex(x => !f(x))
+    const i = arr.findIndex(a => !f(a))
     const n = i < 0 ? Infinity : i
 
     return [arr.slice(0, n), arr.slice(n)]
@@ -227,7 +227,7 @@ function take (n) {
 // takeWhile :: (a -> Boolean) -> [a] -> [a]
 function takeWhile (f) {
   return arr => {
-    const i = arr.findIndex(x => !f(x))
+    const i = arr.findIndex(a => !f(a))
 
     return i < 0 ? arr : arr.slice(0, i)
   }

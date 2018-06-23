@@ -11,8 +11,8 @@ function every (a) {
 }
 
 // filter :: [k] -> {k: v} -> {k: v}
-function filter (keys) {
-  return obj => keys.reduce((acc, k) => {
+function filter (ks) {
+  return obj => ks.reduce((acc, k) => {
     return Object.assign(acc, {
       [k]: obj[k]
     })
@@ -40,8 +40,8 @@ function get (k) {
 }
 
 // gets :: [k] -> {k: v} -> [v?]
-function gets (keys) {
-  return obj => keys.map(k => obj[k])
+function gets (ks) {
+  return obj => ks.map(k => obj[k])
 }
 
 // includes :: k -> {k: v} -> Boolean
@@ -69,9 +69,9 @@ function map (a) {
 }
 
 // reject :: [k] -> {k: v} -> {k: v}
-function reject (keys) {
+function reject (ks) {
   return obj => Object.keys(obj).reduce((acc, k) => {
-    return keys.includes(k) ? acc : Object.assign(acc, {
+    return ks.includes(k) ? acc : Object.assign(acc, {
       [k]: obj[k]
     })
   }, {})

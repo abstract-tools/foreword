@@ -168,8 +168,8 @@ function lte (a) {
 }
 
 // match :: [a -> b?] -> a -> b?
-function match (arr) {
-  return a => arr.reduce((acc, f) => {
+function match (fs) {
+  return a => fs.reduce((acc, f) => {
     return acc !== undefined ? acc : f(a)
   }, undefined)
 }
@@ -216,7 +216,7 @@ function not (a) {
 
 // on :: (b -> b -> c, a -> b) -> (a, a) -> c
 function on (f, g) {
-  return (a, b) => f(g(a), g(b))
+  return (a, b) => f(g(a))(g(b))
 }
 
 // or :: a -> b -> a | b
@@ -225,8 +225,8 @@ function or (a) {
 }
 
 // pipe :: [a -> b] -> a -> b
-function pipe (arr) {
-  return init => arr.reduce((acc, f) => f(acc), init)
+function pipe (fs) {
+  return a => fs.reduce((acc, f) => f(acc), a)
 }
 
 // pow :: Number -> Number -> Number

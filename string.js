@@ -16,7 +16,7 @@ function drop (n) {
 // dropWhile :: (String -> Boolean) -> String -> String
 function dropWhile (f) {
   return str => {
-    const i = str.split('').findIndex(x => !f(x))
+    const i = str.split('').findIndex(a => !f(a))
 
     return i < 0 ? '' : str.slice(i)
   }
@@ -79,7 +79,7 @@ function slice (a, b) {
 // span :: (String -> Boolean) -> String -> [String, String]
 function span (f) {
   return str => {
-    const i = str.split('').findIndex(x => !f(x))
+    const i = str.split('').findIndex(a => !f(a))
     const n = i < 0 ? Infinity : i
 
     return [str.slice(0, n), str.slice(n)]
@@ -99,7 +99,7 @@ function take (n) {
 // takeWhile :: (String -> Boolean) -> String -> String
 function takeWhile (f) {
   return str => {
-    const i = str.split('').findIndex(x => !f(x))
+    const i = str.split('').findIndex(a => !f(a))
 
     return i < 0 ? str : str.slice(0, i)
   }
