@@ -6,7 +6,7 @@ test('string search', t => {
   const result2 = search('abc')('tuvwyx')
 
   t.same(result1, 3)
-  t.same(result2, -1)
+  t.same(result2, undefined)
 
   t.end()
 })
