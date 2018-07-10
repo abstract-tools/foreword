@@ -66,9 +66,13 @@ function reverse (str) {
   return str.split('').reverse().join('')
 }
 
-// search :: RegExp -> String -> Number
+// search :: RegExp -> String -> Number?
 function search (reg) {
-  return str => str.search(reg)
+  return str => {
+    const i = str.search(reg)
+
+    return i === -1 ? undefined : i
+  }
 }
 
 // slice :: (Number, Number) -> String -> String
