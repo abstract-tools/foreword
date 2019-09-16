@@ -2,7 +2,7 @@ const test = require('tape')
 const { length } = require('../../object')
 
 test('object length', t => {
-  const result1 = length({a: 1, b: 2, c: 3})
+  const result1 = length({ a: 1, b: 2, c: 3 })
   const result2 = length({})
 
   t.same(result1, 3)

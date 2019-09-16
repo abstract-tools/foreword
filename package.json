@@ -1,6 +1,6 @@
 {
   "name": "foreword",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "A JavaScript library for functional data transformation",
   "author": "Brandon Chartier",
   "main": "index.js",
@@ -22,7 +22,7 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "test": "standard && istanbul cover tape test/**/*.js",
+    "test": "standard && nyc --reporter=lcov tape test/**/*.js",
     "lint": "standard --verbose"
   },
   "repository": {
@@ -34,8 +34,8 @@
   },
   "homepage": "http://abstract.tools/foreword",
   "devDependencies": {
-    "istanbul": "0.4.5",
-    "standard": "11.0.1",
-    "tape": "4.9.0"
+    "nyc": "14.1.1",
+    "standard": "14.3.0",
+    "tape": "4.11.0"
   }
 }

@@ -1,4 +1,5 @@
 const curry = require('./curry')
+const O = require('./object')
 
 function append (a, b) {
   return [...b, a]
@@ -17,7 +18,7 @@ function countBy (f, arr) {
     const k = f(a)
 
     return Object.assign(acc, {
-      [k]: acc.hasOwnProperty(k) ? acc[k] + 1 : 1
+      [k]: O.includes(k, acc) ? acc[k] + 1 : 1
     })
   }, {})
 }
@@ -61,7 +62,7 @@ function groupBy (f, arr) {
     const k = f(a)
 
     return Object.assign(acc, {
-      [k]: acc.hasOwnProperty(k) ? [...acc[k], a] : [a]
+      [k]: O.includes(k, acc) ? [...acc[k], a] : [a]
     })
   }, {})
 }
@@ -202,7 +203,7 @@ function takeWhile (f, arr) {
 
 function unique (arr) {
   return Object.values(arr.reduce((acc, a) => {
-    return acc.hasOwnProperty(a) ? acc : Object.assign(acc, {
+    return O.includes(a, acc) ? acc : Object.assign(acc, {
       [a]: a
     })
   }, {}))
@@ -212,7 +213,7 @@ function uniqueBy (f, arr) {
   return Object.values(arr.reduce((acc, a) => {
     const k = f(a)
 
-    return acc.hasOwnProperty(k) ? acc : Object.assign(acc, {
+    return O.includes(k, acc) ? acc : Object.assign(acc, {
       [k]: a
     })
   }, {}))

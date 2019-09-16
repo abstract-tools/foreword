@@ -6,7 +6,7 @@ function concat (arr) {
 
 function every (a, b) {
   return Object.keys(a).every(k => {
-    return b.hasOwnProperty(k) ? a[k](b[k]) : false
+    return includes(k, b) ? a[k](b[k]) : false
   })
 }
 
@@ -39,7 +39,7 @@ function gets (keys, obj) {
 }
 
 function includes (k, obj) {
-  return obj.hasOwnProperty(k)
+  return Object.prototype.hasOwnProperty.call(obj, k)
 }
 
 function isEmpty (obj) {
@@ -52,7 +52,7 @@ function length (obj) {
 
 function map (a, b) {
   return Object.assign({}, b, Object.keys(a).reduce((acc, k) => {
-    return !b.hasOwnProperty(k) ? acc : Object.assign(acc, {
+    return !includes(k, b) ? acc : Object.assign(acc, {
       [k]: a[k](b[k])
     })
   }, {}))
@@ -68,7 +68,7 @@ function reject (keys, obj) {
 
 function some (a, b) {
   return Object.keys(a).some(k => {
-    return b.hasOwnProperty(k) ? a[k](b[k]) : false
+    return includes(k, b) ? a[k](b[k]) : false
   })
 }
 

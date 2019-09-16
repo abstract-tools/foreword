@@ -9,16 +9,16 @@ const result = every({
 })
 
 test('object every: predicate is true', t => {
-  t.same(result({a: 'foo', b: 'xxx', x: 11, y: 19}), true)
+  t.same(result({ a: 'foo', b: 'xxx', x: 11, y: 19 }), true)
   t.end()
 })
 
 test('object every: predicate is false', t => {
-  t.same(result({a: 'xxx', b: 'xxx', x: 11, y: 19}), false)
+  t.same(result({ a: 'xxx', b: 'xxx', x: 11, y: 19 }), false)
   t.end()
 })
 
 test('object every: return false if not found', t => {
-  t.same(result({z: 1}), false)
+  t.same(result({ z: 1 }), false)
   t.end()
 })

@@ -8,6 +8,6 @@ test('object reject', t => {
     test: 'test'
   })
 
-  t.same(result, {id: 123})
+  t.same(result, { id: 123 })
   t.end()
 })
